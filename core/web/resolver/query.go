@@ -390,7 +390,8 @@ func (r *Resolver) ETHKeys(ctx context.Context) (*ETHKeysPayloadResolver, error)
 	if r.App.GetConfig().Dev() {
 		keys, err = ks.GetAll()
 	} else {
-		keys, err = ks.SendingKeys(nil)
+		// Hide funding keys for non-devs
+		keys, err = ks.EnabledKeysForChain(nil)
 	}
 	if err != nil {
 		return nil, fmt.Errorf("error getting unlocked keys: %v", err)
@@ -428,9 +429,9 @@ func (r *Resolver) ETHKeys(ctx context.Context) (*ETHKeysPayloadResolver, error)
 			chain: chain,
 		})
 	}
-	// Put funding keys to the end
+	// Put disabled keys to the end
 	sort.SliceStable(ethKeys, func(i, j int) bool {
-		return !states[i].IsFunding && states[j].IsFunding
+		return !states[i].Disabled && states[j].Disabled
 	})
 	return NewETHKeysPayload(ethKeys), nil
 }

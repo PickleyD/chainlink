@@ -1549,7 +1549,7 @@ func AssertRecordEventually(t *testing.T, db *sqlx.DB, model interface{}, stmt s
 }
 
 func MustSendingKeyStates(t *testing.T, ethKeyStore keystore.Eth) []ethkey.State {
-	keys, err := ethKeyStore.SendingKeys(nil)
+	keys, err := ethKeyStore.EnabledKeysForChain(nil)
 	require.NoError(t, err)
 	states, err := ethKeyStore.GetStatesForKeys(keys)
 	require.NoError(t, err)

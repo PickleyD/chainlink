@@ -73,6 +73,7 @@ type FluxMonitor struct {
 	flags             Flags
 	fluxAggregator    flux_aggregator_wrapper.FluxAggregatorInterface
 	logBroadcaster    log.Broadcaster
+	chainID           *big.Int
 
 	logger logger.Logger
 
@@ -104,6 +105,7 @@ func NewFluxMonitor(
 	fluxAggregator flux_aggregator_wrapper.FluxAggregatorInterface,
 	logBroadcaster log.Broadcaster,
 	fmLogger logger.Logger,
+	chainID *big.Int,
 ) (*FluxMonitor, error) {
 	fm := &FluxMonitor{
 		q:                 q,
@@ -124,6 +126,7 @@ func NewFluxMonitor(
 		logBroadcaster:    logBroadcaster,
 		fluxAggregator:    fluxAggregator,
 		logger:            fmLogger,
+		chainID:           chainID,
 		backlog: utils.NewBoundedPriorityQueue[log.Broadcast](map[uint]int{
 			// We want reconnecting nodes to be able to submit to a round
 			// that hasn't hit maxAnswers yet, as well as the newest round.
@@ -257,6 +260,7 @@ func NewFromJobSpec(
 		fluxAggregator,
 		logBroadcaster,
 		fmLogger,
+		ethClient.ChainID(),
 	)
 }
 
@@ -455,7 +459,7 @@ func (fm *FluxMonitor) SetOracleAddress() error {
 		fm.logger.Error("failed to get list of oracles from FluxAggregator contract")
 		return errors.Wrap(err, "failed to get list of oracles from FluxAggregator contract")
 	}
-	keys, err := fm.keyStore.SendingKeys(nil) // FIXME: FluxMonitor is probably not compatible with multichain here
+	keys, err := fm.keyStore.EnabledKeysForChain(fm.chainID)
 	if err != nil {
 		return errors.Wrap(err, "failed to load keys")
 	}

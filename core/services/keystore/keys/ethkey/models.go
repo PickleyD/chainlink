@@ -9,12 +9,15 @@ import (
 type State struct {
 	ID         int32
 	Address    EIP55Address
-	NextNonce  int64
-	IsFunding  bool
+	Enabled    bool
 	EVMChainID utils.Big
-	CreatedAt  time.Time
-	UpdatedAt  time.Time
-	lastUsed   time.Time
+	// NextNonce is only used for initial population and should not be relied
+	// on as up-to-date. Nonce source of truth is _always_ the database
+	NextNonce int64
+	Disabled  bool
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	lastUsed  time.Time
 }
 
 func (s State) KeyID() string {

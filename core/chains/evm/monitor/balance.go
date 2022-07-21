@@ -37,7 +37,8 @@ type (
 		utils.StartStopOnce
 		logger         logger.Logger
 		ethClient      evmclient.Client
-		chainID        string
+		chainID        *big.Int
+		chainIDStr     string
 		ethKeyStore    keystore.Eth
 		ethBalances    map[gethCommon.Address]*assets.Eth
 		ethBalancesMtx *sync.RWMutex
@@ -53,6 +54,7 @@ func NewBalanceMonitor(ethClient evmclient.Client, ethKeyStore keystore.Eth, log
 		utils.StartStopOnce{},
 		logger,
 		ethClient,
+		ethClient.ChainID(),
 		ethClient.ChainID().String(),
 		ethKeyStore,
 		make(map[gethCommon.Address]*assets.Eth),
@@ -147,7 +149,7 @@ func (bm *balanceMonitor) promUpdateEthBalance(balance *assets.Eth, from gethCom
 		return
 	}
 
-	promETHBalance.WithLabelValues(from.Hex(), bm.chainID).Set(balanceFloat)
+	promETHBalance.WithLabelValues(from.Hex(), bm.chainIDStr).Set(balanceFloat)
 }
 
 type worker struct {
@@ -164,7 +166,7 @@ func (w *worker) Work() {
 }
 
 func (w *worker) WorkCtx(ctx context.Context) {
-	keys, err := w.bm.ethKeyStore.SendingKeys(nil)
+	keys, err := w.bm.ethKeyStore.EnabledKeysForChain(w.bm.chainID)
 	if err != nil {
 		w.bm.logger.Error("BalanceMonitor: error getting keys", err)
 	}

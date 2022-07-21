@@ -308,7 +308,7 @@ func TestClient_RunNode_CreateFundingKeyIfNotExists(t *testing.T) {
 	}
 
 	var keyState = ethkey.State{}
-	err = db.Get(&keyState, `SELECT * FROM eth_key_states WHERE is_funding = TRUE`)
+	err = db.Get(&keyState, `SELECT * FROM evm_key_states WHERE is_funding = TRUE`)
 	assert.EqualError(t, err, sql.ErrNoRows.Error())
 
 	set := flag.NewFlagSet("test", 0)
@@ -317,7 +317,7 @@ func TestClient_RunNode_CreateFundingKeyIfNotExists(t *testing.T) {
 
 	assert.NoError(t, client.RunNode(ctx))
 
-	assert.NoError(t, db.Get(&keyState, `SELECT * FROM eth_key_states WHERE is_funding = TRUE`))
+	assert.NoError(t, db.Get(&keyState, `SELECT * FROM evm_key_states WHERE is_funding = TRUE`))
 	assert.NotEmpty(t, keyState.ID, "expected a new funding key")
 }
 
@@ -600,7 +600,7 @@ func TestClient_SetNextNonce(t *testing.T) {
 	require.NoError(t, client.SetNextNonce(c))
 
 	var state ethkey.State
-	require.NoError(t, sqlxDB.Get(&state, `SELECT * FROM eth_key_states`))
+	require.NoError(t, sqlxDB.Get(&state, `SELECT * FROM evm_key_states`))
 	require.NotNil(t, state.NextNonce)
 	require.Equal(t, int64(42), state.NextNonce)
 }

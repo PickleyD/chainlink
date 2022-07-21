@@ -32,11 +32,7 @@ func (ekc *ETHKeysController) Index(c *gin.Context) {
 	ethKeyStore := ekc.App.GetKeyStore().Eth()
 	var keys []ethkey.KeyV2
 	var err error
-	if ekc.App.GetConfig().Dev() {
-		keys, err = ethKeyStore.GetAll()
-	} else {
-		keys, err = ethKeyStore.SendingKeys(nil)
-	}
+	keys, err = ethKeyStore.GetAll()
 	if err != nil {
 		err = errors.Errorf("error getting unlocked keys: %v", err)
 		jsonAPIError(c, http.StatusInternalServerError, err)
@@ -67,9 +63,9 @@ func (ekc *ETHKeysController) Index(c *gin.Context) {
 
 		resources = append(resources, *r)
 	}
-	// Put funding keys to the end
+	// Put disabled keys to the end
 	sort.SliceStable(resources, func(i, j int) bool {
-		return !resources[i].IsFunding && resources[j].IsFunding
+		return !resources[i].Disabled && resources[j].Disabled
 	})
 
 	jsonAPIResponse(c, resources, "keys")
@@ -116,7 +112,7 @@ func (ekc *ETHKeysController) Create(c *gin.Context) {
 		}
 	}
 
-	state, err := ethKeyStore.GetState(key.ID())
+	state, err := ethKeyStore.GetState(key.ID(), chain.ID())
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -151,8 +147,20 @@ func (ekc *ETHKeysController) Update(c *gin.Context) {
 		return
 	}
 
+	chain, err := getChain(ekc.App.GetChains().EVM, c.Query("evmChainID"))
+	switch err {
+	case ErrInvalidChainID, ErrMultipleChains, ErrMissingChainID:
+		jsonAPIError(c, http.StatusUnprocessableEntity, err)
+		return
+	case nil:
+		break
+	default:
+		jsonAPIError(c, http.StatusInternalServerError, err)
+		return
+	}
+
 	keyID := c.Param("keyID")
-	state, err := ethKeyStore.GetState(keyID)
+	state, err := ethKeyStore.GetState(keyID, chain.ID())
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -210,8 +218,21 @@ func (ekc *ETHKeysController) Delete(c *gin.Context) {
 		jsonAPIError(c, http.StatusBadRequest, errors.New("hard delete only"))
 		return
 	}
+
+	chain, err := getChain(ekc.App.GetChains().EVM, c.Query("evmChainID"))
+	switch err {
+	case ErrInvalidChainID, ErrMultipleChains, ErrMissingChainID:
+		jsonAPIError(c, http.StatusUnprocessableEntity, err)
+		return
+	case nil:
+		break
+	default:
+		jsonAPIError(c, http.StatusInternalServerError, err)
+		return
+	}
+
 	keyID := c.Param("keyID")
-	state, err := ethKeyStore.GetState(keyID)
+	state, err := ethKeyStore.GetState(keyID, chain.ID())
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -264,7 +285,7 @@ func (ekc *ETHKeysController) Import(c *gin.Context) {
 		return
 	}
 
-	state, err := ethKeyStore.GetState(key.ID())
+	state, err := ethKeyStore.GetState(key.ID(), chain.ID())
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return

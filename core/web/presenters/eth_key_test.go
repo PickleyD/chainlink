@@ -60,7 +60,7 @@ func TestETHKeyResource(t *testing.T) {
 			  "evmChainID":"42",
 			  "ethBalance":"1",
 			  "linkBalance":"1",
-			  "isFunding":true,
+			  "isDisabled":true,
 			  "createdAt":"2000-01-01T00:00:00Z",
 			  "updatedAt":"2000-01-01T00:00:00Z",
 			  "maxGasPriceWei":"12345"
@@ -90,7 +90,7 @@ func TestETHKeyResource(t *testing.T) {
 			  	"evmChainID":"42",
 				"ethBalance":"1",
 				"linkBalance":"1",
-				"isFunding":true,
+				"isDisabled":true,
 				"createdAt":"2000-01-01T00:00:00Z",
 				"updatedAt":"2000-01-01T00:00:00Z",
 				"maxGasPriceWei":"12345"

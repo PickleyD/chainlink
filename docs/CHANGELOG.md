@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Added official support for Sepolia chain
+
+### Changed
+- It is now possible to use the same key across multiple chains. TODO: details
+
+## [1.6.0] - 2022-07-20
+
 ### Added 
 
 - `p2pv2Bootstrappers` has been added as a new optional property of OCR1 job specs; default may still be specified with P2PV2_BOOTSTRAPPERS config param

@@ -327,7 +327,7 @@ func TestTxm_CreateEthTransaction(t *testing.T) {
 			Strategy:       txmgr.SendEveryStrategy{},
 		})
 		require.Error(t, err)
-		assert.Contains(t, err.Error(), fmt.Sprintf("cannot send transaction on chain ID 0; eth key with address %s is pegged to chain ID 1337", otherAddress.Hex()))
+		assert.Contains(t, err.Error(), fmt.Sprintf("cannot send transaction on chain ID 0; eth key with address %s exists but is not enabled for this chain (enabled only for chain IDs: 1337", otherAddress.Hex()))
 	})
 
 	t.Run("simulate transmit checker", func(t *testing.T) {

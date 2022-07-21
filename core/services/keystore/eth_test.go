@@ -36,10 +36,10 @@ func Test_EthKeyStore(t *testing.T) {
 	reset := func() {
 		keyStore.ResetXXXTestOnly()
 		require.NoError(t, utils.JustError(db.Exec("DELETE FROM encrypted_key_rings")))
-		require.NoError(t, utils.JustError(db.Exec("DELETE FROM eth_key_states")))
+		require.NoError(t, utils.JustError(db.Exec("DELETE FROM evm_key_states")))
 		keyStore.Unlock(cltest.Password)
 	}
-	const statesTableName = "eth_key_states"
+	const statesTableName = "evm_key_states"
 
 	t.Run("Create / GetAll / Get", func(t *testing.T) {
 		defer reset()
@@ -102,45 +102,45 @@ func Test_EthKeyStore(t *testing.T) {
 		cltest.AssertCount(t, db, statesTableName, 0)
 	})
 
-	t.Run("EnsureKeys / SendingKeys", func(t *testing.T) {
+	t.Run("EnsureKeys / EnabledKeysForChain", func(t *testing.T) {
 		defer reset()
 		err := ethKeyStore.EnsureKeys(&cltest.FixtureChainID)
 		assert.NoError(t, err)
-		sendingKeys1, err := ethKeyStore.SendingKeys(nil)
+		sendingKeys1, err := ethKeyStore.EnabledKeysForChain(testutils.FixtureChainID)
 		assert.NoError(t, err)
 
 		require.Equal(t, 1, len(sendingKeys1))
-		cltest.AssertCount(t, db, statesTableName, 2)
+		cltest.AssertCount(t, db, statesTableName, 1)
 
 		err = ethKeyStore.EnsureKeys(&cltest.FixtureChainID)
 		assert.NoError(t, err)
-		sendingKeys2, err := ethKeyStore.SendingKeys(nil)
+		sendingKeys2, err := ethKeyStore.EnabledKeysForChain(testutils.FixtureChainID)
 		assert.NoError(t, err)
 
 		require.Equal(t, 1, len(sendingKeys2))
 		require.Equal(t, sendingKeys1, sendingKeys2)
 	})
 
-	t.Run("SendingKeys with specified chain ID", func(t *testing.T) {
+	t.Run("EnabledKeysForChain with specified chain ID", func(t *testing.T) {
 		defer reset()
 		key, err := ethKeyStore.Create(testutils.FixtureChainID)
 		require.NoError(t, err)
 		key2, err := ethKeyStore.Create(big.NewInt(1337))
 		require.NoError(t, err)
 
-		keys, err := ethKeyStore.SendingKeys(testutils.FixtureChainID)
+		keys, err := ethKeyStore.EnabledKeysForChain(testutils.FixtureChainID)
 		require.NoError(t, err)
 		require.Len(t, keys, 1)
 		require.Equal(t, key, keys[0])
 
-		keys, err = ethKeyStore.SendingKeys(big.NewInt(1337))
+		keys, err = ethKeyStore.EnabledKeysForChain(big.NewInt(1337))
 		require.NoError(t, err)
 		require.Len(t, keys, 1)
 		require.Equal(t, key2, keys[0])
 
-		keys, err = ethKeyStore.SendingKeys(nil)
-		require.NoError(t, err)
-		require.Len(t, keys, 2)
+		_, err = ethKeyStore.EnabledKeysForChain(nil)
+		assert.Error(t, err)
+		assert.EqualError(t, err, "chainID must be non-nil")
 	})
 }
 
@@ -158,92 +158,79 @@ func Test_EthKeyStore_GetRoundRobinAddress(t *testing.T) {
 		require.Error(t, err)
 	})
 
-	// create 4 keys - 1 funding and 2 sending
-	err := ethKeyStore.EnsureKeys(&cltest.FixtureChainID)
-	require.NoError(t, err)
-	sendingKeys, err := ethKeyStore.SendingKeys(nil)
-	assert.NoError(t, err)
+	// create keys
+	// - key 1
+	//   enabled - fixture
+	//   enabled - simulated
+	// - key 2
+	//   enabled - fixture
+	//   disabled - simulated
+	// - key 3
+	//   enabled - simulated
+	// - key 4
+	//   enabled - fixture
+	k1, _ := cltest.MustInsertRandomKey(t, ethKeyStore, []utils.Big{})
+	ethKeyStore.Enable(k1, testutils.FixtureChainID)
+	ethKeyStore.Enable(k1, testutils.SimulatedChainID)
 
-	k1 := sendingKeys[0]
+	k2, _ := cltest.MustInsertRandomKey(t, ethKeyStore, []utils.Big{})
+	ethKeyStore.Enable(k2, testutils.FixtureChainID)
+	ethKeyStore.Enable(k1, testutils.SimulatedChainID)
+	ethKeyStore.Disable(k1, testutils.SimulatedChainID)
 
-	k2, _ := cltest.MustInsertRandomKey(t, ethKeyStore)
+	k3, _ := cltest.MustInsertRandomKey(t, ethKeyStore, []utils.Big{})
+	ethKeyStore.Enable(k3, testutils.SimulatedChainID)
 
-	// create 1 funding and 1 sending key for a different chain
-	err = ethKeyStore.EnsureKeys(testutils.SimulatedChainID)
-	require.NoError(t, err)
+	k4, _ := cltest.MustInsertRandomKey(t, ethKeyStore, []utils.Big{})
+	ethKeyStore.Enable(k4, testutils.FixtureChainID)
 
-	sendingKeys, err = ethKeyStore.SendingKeys(nil)
-	assert.NoError(t, err)
-	require.Equal(t, 3, len(sendingKeys))
-
-	fundingKeys, err := ethKeyStore.FundingKeys()
-	assert.NoError(t, err)
-	require.Equal(t, 1, len(fundingKeys))
-
-	t.Run("with no address filter, rotates between all sending addresses", func(t *testing.T) {
-		address1, err := ethKeyStore.GetRoundRobinAddress(nil)
+	t.Run("with no address filter, rotates between all enabled addresses", func(t *testing.T) {
+		address1, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID)
 		require.NoError(t, err)
-		address2, err := ethKeyStore.GetRoundRobinAddress(nil)
+		address2, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID)
 		require.NoError(t, err)
-		address3, err := ethKeyStore.GetRoundRobinAddress(nil)
+		address3, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID)
 		require.NoError(t, err)
-		address4, err := ethKeyStore.GetRoundRobinAddress(nil)
+		address4, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID)
 		require.NoError(t, err)
-		address5, err := ethKeyStore.GetRoundRobinAddress(nil)
+		address5, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID)
 		require.NoError(t, err)
-		address6, err := ethKeyStore.GetRoundRobinAddress(nil)
+		address6, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID)
 		require.NoError(t, err)
 
-		require.NotEqual(t, address1, address2)
-		require.NotEqual(t, address2, address3)
-		require.NotEqual(t, address1, address3)
-		require.Equal(t, address1, address4)
-		require.Equal(t, address2, address5)
-		require.Equal(t, address3, address6)
+		assert.NotEqual(t, address1, address2)
+		assert.NotEqual(t, address2, address3)
+		assert.NotEqual(t, address1, address3)
+		assert.Equal(t, address1, address4)
+		assert.Equal(t, address2, address5)
+		assert.Equal(t, address3, address6)
 	})
 
 	t.Run("with address filter, rotates between given addresses that match sending keys", func(t *testing.T) {
-		// fundingKeys[0] is a funding address so even though it's whitelisted, it will be ignored
-		addresses := []common.Address{fundingKeys[0].Address.Address(), k1.Address.Address(), k2.Address.Address(), testutils.NewAddress()}
+		// k3 is a disabled address for FixtureChainID so even though it's whitelisted, it will be ignored
+		addresses := []common.Address{k3.Address.Address(), k1.Address.Address(), k2.Address.Address(), testutils.NewAddress()}
 
-		address1, err := ethKeyStore.GetRoundRobinAddress(nil, addresses...)
+		address1, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
 		require.NoError(t, err)
-		address2, err := ethKeyStore.GetRoundRobinAddress(nil, addresses...)
+		address2, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
 		require.NoError(t, err)
-		address3, err := ethKeyStore.GetRoundRobinAddress(nil, addresses...)
+		address3, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
 		require.NoError(t, err)
-		address4, err := ethKeyStore.GetRoundRobinAddress(nil, addresses...)
+		address4, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
 		require.NoError(t, err)
 
-		require.True(t, address1 == k1.Address.Address() || address1 == k2.Address.Address())
-		require.True(t, address2 == k1.Address.Address() || address2 == k2.Address.Address())
-		require.NotEqual(t, address1, address2)
-		require.Equal(t, address1, address3)
-		require.Equal(t, address2, address4)
+		assert.True(t, address1 == k1.Address.Address() || address1 == k2.Address.Address())
+		assert.True(t, address2 == k1.Address.Address() || address2 == k2.Address.Address())
+		assert.NotEqual(t, address1, address2)
+		assert.Equal(t, address1, address3)
+		assert.Equal(t, address2, address4)
 	})
 
 	t.Run("with address filter when no address matches", func(t *testing.T) {
 		addr := testutils.NewAddress()
-		_, err := ethKeyStore.GetRoundRobinAddress(nil, []common.Address{addr}...)
+		_, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, []common.Address{addr}...)
 		require.Error(t, err)
-		require.Equal(t, fmt.Sprintf("no sending keys available that match whitelist: [%s]", addr.Hex()), err.Error())
-	})
-
-	t.Run("with non-nil chain ID, filters by chain ID", func(t *testing.T) {
-		sendingKeys, err := ethKeyStore.SendingKeys(testutils.SimulatedChainID)
-		assert.NoError(t, err)
-		require.Len(t, sendingKeys, 1)
-		k := sendingKeys[0]
-		address1, err := ethKeyStore.GetRoundRobinAddress(testutils.SimulatedChainID)
-		require.NoError(t, err)
-		address2, err := ethKeyStore.GetRoundRobinAddress(testutils.SimulatedChainID)
-		require.NoError(t, err)
-		address3, err := ethKeyStore.GetRoundRobinAddress(testutils.SimulatedChainID)
-		require.NoError(t, err)
-
-		require.Equal(t, k.Address.Address(), address1)
-		require.Equal(t, k.Address.Address(), address2)
-		require.Equal(t, k.Address.Address(), address3)
+		require.Equal(t, fmt.Sprintf("no sending keys available for chain %s that match whitelist: [%s]", testutils.FixtureChainID.String(), addr.Hex()), err.Error())
 	})
 }
 
@@ -279,7 +266,7 @@ func Test_EthKeyStore_E2E(t *testing.T) {
 	reset := func() {
 		keyStore.ResetXXXTestOnly()
 		require.NoError(t, utils.JustError(db.Exec("DELETE FROM encrypted_key_rings")))
-		require.NoError(t, utils.JustError(db.Exec("DELETE FROM eth_key_states")))
+		require.NoError(t, utils.JustError(db.Exec("DELETE FROM evm_key_states")))
 		keyStore.Unlock(cltest.Password)
 	}
 
@@ -327,10 +314,7 @@ func Test_EthKeyStore_E2E(t *testing.T) {
 		defer reset()
 		newKey, err := ethkey.NewV2()
 		require.NoError(t, err)
-		err = ks.Add(newKey, &cltest.FixtureChainID)
-		require.NoError(t, err)
-		err = ks.Add(newKey, &cltest.FixtureChainID)
-		assert.Error(t, err)
+		ks.XXXTestingOnlyAdd(newKey)
 		keys, err := ks.GetAll()
 		require.NoError(t, err)
 		assert.Equal(t, 1, len(keys))
@@ -372,35 +356,21 @@ func Test_EthKeyStore_E2E(t *testing.T) {
 			require.NoError(t, err)
 			k2, err := ethkey.NewV2()
 			require.NoError(t, err)
-			err = ks.Add(k1, &cltest.FixtureChainID)
-			require.NoError(t, err)
-			err = ks.Add(k2, &cltest.FixtureChainID)
-			require.NoError(t, err)
+			ks.XXXTestingOnlyAdd(k1)
+			ks.XXXTestingOnlyAdd(k2)
+			require.NoError(t, ks.Enable(k1, testutils.FixtureChainID))
 
 			states, err := ks.GetStatesForKeys([]ethkey.KeyV2{k1, k2})
 			require.NoError(t, err)
-			chainState, err := ks.GetStatesForChain(&cltest.FixtureChainID)
+			assert.Len(t, states, 1)
+
+			chainStates, err := ks.GetStatesForChain(testutils.FixtureChainID)
 			require.NoError(t, err)
+			assert.Len(t, chainStates, 2) // one created here, one created above
 
-			assert.Len(t, states, 2)
-			assert.Len(t, chainState, 3)
-		})
-
-		t.Run("returns V1 keys as V2", func(t *testing.T) {
-			defer reset()
-			defer require.NoError(t, utils.JustError(db.Exec("DELETE FROM keys")))
-
-			ethAddress := testutils.NewAddress()
-			err = utils.JustError(db.Exec(`INSERT INTO keys (address, json, created_at, updated_at, next_nonce, is_funding, deleted_at) VALUES ($1, '{"address":"6fdac88ddfd811d130095373986889ed90e0d622","crypto":{"cipher":"aes-128-ctr","ciphertext":"557f5324e770c3d203751c1f0f7fb5076386c49f5b05e3f20b3abb59758fd3c3","cipherparams":{"iv":"bd9472543fab7cc63027cbcd039daff0"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":2,"p":1,"r":8,"salt":"647b54770a3fda830b4440ae57c44cf7506297295fe4d72b1ff943e3a8ddb94a"},"mac":"0c654ee29ee06b3816fc0040d84ebd648c557144a77ccc55b9568355f53397b3"},"id":"6fdac88d-dfd8-11d1-3009-5373986889ed","version":3}', NOW(), NOW(), 0, false, NULL)`, ethAddress))
+			chainStates, err = ks.GetStatesForChain(testutils.SimulatedChainID)
 			require.NoError(t, err)
-
-			keys, _, err := ks.GetV1KeysAsV2(func() (*big.Int, error) {
-				return &cltest.FixtureChainID, nil
-			})
-			require.NoError(t, err)
-
-			assert.Len(t, keys, 1)
-			assert.Equal(t, fmt.Sprintf("EthKeyV2{PrivateKey: <redacted>, Address: %s}", keys[0].Address), keys[0].GoString())
+			assert.Len(t, chainStates, 0)
 		})
 	})
 }
@@ -443,16 +413,46 @@ func Test_EthKeyStore_SubscribeToKeyChanges(t *testing.T) {
 
 	err := ks.EnsureKeys(&cltest.FixtureChainID)
 	require.NoError(t, err)
+	time.Sleep(time.Second)
 	assertCount(1)
-	_, err = ks.Create(&cltest.FixtureChainID)
+
+	// Create the key includes a state
+	k1, err := ks.Create(testutils.FixtureChainID)
 	require.NoError(t, err)
+	// Enabling the key adds the state, which triggers the notification callback
+	require.NoError(t, ks.Enable(k1, testutils.FixtureChainID))
+	time.Sleep(time.Second)
+
 	assertCount(2)
-	newKey, err := ethkey.NewV2()
+
+	k2, err := ks.Create(testutils.SimulatedChainID)
 	require.NoError(t, err)
-	err = ks.Add(newKey, &cltest.FixtureChainID)
-	require.NoError(t, err)
+	// Enabling the key adds the state, which triggers the notification callback
+	require.NoError(t, ks.Enable(k2, testutils.FixtureChainID))
+
 	assertCount(3)
-	_, err = ks.Delete(newKey.ID())
-	require.NoError(t, err)
+
+	// Enabling the key adds the state, which triggers the notification callback
+	require.NoError(t, ks.Enable(k1, testutils.SimulatedChainID))
 	assertCount(4)
+}
+
+func Test_EthKeyStore_EnsureKeys(t *testing.T) {
+	t.Fatal("TODO")
+}
+
+func Test_EthKeyStore_EnabledKeysForChain(t *testing.T) {
+	t.Fatal("TODO")
+}
+
+func Test_EthKeyStore_Enable(t *testing.T) {
+	t.Fatal("TODO")
+}
+
+func Test_EthKeyStore_Disable(t *testing.T) {
+	t.Fatal("TODO")
+}
+
+func Test_EthKeyStore_Reset(t *testing.T) {
+	t.Fatal("TODO")
 }

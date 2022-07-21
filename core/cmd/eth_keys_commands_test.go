@@ -31,7 +31,7 @@ func TestEthKeysPresenter_RenderTable(t *testing.T) {
 		address        = "0x5431F5F973781809D18643b87B44921b11355d81"
 		ethBalance     = assets.NewEth(1)
 		linkBalance    = assets.NewLinkFromJuels(2)
-		isFunding      = true
+		isDisabled     = true
 		createdAt      = time.Now()
 		updatedAt      = time.Now().Add(time.Second)
 		maxGasPriceWei = utils.NewBigI(12345)
@@ -46,7 +46,7 @@ func TestEthKeysPresenter_RenderTable(t *testing.T) {
 			Address:        address,
 			EthBalance:     ethBalance,
 			LinkBalance:    linkBalance,
-			IsFunding:      isFunding,
+			Disabled:       isDisabled,
 			CreatedAt:      createdAt,
 			UpdatedAt:      updatedAt,
 			MaxGasPriceWei: *maxGasPriceWei,
@@ -60,7 +60,7 @@ func TestEthKeysPresenter_RenderTable(t *testing.T) {
 	assert.Contains(t, output, address)
 	assert.Contains(t, output, ethBalance.String())
 	assert.Contains(t, output, linkBalance.String())
-	assert.Contains(t, output, strconv.FormatBool(isFunding))
+	assert.Contains(t, output, strconv.FormatBool(isDisabled))
 	assert.Contains(t, output, createdAt.String())
 	assert.Contains(t, output, updatedAt.String())
 	assert.Contains(t, output, maxGasPriceWei.String())
@@ -74,7 +74,7 @@ func TestEthKeysPresenter_RenderTable(t *testing.T) {
 	assert.Contains(t, output, address)
 	assert.Contains(t, output, ethBalance.String())
 	assert.Contains(t, output, linkBalance.String())
-	assert.Contains(t, output, strconv.FormatBool(isFunding))
+	assert.Contains(t, output, strconv.FormatBool(isDisabled))
 	assert.Contains(t, output, createdAt.String())
 	assert.Contains(t, output, updatedAt.String())
 	assert.Contains(t, output, maxGasPriceWei.String())
@@ -123,7 +123,7 @@ func TestClient_CreateETHKey(t *testing.T) {
 	db := app.GetSqlxDB()
 	client, _ := app.NewClientAndRenderer()
 
-	cltest.AssertCount(t, db, "eth_key_states", 1) // The initial funding key
+	cltest.AssertCount(t, db, "evm_key_states", 1) // The initial funding key
 	keys, err := app.KeyStore.Eth().GetAll()
 	require.NoError(t, err)
 	require.Equal(t, 1, len(keys))
@@ -148,7 +148,7 @@ func TestClient_CreateETHKey(t *testing.T) {
 	set.Parse([]string{"-evmChainID", id.String()})
 	assert.NoError(t, client.CreateETHKey(c))
 
-	cltest.AssertCount(t, db, "eth_key_states", 3)
+	cltest.AssertCount(t, db, "evm_key_states", 3)
 	keys, err = app.KeyStore.Eth().GetAll()
 	require.NoError(t, err)
 	require.Equal(t, 3, len(keys))
@@ -291,7 +291,7 @@ func TestClient_ImportExportETHKey_NoChains(t *testing.T) {
 	_, err = ethKeyStore.Get(address)
 	require.Error(t, err)
 
-	cltest.AssertCount(t, app.GetSqlxDB(), "eth_key_states", 0)
+	cltest.AssertCount(t, app.GetSqlxDB(), "evm_key_states", 0)
 
 	// Import the key
 	set = flag.NewFlagSet("test", 0)

@@ -354,7 +354,7 @@ func TestIntegration_DirectRequest(t *testing.T) {
 			b := operatorContracts.sim
 			app := cltest.NewApplicationWithConfigAndKeyOnSimulatedBlockchain(t, config, b)
 
-			sendingKeys, err := app.KeyStore.Eth().SendingKeys(nil)
+			sendingKeys, err := app.KeyStore.Eth().EnabledKeysForChain(nil)
 			require.NoError(t, err)
 			authorizedSenders := []common.Address{sendingKeys[0].Address.Address()}
 			tx, err := operatorContracts.operator.SetAuthorizedSenders(operatorContracts.user, authorizedSenders)
@@ -455,7 +455,7 @@ func setupAppForEthTx(t *testing.T, cfg *configtest.TestGeneralConfig, operatorC
 	app = cltest.NewApplicationWithConfigAndKeyOnSimulatedBlockchain(t, cfg, b, lggr)
 	b.Commit()
 
-	sendingKeys, err := app.KeyStore.Eth().SendingKeys(nil)
+	sendingKeys, err := app.KeyStore.Eth().EnabledKeysForChain(nil)
 	require.NoError(t, err)
 
 	// Fund node account with ETH.
@@ -693,7 +693,7 @@ func setupNode(t *testing.T, owner *bind.TransactOpts, portV1, portV2 int, dbNam
 		config.Overrides.P2PV2ListenAddresses = []string{fmt.Sprintf("127.0.0.1:%d", portV2)}
 	}
 
-	sendingKeys, err := app.KeyStore.Eth().SendingKeys(nil)
+	sendingKeys, err := app.KeyStore.Eth().EnabledKeysForChain(nil)
 	require.NoError(t, err)
 	transmitter := sendingKeys[0].Address.Address()
 
@@ -1061,7 +1061,7 @@ func TestIntegration_BlockHistoryEstimator(t *testing.T) {
 }
 
 func triggerAllKeys(t *testing.T, app *cltest.TestApplication) {
-	keys, err := app.KeyStore.Eth().SendingKeys(nil)
+	keys, err := app.KeyStore.Eth().EnabledKeysForChain(nil)
 	require.NoError(t, err)
 	// FIXME: This is a hack. Remove after https://app.clubhouse.io/chainlinklabs/story/15103/use-in-memory-event-broadcaster-instead-of-postgres-event-broadcaster-in-transactional-tests-so-it-actually-works
 	for _, chain := range app.GetChains().EVM.Chains() {

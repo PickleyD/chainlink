@@ -39,6 +39,7 @@ var _ fmt.GoStringer = &KeyV2{}
 
 type KeyV2 struct {
 	Address    EIP55Address
+	IsFunding  bool // TODO: need to populate this!
 	privateKey *ecdsa.PrivateKey
 }
 

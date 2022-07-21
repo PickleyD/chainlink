@@ -3,6 +3,7 @@ package keystore
 import (
 	"encoding/json"
 	"fmt"
+	"math/big"
 	"time"
 
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/dkgencryptkey"
@@ -13,8 +14,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
 
 	gethkeystore "github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/pkg/errors"
-	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
@@ -56,24 +57,63 @@ func (ekr encryptedKeyRing) Decrypt(password string) (keyRing, error) {
 }
 
 type keyStates struct {
-	Eth map[string]*ethkey.State
+	// Key ID => chain ID => state
+	KeyIDChainID map[string]map[string]*ethkey.State
+	// Chain ID => Key ID => state
+	// TODO: Populate these
+	ChainIDKeyID map[string]map[string]*ethkey.State
+	All          []*ethkey.State
 }
 
-func newKeyStates() keyStates {
-	return keyStates{
-		Eth: make(map[string]*ethkey.State),
+func newKeyStates() *keyStates {
+	return &keyStates{
+		KeyIDChainID: make(map[string]map[string]*ethkey.State),
+		ChainIDKeyID: make(map[string]map[string]*ethkey.State),
 	}
 }
 
-func (ks keyStates) validate(kr keyRing) (err error) {
-	for id := range kr.Eth {
-		_, exists := ks.Eth[id]
-		if !exists {
-			err = multierr.Combine(err, errors.Errorf("key %s is missing state", id))
-		}
-	}
+// warning: not thread-safe! caller must sync
+// adds or replaces a state
+func (ks *keyStates) add(state *ethkey.State) {
+	cid := state.EVMChainID.String()
+	kid := state.KeyID()
 
-	return err
+	keyStates, exists := ks.KeyIDChainID[kid]
+	if !exists {
+		keyStates = make(map[string]*ethkey.State)
+		ks.KeyIDChainID[kid] = keyStates
+	}
+	keyStates[cid] = state
+
+	chainStates, exists := ks.ChainIDKeyID[cid]
+	if !exists {
+		chainStates = make(map[string]*ethkey.State)
+		ks.ChainIDKeyID[cid] = chainStates
+	}
+	chainStates[kid] = state
+
+	ks.All = append(ks.All, state)
+}
+
+// warning: not thread-safe! caller must sync
+func (ks *keyStates) get(addr common.Address, chainID *big.Int) *ethkey.State {
+	chainStates, exists := ks.KeyIDChainID[addr.Hex()]
+	if !exists {
+		return nil
+	}
+	return chainStates[chainID.String()]
+}
+
+// warning: not thread-safe! caller must sync
+func (ks keyStates) enable(addr common.Address, chainID *big.Int) {
+	state := ks.get(addr, chainID)
+	state.Disabled = false
+}
+
+// warning: not thread-safe! caller must sync
+func (ks keyStates) disable(addr common.Address, chainID *big.Int) {
+	state := ks.get(addr, chainID)
+	state.Disabled = true
 }
 
 type keyRing struct {

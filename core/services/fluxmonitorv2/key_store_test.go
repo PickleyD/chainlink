@@ -12,7 +12,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2"
 )
 
-func TestKeyStore_SendingKeys(t *testing.T) {
+func TestKeyStore_EnabledKeysForChain(t *testing.T) {
 	t.Parallel()
 
 	db := pgtest.NewSqlxDB(t)
@@ -26,17 +26,17 @@ func TestKeyStore_SendingKeys(t *testing.T) {
 	key2, err := ethKeyStore.Create(big.NewInt(1337))
 	require.NoError(t, err)
 
-	keys, err := ks.SendingKeys(testutils.FixtureChainID)
+	keys, err := ks.EnabledKeysForChain(testutils.FixtureChainID)
 	require.NoError(t, err)
 	require.Len(t, keys, 1)
 	require.Equal(t, key, keys[0])
 
-	keys, err = ks.SendingKeys(big.NewInt(1337))
+	keys, err = ks.EnabledKeysForChain(big.NewInt(1337))
 	require.NoError(t, err)
 	require.Len(t, keys, 1)
 	require.Equal(t, key2, keys[0])
 
-	keys, err = ks.SendingKeys(nil)
+	keys, err = ks.EnabledKeysForChain(nil)
 	require.NoError(t, err)
 	require.Len(t, keys, 2)
 }

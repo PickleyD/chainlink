@@ -6,7 +6,6 @@ import (
 	"database/sql"
 	"fmt"
 	"math/big"
-	"strings"
 	"sync"
 	"time"
 
@@ -58,6 +57,9 @@ type KeyStore interface {
 	GetStatesForChain(chainID *big.Int) ([]ethkey.State, error)
 	SignTx(fromAddress common.Address, tx *gethTypes.Transaction, chainID *big.Int) (*gethTypes.Transaction, error)
 	SubscribeToKeyChanges() (ch chan struct{}, unsub func())
+	GetNextNonce(address common.Address, chainID *big.Int, qopts ...pg.QOpt) (int64, error)
+	IncrementNextNonce(address common.Address, chainID *big.Int, currentNonce int64, qopts ...pg.QOpt) error
+	CheckEnabled(address common.Address, chainID *big.Int) error
 }
 
 // For more information about the Txm architecture, see the design doc:
@@ -358,7 +360,7 @@ func (b *Txm) CreateEthTransaction(newTx NewTx, qs ...pg.QOpt) (etx EthTx, err e
 				return nil
 			}
 		}
-		if err = b.checkStateExists(tx, newTx.FromAddress); err != nil {
+		if err = b.checkEnabled(tx, newTx.FromAddress); err != nil {
 			return err
 		}
 		err := tx.Get(&etx, `
@@ -384,22 +386,9 @@ RETURNING "eth_txes".*
 	return
 }
 
-func (b *Txm) checkStateExists(q pg.Queryer, addr common.Address) error {
-	var states []ethkey.State
-	err := q.Select(&states, `SELECT * FROM eth_key_states WHERE address = $1`, addr)
-	if errors.Is(err, sql.ErrNoRows) {
-		return errors.Errorf("no eth key exists with address %s", addr.Hex())
-	} else if err != nil {
-		return errors.Wrap(err, "failed to query state")
-	}
-	chainIDs := make([]string, len(states))
-	for i, state := range states {
-		if state.EVMChainID.Cmp(utils.NewBig(&b.chainID)) == 0 {
-			return nil
-		}
-		chainIDs[i] = state.EVMChainID.String()
-	}
-	return errors.Errorf("cannot send transaction on chain ID %s; eth key with address %s exists but is not enabled for this chain (enabled for chain IDs: %s)", b.chainID.String(), addr.Hex(), strings.Join(chainIDs, ","))
+func (b *Txm) checkEnabled(q pg.Queryer, addr common.Address) error {
+	err := b.keyStore.CheckEnabled(addr, &b.chainID)
+	return errors.Wrapf(err, "cannot send transaction from %s on chain ID %s", addr.Hex(), b.chainID.String())
 }
 
 // GetGasEstimator returns the gas estimator, mostly useful for tests

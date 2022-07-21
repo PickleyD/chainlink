@@ -803,7 +803,7 @@ func (cli *Client) SetNextNonce(c *clipkg.Context) error {
 		return cli.errorOut(errors.Wrap(err, "could not decode address"))
 	}
 
-	res, err := db.Exec(`UPDATE eth_key_states SET next_nonce = $1 WHERE address = $2 and evm_chain_id = $3`, nextNonce, address, chainID.String())
+	res, err := db.Exec(`UPDATE evm_key_states SET next_nonce = $1 WHERE address = $2 and evm_chain_id = $3`, nextNonce, address, chainID.String())
 	if err != nil {
 		return cli.errorOut(err)
 	}
