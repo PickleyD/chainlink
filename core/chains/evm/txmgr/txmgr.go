@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 	"math/big"
+	"strings"
 	"sync"
 	"time"
 
@@ -384,17 +385,21 @@ RETURNING "eth_txes".*
 }
 
 func (b *Txm) checkStateExists(q pg.Queryer, addr common.Address) error {
-	var state ethkey.State
-	err := q.Get(&state, `SELECT * FROM eth_key_states WHERE address = $1`, addr)
+	var states []ethkey.State
+	err := q.Select(&states, `SELECT * FROM eth_key_states WHERE address = $1`, addr)
 	if errors.Is(err, sql.ErrNoRows) {
 		return errors.Errorf("no eth key exists with address %s", addr.Hex())
 	} else if err != nil {
 		return errors.Wrap(err, "failed to query state")
 	}
-	if state.EVMChainID.Cmp(utils.NewBig(&b.chainID)) != 0 {
-		return errors.Errorf("cannot send transaction on chain ID %s; eth key with address %s is pegged to chain ID %s", b.chainID.String(), addr.Hex(), state.EVMChainID.String())
+	chainIDs := make([]string, len(states))
+	for i, state := range states {
+		if state.EVMChainID.Cmp(utils.NewBig(&b.chainID)) == 0 {
+			return nil
+		}
+		chainIDs[i] = state.EVMChainID.String()
 	}
-	return nil
+	return errors.Errorf("cannot send transaction on chain ID %s; eth key with address %s exists but is not enabled for this chain (enabled for chain IDs: %s)", b.chainID.String(), addr.Hex(), strings.Join(chainIDs, ","))
 }
 
 // GetGasEstimator returns the gas estimator, mostly useful for tests

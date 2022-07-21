@@ -366,7 +366,7 @@ func (cli *Client) RebroadcastTransactions(c *clipkg.Context) (err error) {
 		var ok bool
 		chainID, ok = big.NewInt(0).SetString(chainIDStr, 10)
 		if !ok {
-			return cli.errorOut(errors.Wrap(err, "invalid evmChainID"))
+			return cli.errorOut(errors.New("invalid evmChainID"))
 		}
 	}
 
@@ -783,6 +783,15 @@ func insertFixtures(config config.GeneralConfig, pathToFixtures string) (err err
 func (cli *Client) SetNextNonce(c *clipkg.Context) error {
 	addressHex := c.String("address")
 	nextNonce := c.Uint64("nextNonce")
+	chainIDStr := c.String("evmChainID") // TODO: Need to pass this, only required if multiple states exist
+	var chainID *big.Int
+	if chainIDStr != "" {
+		var ok bool
+		chainID, ok = big.NewInt(0).SetString(chainIDStr, 10)
+		if !ok {
+			return cli.errorOut(errors.New("invalid evmChainID"))
+		}
+	}
 
 	db, err := newConnection(cli.Config, cli.Logger)
 	if err != nil {
@@ -794,7 +803,7 @@ func (cli *Client) SetNextNonce(c *clipkg.Context) error {
 		return cli.errorOut(errors.Wrap(err, "could not decode address"))
 	}
 
-	res, err := db.Exec(`UPDATE eth_key_states SET next_nonce = $1 WHERE address = $2`, nextNonce, address)
+	res, err := db.Exec(`UPDATE eth_key_states SET next_nonce = $1 WHERE address = $2 and evm_chain_id = $3`, nextNonce, address, chainID.String())
 	if err != nil {
 		return cli.errorOut(err)
 	}

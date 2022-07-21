@@ -117,7 +117,8 @@ func (ks *eth) Add(key ethkey.KeyV2, chainID *big.Int) error {
 	return nil
 }
 
-// EnsureKeys verifies whether the ETH keys have been seeded, if not, it creates them.
+// EnsureKeys verifies whether the EVM keys and states for the given chain have
+// been seeded, if not, it creates them.
 func (ks *eth) EnsureKeys(chainID *big.Int) (err error) {
 	ks.lock.Lock()
 	defer ks.lock.Unlock()
