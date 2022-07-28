@@ -271,8 +271,12 @@ func setChainSpecificConfigDefaultSets() {
 	arbitrumMainnet.blockHistoryEstimatorBlockHistorySize = 0 // Force an error if someone set GAS_UPDATER_ENABLED=true by accident; we never want to run the block history estimator on arbitrum
 	arbitrumMainnet.linkContractAddress = "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4"
 	arbitrumMainnet.ocrContractConfirmations = 1
-	arbitrumRinkeby := arbitrumMainnet
+	arbitrumRinkeby := fallbackDefaultSet // fresh config for Nitro - should inherit arbitrumMainnet directly after both are Nitro
 	arbitrumRinkeby.linkContractAddress = "0x615fBe6372676474d9e6933d310469c9b68e9726"
+	arbitrumRinkeby.blockEmissionIdleWarningThreshold = 0
+	arbitrumRinkeby.nodeDeadAfterNoNewHeadersThreshold = 0 // Arbitrum only emits blocks when a new tx is received, so this method of liveness detection is not useful
+	arbitrumRinkeby.chainType = config.ChainArbitrum
+	arbitrumRinkeby.ocrContractConfirmations = 1
 
 	// Optimism is an L2 chain. Pending proper L2 support, for now we rely on their sequencer
 	optimismMainnet := fallbackDefaultSet
