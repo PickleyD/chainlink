@@ -76,7 +76,7 @@ var parity = ClientErrors{
 
 // Geth
 // See: https://github.com/ethereum/go-ethereum/blob/b9df7ecdc3d3685180ceb29665bab59e9f614da5/core/tx_pool.go#L516
-// Updated error messages to not have `$` in the regex to support extra information in the error messages
+// Updated NonceTooLow to not have `$` in the regex to support extra information in the error messages
 //    see: https://github.com/ethereum/go-ethereum/blob/a9ef135e2dd53682d106c6a2aede9187026cc1de/core/state_transition.go#L223-L224
 var gethFatal = regexp.MustCompile(`(: |^)(exceeds block gas limit|invalid sender|negative value|oversized data|gas uint64 overflow|intrinsic gas too low|nonce too high)$`)
 var geth = ClientErrors{
