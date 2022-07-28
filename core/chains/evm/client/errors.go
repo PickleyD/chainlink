@@ -78,14 +78,14 @@ var parity = ClientErrors{
 // See: https://github.com/ethereum/go-ethereum/blob/b9df7ecdc3d3685180ceb29665bab59e9f614da5/core/tx_pool.go#L516
 // Updated error messages to not have `$` in the regex to support extra information in the error messages
 //    see: https://github.com/ethereum/go-ethereum/blob/a9ef135e2dd53682d106c6a2aede9187026cc1de/core/state_transition.go#L223-L224
-var gethFatal = regexp.MustCompile(`(: |^)(exceeds block gas limit|invalid sender|negative value|oversized data|gas uint64 overflow|intrinsic gas too low|nonce too high)`)
+var gethFatal = regexp.MustCompile(`(: |^)(exceeds block gas limit|invalid sender|negative value|oversized data|gas uint64 overflow|intrinsic gas too low|nonce too high)$`)
 var geth = ClientErrors{
 	NonceTooLow:                       regexp.MustCompile(`(: |^)nonce too low`),
-	ReplacementTransactionUnderpriced: regexp.MustCompile(`(: |^)replacement transaction underpriced`),
+	ReplacementTransactionUnderpriced: regexp.MustCompile(`(: |^)replacement transaction underpriced$`),
 	TransactionAlreadyInMempool:       regexp.MustCompile(`(: |^)(?i)(known transaction|already known)`),
-	TerminallyUnderpriced:             regexp.MustCompile(`(: |^)transaction underpriced`),
-	InsufficientEth:                   regexp.MustCompile(`(: |^)(insufficient funds for transfer|insufficient funds for gas \* price \+ value|insufficient balance for transfer)`),
-	TxFeeExceedsCap:                   regexp.MustCompile(`(: |^)tx fee \([0-9\.]+ [a-zA-Z]+\) exceeds the configured cap \([0-9\.]+ [a-zA-Z]+\)`),
+	TerminallyUnderpriced:             regexp.MustCompile(`(: |^)transaction underpriced$`),
+	InsufficientEth:                   regexp.MustCompile(`(: |^)(insufficient funds for transfer|insufficient funds for gas \* price \+ value|insufficient balance for transfer)$`),
+	TxFeeExceedsCap:                   regexp.MustCompile(`(: |^)tx fee \([0-9\.]+ [a-zA-Z]+\) exceeds the configured cap \([0-9\.]+ [a-zA-Z]+\)$`),
 	Fatal:                             gethFatal,
 }
 
