@@ -76,11 +76,9 @@ var parity = ClientErrors{
 
 // Geth
 // See: https://github.com/ethereum/go-ethereum/blob/b9df7ecdc3d3685180ceb29665bab59e9f614da5/core/tx_pool.go#L516
-// Updated NonceTooLow to not have `$` in the regex to support extra information in the error messages
-//    see: https://github.com/ethereum/go-ethereum/blob/a9ef135e2dd53682d106c6a2aede9187026cc1de/core/state_transition.go#L223-L224
 var gethFatal = regexp.MustCompile(`(: |^)(exceeds block gas limit|invalid sender|negative value|oversized data|gas uint64 overflow|intrinsic gas too low|nonce too high)$`)
 var geth = ClientErrors{
-	NonceTooLow:                       regexp.MustCompile(`(: |^)nonce too low`),
+	NonceTooLow:                       regexp.MustCompile(`(: |^)nonce too low$`),
 	ReplacementTransactionUnderpriced: regexp.MustCompile(`(: |^)replacement transaction underpriced$`),
 	TransactionAlreadyInMempool:       regexp.MustCompile(`(: |^)(?i)(known transaction|already known)`),
 	TerminallyUnderpriced:             regexp.MustCompile(`(: |^)transaction underpriced$`),
@@ -104,11 +102,12 @@ var besu = ClientErrors{
 
 // Arbitrum
 // https://github.com/OffchainLabs/arbitrum/blob/cac30586bc10ecc1ae73e93de517c90984677fdb/packages/arb-evm/evm/result.go#L158
-var arbitrumFatal = regexp.MustCompile(`(: |^)(invalid message format|forbidden sender address|execution reverted: error code)$`)
+// nitro:
+var arbitrumFatal = regexp.MustCompile(`(: |^)(invalid message format|forbidden sender address|execution reverted(: error code)?)$|(: |^)nonce too high(:|$)`)
 var arbitrum = ClientErrors{
 	// TODO: Arbitrum returns this in case of low or high nonce. Update this when Arbitrum fix it
 	// https://app.shortcut.com/chainlinklabs/story/16801/add-full-support-for-incorrect-nonce-on-arbitrum
-	NonceTooLow: regexp.MustCompile(`(: |^)invalid transaction nonce$`),
+	NonceTooLow: regexp.MustCompile(`(: |^)invalid transaction nonce$|(: |^)nonce too low(:|$)`),
 	// TODO: Is it terminally or replacement?
 	TerminallyUnderpriced: regexp.MustCompile(`(: |^)gas price too low$`),
 	InsufficientEth:       regexp.MustCompile(`(: |^)not enough funds for gas`),

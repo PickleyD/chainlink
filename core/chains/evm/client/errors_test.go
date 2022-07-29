@@ -33,7 +33,7 @@ func Test_Eth_Errors(t *testing.T) {
 
 		tests := []errorCase{
 			{"nonce too low", true, "Geth"},
-			{"nonce too low: address 0x336394A3219e71D9d9bd18201d34E95C1Bb7122C, tx: 8089 state: 8090", true, "Geth"},
+			{"nonce too low: address 0x336394A3219e71D9d9bd18201d34E95C1Bb7122C, tx: 8089 state: 8090", true, "Arbitrum"},
 			{"Nonce too low", true, "Besu"},
 			{"Transaction nonce is too low. Try incrementing the nonce.", true, "Parity"},
 			{"transaction rejected: nonce too low", true, "Arbitrum"},
@@ -270,6 +270,8 @@ func Test_Eth_Errors_Fatal(t *testing.T) {
 		{"forbidden sender address", true, "Arbitrum"},
 		{"tx dropped due to L2 congestion", false, "Arbitrum"},
 		{"execution reverted: error code", true, "Arbitrum"},
+		{"execution reverted", true, "Arbitrum"},
+		{"nonce too high: address 0x336394A3219e71D9d9bd18201d34E95C1Bb7122C, tx: 8089 state: 8090", true, "Arbitrum"},
 
 		{"call failed: SenderIsContract", true, "Nethermind"},
 		{"call failed: Invalid", true, "Nethermind"},
