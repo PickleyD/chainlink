@@ -157,6 +157,7 @@ func Test_Eth_Errors(t *testing.T) {
 			{"Insufficient funds. The account you tried to send transaction from does not have enough funds. Required 200.50 and got: 100.25.", true, "Parity"},
 			{"transaction rejected: insufficient funds for gas * price + value", true, "Arbitrum"},
 			{"not enough funds for gas", true, "Arbitrum"},
+			{"insufficient funds for gas * price + value: address 0xb68D832c1241bc50db1CF09e96c0F4201D5539C9 have 9934612900000000 want 9936662900000000", true, "Arbitrum"},
 			{"invalid transaction: insufficient funds for gas * price + value", true, "Optimism"},
 			{"call failed: InsufficientFunds", true, "Nethermind"},
 		}

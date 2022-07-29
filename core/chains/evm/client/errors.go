@@ -110,7 +110,7 @@ var arbitrum = ClientErrors{
 	NonceTooLow: regexp.MustCompile(`(: |^)invalid transaction nonce$|(: |^)nonce too low(:|$)`),
 	// TODO: Is it terminally or replacement?
 	TerminallyUnderpriced: regexp.MustCompile(`(: |^)gas price too low$`),
-	InsufficientEth:       regexp.MustCompile(`(: |^)not enough funds for gas`),
+	InsufficientEth:       regexp.MustCompile(`(: |^)(not enough funds for gas|insufficient funds for gas \* price \+ value)`),
 	Fatal:                 arbitrumFatal,
 }
 
