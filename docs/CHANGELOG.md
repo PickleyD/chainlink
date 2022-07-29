@@ -50,6 +50,8 @@ ETH_GAS_LIMIT_KEEPER_JOB_TYPE # EVM.GasEstimator.LimitKeeperJobType
 
 - Simplified the Keepers job spec by removing the observation source from the required parameters.
 
+- `Arbitrum` chains are no longer restricted to only `FixedPrice` `GAS_ESTIMATOR_MODE`
+
 ## [1.5.1] - 2022-06-27
 
 ### Fixed
