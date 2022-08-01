@@ -75,10 +75,8 @@ func setup(t *testing.T, estimator *gasmocks.Estimator) (
 	db := pgtest.NewSqlxDB(t)
 	keyStore := cltest.NewKeyStore(t, db, cfg)
 	ethClient := cltest.NewEthClientMockWithDefaultChain(t)
-	block := types.NewBlockWithHeader(&types.Header{
-		Number: big.NewInt(1),
-	})
-	ethClient.On("BlockByNumber", mock.Anything, mock.Anything).Maybe().Return(block, nil)
+	ethClient.On("HeaderByNumber", mock.Anything, mock.Anything).Maybe().
+		Return(&types.Header{Number: big.NewInt(1)}, nil)
 	txm := new(txmmocks.TxManager)
 	txm.Test(t)
 	txm.On("GetGasEstimator").Return(estimator)
