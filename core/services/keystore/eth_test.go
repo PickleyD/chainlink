@@ -175,8 +175,8 @@ func Test_EthKeyStore_GetRoundRobinAddress(t *testing.T) {
 
 	k2, _ := cltest.MustInsertRandomKey(t, ethKeyStore, []utils.Big{})
 	ethKeyStore.Enable(k2, testutils.FixtureChainID)
-	ethKeyStore.Enable(k1, testutils.SimulatedChainID)
-	ethKeyStore.Disable(k1, testutils.SimulatedChainID)
+	ethKeyStore.Enable(k2, testutils.SimulatedChainID)
+	ethKeyStore.Disable(k2, testutils.SimulatedChainID)
 
 	k3, _ := cltest.MustInsertRandomKey(t, ethKeyStore, []utils.Big{})
 	ethKeyStore.Enable(k3, testutils.SimulatedChainID)
@@ -207,23 +207,46 @@ func Test_EthKeyStore_GetRoundRobinAddress(t *testing.T) {
 	})
 
 	t.Run("with address filter, rotates between given addresses that match sending keys", func(t *testing.T) {
-		// k3 is a disabled address for FixtureChainID so even though it's whitelisted, it will be ignored
-		addresses := []common.Address{k3.Address.Address(), k1.Address.Address(), k2.Address.Address(), testutils.NewAddress()}
+		{
+			// k3 is a disabled address for FixtureChainID so even though it's whitelisted, it will be ignored
+			addresses := []common.Address{k4.Address.Address(), k3.Address.Address(), k1.Address.Address(), k2.Address.Address(), testutils.NewAddress()}
 
-		address1, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
-		require.NoError(t, err)
-		address2, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
-		require.NoError(t, err)
-		address3, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
-		require.NoError(t, err)
-		address4, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
-		require.NoError(t, err)
+			address1, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+			address2, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+			address3, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+			address4, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
 
-		assert.True(t, address1 == k1.Address.Address() || address1 == k2.Address.Address())
-		assert.True(t, address2 == k1.Address.Address() || address2 == k2.Address.Address())
-		assert.NotEqual(t, address1, address2)
-		assert.Equal(t, address1, address3)
-		assert.Equal(t, address2, address4)
+			assert.True(t, address1 == k1.Address.Address() || address1 == k2.Address.Address())
+			assert.True(t, address2 == k1.Address.Address() || address2 == k2.Address.Address())
+			assert.NotEqual(t, address1, address2)
+			assert.Equal(t, address1, address3)
+			assert.Equal(t, address2, address4)
+		}
+
+		{
+
+			// k2 and k4 are disabled address for SimulatedChainID so even though it's whitelisted, it will be ignored
+			addresses := []common.Address{k4.Address.Address(), k3.Address.Address(), k1.Address.Address(), k2.Address.Address(), testutils.NewAddress()}
+
+			address1, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+			address2, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+			address3, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+			address4, err := ethKeyStore.GetRoundRobinAddress(testutils.FixtureChainID, addresses...)
+			require.NoError(t, err)
+
+			assert.True(t, address1 == k1.Address.Address() || address1 == k2.Address.Address())
+			assert.True(t, address2 == k1.Address.Address() || address2 == k2.Address.Address())
+			assert.NotEqual(t, address1, address2)
+			assert.Equal(t, address1, address3)
+			assert.Equal(t, address2, address4)
+		}
 	})
 
 	t.Run("with address filter when no address matches", func(t *testing.T) {
@@ -458,7 +481,57 @@ func Test_EthKeyStore_Reset(t *testing.T) {
 }
 
 func Test_EthKeyStore_CheckEnabled(t *testing.T) {
-	t.Run("returns nil when key is enabled for given chain", func(t *testing.T) {})
-	t.Run("returns error when key does not exist", func(t *testing.T) {})
-	t.Run("returns error when key exists but is disabled for the given chain", func(t *testing.T) {})
+	db := pgtest.NewSqlxDB(t)
+	cfg := configtest.NewTestGeneralConfig(t)
+	keyStore := cltest.NewKeyStore(t, db, cfg)
+	ks := keyStore.Eth()
+
+	// create keys
+	// - key 1
+	//   enabled - fixture
+	//   enabled - simulated
+	// - key 2
+	//   enabled - fixture
+	//   disabled - simulated
+	// - key 3
+	//   enabled - simulated
+	// - key 4
+	//   enabled - fixture
+	k1, addr1 := cltest.MustInsertRandomKey(t, ks, []utils.Big{})
+	ks.Enable(k1, testutils.SimulatedChainID)
+	ks.Enable(k1, testutils.FixtureChainID)
+
+	k2, addr2 := cltest.MustInsertRandomKey(t, ks, []utils.Big{})
+	ks.Enable(k2, testutils.FixtureChainID)
+	ks.Enable(k2, testutils.SimulatedChainID)
+	ks.Disable(k2, testutils.SimulatedChainID)
+
+	k3, addr3 := cltest.MustInsertRandomKey(t, ks, []utils.Big{})
+	ks.Enable(k3, testutils.SimulatedChainID)
+
+	t.Run("returns nil when key is enabled for given chain", func(t *testing.T) {
+		err := ks.CheckEnabled(addr1, testutils.FixtureChainID)
+		assert.NoError(t, err)
+		err = ks.CheckEnabled(addr1, testutils.SimulatedChainID)
+		assert.NoError(t, err)
+	})
+
+	t.Run("returns error when key does not exist", func(t *testing.T) {
+		addr := utils.RandomAddress()
+		err := ks.CheckEnabled(addr, testutils.FixtureChainID)
+		assert.Error(t, err)
+		require.Contains(t, err.Error(), fmt.Sprintf("no eth key exists with address %s", addr.Hex()))
+	})
+
+	t.Run("returns error when key exists but has never been enabled (no state) for the given chain", func(t *testing.T) {
+		err := ks.CheckEnabled(addr3, testutils.FixtureChainID)
+		assert.Error(t, err)
+		require.Contains(t, err.Error(), fmt.Sprintf("eth key with address %s exists but is has not been enabled for chain 0 (enabled only for chain IDs: 1337)", addr3.Hex()))
+	})
+
+	t.Run("returns error when key exists but is disabled for the given chain", func(t *testing.T) {
+		err := ks.CheckEnabled(addr2, testutils.SimulatedChainID)
+		assert.Error(t, err)
+		require.Contains(t, err.Error(), fmt.Sprintf("eth key with address %s exists but is disabled for chain 1337 (enabled only for chain IDs: 0)", addr2.Hex()))
+	})
 }

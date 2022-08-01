@@ -357,13 +357,14 @@ func (ks *eth) CheckEnabled(address common.Address, chainID *big.Int) error {
 	}
 	states, exists := ks.keyStates.KeyIDChainID[address.Hex()]
 	if !exists {
-		fmt.Println("BALLS 1")
 		return errors.Errorf("no eth key exists with address %s", address.Hex())
 	}
 	state, exists := states[chainID.String()]
 	if !exists {
+		fmt.Println("BALLS 1")
 		var chainIDs []string
 		for cid, state := range states {
+			fmt.Println("BALLS state", cid, state)
 			if !state.Disabled {
 				chainIDs = append(chainIDs, cid)
 			}
@@ -371,8 +372,10 @@ func (ks *eth) CheckEnabled(address common.Address, chainID *big.Int) error {
 		return errors.Errorf("eth key with address %s exists but is has not been enabled for chain %s (enabled only for chain IDs: %s)", address.Hex(), chainID.String(), strings.Join(chainIDs, ","))
 	}
 	if state.Disabled {
+		fmt.Printf("BALLS 2 %#v\n", state)
 		var chainIDs []string
 		for cid, state := range states {
+			fmt.Println("BALLS state", cid, state)
 			if !state.Disabled {
 				chainIDs = append(chainIDs, cid)
 			}
