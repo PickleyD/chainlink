@@ -456,3 +456,9 @@ func Test_EthKeyStore_Disable(t *testing.T) {
 func Test_EthKeyStore_Reset(t *testing.T) {
 	t.Fatal("TODO")
 }
+
+func Test_EthKeyStore_CheckEnabled(t *testing.T) {
+	t.Run("returns nil when key is enabled for given chain", func(t *testing.T) {})
+	t.Run("returns error when key does not exist", func(t *testing.T) {})
+	t.Run("returns error when key exists but is disabled for the given chain", func(t *testing.T) {})
+}

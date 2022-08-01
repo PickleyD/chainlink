@@ -435,18 +435,22 @@ func MustInsertRandomKey(
 	keystore.XXXTestingOnlyAdd(key)
 
 	for _, cid := range chainIDs {
-		require.NoError(t, keystore.Enable(key, cid.ToInt()))
 
 		var nonce int64
+		enabled := true
 		for _, opt := range opts {
 			switch v := opt.(type) {
 			case int:
 				nonce = int64(v)
 			case int64:
 				nonce = v
-			default:
-				t.Fatalf("unrecognised option type: %T", v)
+			case bool:
+				enabled = v
 			}
+		}
+		require.NoError(t, keystore.Enable(key, cid.ToInt()))
+		if !enabled {
+			require.NoError(t, keystore.Disable(key, cid.ToInt()))
 		}
 		err := keystore.Reset(key, cid.ToInt(), nonce)
 		require.NoError(t, err)

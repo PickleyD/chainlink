@@ -221,7 +221,8 @@ func TestTxm_CreateEthTransaction(t *testing.T) {
 	checkerFactory := &testCheckerFactory{}
 	lp := logpoller.NewLogPoller(logpoller.NewORM(testutils.FixtureChainID, db, lggr, pgtest.NewPGCfg(true)),
 		ethClient, lggr, 100*time.Millisecond, 2, 3)
-	txm := txmgr.NewTxm(db, ethClient, config, nil, nil, lggr, checkerFactory, lp)
+	kst := cltest.NewKeyStore(t, db, cfg)
+	txm := txmgr.NewTxm(db, ethClient, config, kst.Eth(), nil, lggr, checkerFactory, lp)
 
 	t.Run("with queue under capacity inserts eth_tx", func(t *testing.T) {
 		subject := uuid.NewV4()
@@ -327,7 +328,7 @@ func TestTxm_CreateEthTransaction(t *testing.T) {
 			Strategy:       txmgr.SendEveryStrategy{},
 		})
 		require.Error(t, err)
-		assert.Contains(t, err.Error(), fmt.Sprintf("cannot send transaction on chain ID 0; eth key with address %s exists but is not enabled for this chain (enabled only for chain IDs: 1337", otherAddress.Hex()))
+		assert.Contains(t, err.Error(), fmt.Sprintf("cannot send transaction from %s on chain ID 0; eth key with address %s exists but is not enabled for this chain (enabled only for chain IDs: 1337)", otherAddress.Hex(), otherAddress.Hex()))
 	})
 
 	t.Run("simulate transmit checker", func(t *testing.T) {
@@ -540,7 +541,8 @@ func TestTxm_CreateEthTransaction_OutOfEth(t *testing.T) {
 	lggr := logger.TestLogger(t)
 	lp := logpoller.NewLogPoller(logpoller.NewORM(testutils.FixtureChainID, db, lggr, pgtest.NewPGCfg(true)),
 		ethClient, lggr, 100*time.Millisecond, 2, 3)
-	txm := txmgr.NewTxm(db, ethClient, config, nil, nil, lggr, &testCheckerFactory{}, lp)
+	kst := cltest.NewKeyStore(t, db, cfg)
+	txm := txmgr.NewTxm(db, ethClient, config, kst.Eth(), nil, lggr, &testCheckerFactory{}, lp)
 
 	t.Run("if another key has any transactions with insufficient eth errors, transmits as normal", func(t *testing.T) {
 		payload := cltest.MustRandomBytes(t, 100)

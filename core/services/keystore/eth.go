@@ -26,9 +26,11 @@ type Eth interface {
 	Import(keyJSON []byte, password string, chainIDs ...*big.Int) (ethkey.KeyV2, error)
 	Export(id string, password string) ([]byte, error)
 
+	// TODO: Expose this in commands, make Reset actually work
 	Enable(key ethkey.KeyV2, chainID *big.Int, qopts ...pg.QOpt) error
 	Disable(key ethkey.KeyV2, chainID *big.Int) error
 	Reset(key ethkey.KeyV2, chainID *big.Int, nonce int64) error
+
 	GetNextNonce(address common.Address, chainID *big.Int, qopts ...pg.QOpt) (int64, error)
 	IncrementNextNonce(address common.Address, chainID *big.Int, currentNonce int64, qopts ...pg.QOpt) error
 
@@ -214,7 +216,7 @@ RETURNING *;`
 }
 
 func (ks *eth) Disable(key ethkey.KeyV2, chainID *big.Int) error {
-	_, err := ks.orm.q.Exec(`UPDATE evm_key_states SET disabled = true WHERE address = $1 AND evm_chain_id = $2`, key.Address, chainID)
+	_, err := ks.orm.q.Exec(`UPDATE evm_key_states SET disabled = true WHERE address = $1 AND evm_chain_id = $2`, key.Address, chainID.String())
 	if err != nil {
 		return errors.Wrap(err, "failed to disable state")
 	}
@@ -355,7 +357,8 @@ func (ks *eth) CheckEnabled(address common.Address, chainID *big.Int) error {
 	}
 	states, exists := ks.keyStates.KeyIDChainID[address.Hex()]
 	if !exists {
-		return errors.Errorf("no key exists with address %s", address.Hex())
+		fmt.Println("BALLS 1")
+		return errors.Errorf("no eth key exists with address %s", address.Hex())
 	}
 	state, exists := states[chainID.String()]
 	if !exists {
@@ -505,7 +508,6 @@ func (ks *eth) keysForChain(chainID *big.Int, includeDisabled bool) (keys []ethk
 	if states == nil {
 		return
 	}
-	fmt.Println("BALLS states", states)
 	for keyID, state := range states {
 		if includeDisabled || !state.Disabled {
 			k := ks.keyRing.Eth[keyID]
