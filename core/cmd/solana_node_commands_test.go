@@ -15,10 +15,10 @@ import (
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
 	"github.com/smartcontractkit/chainlink/core/chains/solana"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/cmd"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
+	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
 )
 
 func mustInsertSolanaChain(t *testing.T, sol solana.ChainSet, id string) solana.DBChain {

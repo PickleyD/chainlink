@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/evmtest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
+	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/smartcontractkit/chainlink/core/testutils/evmtest"
+	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 

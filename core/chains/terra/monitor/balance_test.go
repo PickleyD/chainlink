@@ -10,9 +10,9 @@ import (
 
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/client/mocks"
 
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/smartcontractkit/chainlink/core/testutils"
 )
 
 func TestBalanceMonitor(t *testing.T) {

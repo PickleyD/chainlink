@@ -3,7 +3,7 @@ package headtracker_test
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
+	"github.com/smartcontractkit/chainlink/core/testutils"
 
 	"github.com/ethereum/go-ethereum/common"
 
@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm/headtracker"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
 )
 
 func TestORM_IdempotentInsertHead(t *testing.T) {

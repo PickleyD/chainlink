@@ -15,15 +15,15 @@ import (
 	"github.com/smartcontractkit/chainlink/core/chains/evm"
 	evmmocks "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"
 	txmmocks "github.com/smartcontractkit/chainlink/core/chains/evm/txmgr/mocks"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/evmtest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	keystoremocks "github.com/smartcontractkit/chainlink/core/services/keystore/mocks"
 	"github.com/smartcontractkit/chainlink/core/services/pipeline"
 	pipelinemocks "github.com/smartcontractkit/chainlink/core/services/pipeline/mocks"
+	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
+	"github.com/smartcontractkit/chainlink/core/testutils/evmtest"
+	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
 )
 
 func TestETHCallTask(t *testing.T) {

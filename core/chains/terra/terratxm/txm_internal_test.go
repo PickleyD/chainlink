@@ -25,10 +25,10 @@ import (
 	terraclient "github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
 	tcmocks "github.com/smartcontractkit/chainlink-terra/pkg/terra/client/mocks"
 
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/terratest"
 	"github.com/smartcontractkit/chainlink/core/services/keystore"
+	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/smartcontractkit/chainlink/core/testutils/terratest"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
 	. "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"

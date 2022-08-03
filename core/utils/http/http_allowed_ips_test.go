@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
 	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/smartcontractkit/chainlink/core/testutils"
 	"github.com/stretchr/testify/assert"
 )
 

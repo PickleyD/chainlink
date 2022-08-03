@@ -10,7 +10,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm/headtracker"
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 

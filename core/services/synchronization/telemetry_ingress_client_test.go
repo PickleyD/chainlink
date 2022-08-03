@@ -12,13 +12,13 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/atomic"
 
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
 	ksmocks "github.com/smartcontractkit/chainlink/core/services/keystore/mocks"
 	"github.com/smartcontractkit/chainlink/core/services/synchronization"
 	"github.com/smartcontractkit/chainlink/core/services/synchronization/mocks"
 	telemPb "github.com/smartcontractkit/chainlink/core/services/synchronization/telem"
+	"github.com/smartcontractkit/chainlink/core/testutils"
 )
 
 func TestTelemetryIngressClient_Send_HappyPath(t *testing.T) {

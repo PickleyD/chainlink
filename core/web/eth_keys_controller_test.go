@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/smartcontractkit/chainlink/core/testutils"
 	webpresenters "github.com/smartcontractkit/chainlink/core/web/presenters"
 
 	"github.com/stretchr/testify/assert"

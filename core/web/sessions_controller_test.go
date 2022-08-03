@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
-	clhttptest "github.com/smartcontractkit/chainlink/core/internal/testutils/httptest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/pg"
 	"github.com/smartcontractkit/chainlink/core/sessions"
+	"github.com/smartcontractkit/chainlink/core/testutils"
+	clhttptest "github.com/smartcontractkit/chainlink/core/testutils/httptest"
 	"github.com/smartcontractkit/chainlink/core/web"
 
 	"github.com/onsi/gomega"

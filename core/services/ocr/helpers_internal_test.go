@@ -5,8 +5,8 @@ import (
 
 	"github.com/smartcontractkit/sqlx"
 
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
 )
 
 func (c *ConfigOverriderImpl) ExportedUpdateFlagsStatus() error {

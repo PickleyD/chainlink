@@ -7,9 +7,9 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/services/ocrcommon"
 
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/evmtest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/smartcontractkit/chainlink/core/testutils/evmtest"
 	"github.com/stretchr/testify/assert"
 )
 

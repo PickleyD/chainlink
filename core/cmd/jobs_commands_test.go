@@ -11,11 +11,11 @@ import (
 	"github.com/urfave/cli"
 	null "gopkg.in/guregu/null.v4"
 
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/cmd"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/core/services/job"
 	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/core/web/presenters"
 )
 

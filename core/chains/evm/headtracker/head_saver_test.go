@@ -8,10 +8,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/chains/evm/headtracker"
 	htmocks "github.com/smartcontractkit/chainlink/core/chains/evm/headtracker/mocks"
 	httypes "github.com/smartcontractkit/chainlink/core/chains/evm/headtracker/types"
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
 )
 
 func configureSaver(t *testing.T) (httypes.HeadSaver, headtracker.ORM) {

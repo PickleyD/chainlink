@@ -5,9 +5,9 @@ import (
 
 	"encoding/hex"
 
-	"github.com/smartcontractkit/chainlink/core/internal/cltest"
-	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
+	"github.com/smartcontractkit/chainlink/core/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/ocr2/plugins/dkg/config"
+	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
 	"github.com/stretchr/testify/require"
 )
 
