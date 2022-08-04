@@ -25,7 +25,6 @@ import (
 // `web/middleware.go:28:12: pattern assets: no matching files found`
 // then you must first run `make operator-ui` in the root dir to compile the frontend
 //nolint
-//go:embed "assets"
 var uiEmbedFs embed.FS
 
 // assetFs is the singleton file system instance that is used to serve the static
