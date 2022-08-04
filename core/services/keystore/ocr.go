@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocrkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ocrkey"
 )
 
 //go:generate mockery --name OCR --output ./mocks/ --case=underscore

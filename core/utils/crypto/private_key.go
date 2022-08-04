@@ -8,7 +8,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 type EncryptedPrivateKey struct {

@@ -12,7 +12,7 @@ import (
 
 	"github.com/smartcontractkit/sqlx"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 // QOpt pattern for ORM methods aims to clarify usage and remove some common footguns, notably:

@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func TestValidate(t *testing.T) {

@@ -12,10 +12,10 @@ import (
 
 	solanaGo "github.com/gagliardetto/solana-go"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	solanamodels "github.com/smartcontractkit/chainlink/core/store/models/solana"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	solanamodels "github.com/pickleyd/chainlink/core/store/models/solana"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // SolanaTransfersController can send LINK tokens to another address

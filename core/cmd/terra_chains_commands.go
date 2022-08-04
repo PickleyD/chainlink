@@ -6,7 +6,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // TerraChainPresenter implements TableRenderer for a TerraChainResource

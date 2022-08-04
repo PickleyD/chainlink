@@ -14,8 +14,8 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/null"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/null"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Head represents a BlockNumber, BlockHash.

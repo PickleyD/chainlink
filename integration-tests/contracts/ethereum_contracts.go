@@ -14,10 +14,10 @@ import (
 	ocrConfigHelper "github.com/smartcontractkit/libocr/offchainreporting/confighelper"
 	ocrTypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 
+	"github.com/pickleyd/chainlink/integration-tests/client"
+	"github.com/pickleyd/chainlink/integration-tests/testreporters"
 	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink/integration-tests/testreporters"
 )
 
 // EthereumOracle oracle for "directrequest" job tests

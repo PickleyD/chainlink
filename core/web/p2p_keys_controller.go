@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/p2pkey"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // P2PKeysController manages P2P keys

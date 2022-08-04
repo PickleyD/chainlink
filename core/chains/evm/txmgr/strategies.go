@@ -4,7 +4,7 @@ import (
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 // TxStrategy controls how txes are queued and sent

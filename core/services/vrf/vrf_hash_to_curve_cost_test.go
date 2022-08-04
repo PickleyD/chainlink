@@ -6,15 +6,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils"
 
 	"github.com/ethereum/go-ethereum/eth/ethconfig"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/solidity_vrf_verifier_wrapper"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/solidity_vrf_verifier_wrapper"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
 
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts/abi"

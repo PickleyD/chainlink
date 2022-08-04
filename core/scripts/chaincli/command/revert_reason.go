@@ -1,8 +1,8 @@
 package command
 
 import (
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/config"
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/handler"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/config"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/handler"
 	"github.com/spf13/cobra"
 )
 

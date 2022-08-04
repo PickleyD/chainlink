@@ -6,11 +6,11 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/web/auth"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // WebAuthnController manages registers new keys as well as authentication

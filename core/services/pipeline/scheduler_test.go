@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
 )
 
 type event struct {

@@ -29,7 +29,7 @@ describe('BuildInfoFooter', () => {
       getByRole('link', { name: '6989a388ef26d981e771fec6710dc65bcc8fb5af' }),
     ).toHaveAttribute(
       'href',
-      'https://github.com/smartcontractkit/chainlink/commit/6989a388ef26d981e771fec6710dc65bcc8fb5af',
+      'https://github.com/pickleyd/chainlink/commit/6989a388ef26d981e771fec6710dc65bcc8fb5af',
     )
   })
 })

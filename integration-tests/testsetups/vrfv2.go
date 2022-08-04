@@ -10,12 +10,12 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/rs/zerolog/log"
 
+	"github.com/pickleyd/chainlink/integration-tests/client"
+	"github.com/pickleyd/chainlink/integration-tests/testreporters"
 	"github.com/smartcontractkit/chainlink-env/environment"
 	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
 	reportModel "github.com/smartcontractkit/chainlink-testing-framework/testreporters"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink/integration-tests/testreporters"
 )
 
 // VRFV2SoakTest defines a typical VRFV2 soak test

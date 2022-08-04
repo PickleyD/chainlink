@@ -10,9 +10,9 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/static"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // LogsFile describes the logs file name

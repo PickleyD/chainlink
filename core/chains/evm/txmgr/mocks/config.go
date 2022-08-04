@@ -6,7 +6,7 @@ import (
 	big "math/big"
 
 	common "github.com/ethereum/go-ethereum/common"
-	config "github.com/smartcontractkit/chainlink/core/config"
+	config "github.com/pickleyd/chainlink/core/config"
 
 	mock "github.com/stretchr/testify/mock"
 

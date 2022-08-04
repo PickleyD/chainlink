@@ -14,9 +14,9 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/rs/zerolog/log"
 
-	"github.com/smartcontractkit/chainlink/integration-tests/actions"
-	"github.com/smartcontractkit/chainlink/integration-tests/contracts"
-	"github.com/smartcontractkit/chainlink/integration-tests/testsetups"
+	"github.com/pickleyd/chainlink/integration-tests/actions"
+	"github.com/pickleyd/chainlink/integration-tests/contracts"
+	"github.com/pickleyd/chainlink/integration-tests/testsetups"
 )
 
 var _ = Describe("Keeper block time soak test @soak-keeper-block-time", func() {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
 )
 
 func Test_NodeWrapError(t *testing.T) {

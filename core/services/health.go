@@ -8,8 +8,8 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 
-	"github.com/smartcontractkit/chainlink/core/static"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 //go:generate mockery --name Checker --output ./mocks/ --case=underscore

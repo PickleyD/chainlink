@@ -5,9 +5,9 @@ import (
 
 	soldb "github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 type DBChain = chains.DBChain[string, *soldb.ChainCfg]

@@ -13,10 +13,10 @@ import (
 
 	"github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains/starknet"
-	"github.com/smartcontractkit/chainlink/core/chains/starknet/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/chains/starknet"
+	"github.com/pickleyd/chainlink/core/chains/starknet/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 )
 
 func setupORM(t *testing.T) (*sqlx.DB, types.ORM) {

@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/gas"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/gas/mocks"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/chains/evm/gas"
+	"github.com/pickleyd/chainlink/core/chains/evm/gas/mocks"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 func Test_FixedPriceEstimator(t *testing.T) {

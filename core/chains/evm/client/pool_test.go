@@ -16,11 +16,11 @@ import (
 	"github.com/tidwall/gjson"
 	"go.uber.org/zap"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	evmmocks "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	evmmocks "github.com/pickleyd/chainlink/core/chains/evm/mocks"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
 )
 
 func TestPool_Dial(t *testing.T) {

@@ -7,9 +7,9 @@ import (
 
 	"github.com/smartcontractkit/libocr/commontypes"
 
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/p2pkey"
 )
 
 type Config interface {

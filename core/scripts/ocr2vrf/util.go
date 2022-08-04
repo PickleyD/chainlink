@@ -22,15 +22,15 @@ import (
 	"go.dedis.ch/kyber/v3"
 	"go.dedis.ch/kyber/v3/group/edwards25519"
 
-	"github.com/smartcontractkit/chainlink/core/cmd"
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_consumer"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_coordinator"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_consumer"
+	"github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_coordinator"
+	"github.com/pickleyd/chainlink/core/logger"
 
-	dkgContract "github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/dkg"
+	dkgContract "github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/dkg"
 
-	helpers "github.com/smartcontractkit/chainlink/core/scripts/common"
+	helpers "github.com/pickleyd/chainlink/core/scripts/common"
 )
 
 func deployDKG(e helpers.Environment) common.Address {

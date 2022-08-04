@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/config/parse"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/config/parse"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 func TestGeneralConfig_Defaults(t *testing.T) {

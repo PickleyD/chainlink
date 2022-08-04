@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/smartcontractkit/chainlink/core/mocks"
-	"github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/mocks"
+	"github.com/pickleyd/chainlink/core/services/fluxmonitorv2"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )

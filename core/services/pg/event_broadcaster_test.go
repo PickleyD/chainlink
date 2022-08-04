@@ -5,14 +5,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/services/pg"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/testutils"
 
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/cltest/heavyweight"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/cltest/heavyweight"
 )
 
 func TestEventBroadcaster(t *testing.T) {

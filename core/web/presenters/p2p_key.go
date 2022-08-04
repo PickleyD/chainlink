@@ -1,7 +1,7 @@
 package presenters
 
 import (
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/p2pkey"
 )
 
 // P2PKeyResource represents a P2P key JSONAPI resource.

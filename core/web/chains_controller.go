@@ -9,7 +9,7 @@ import (
 	"github.com/manyminds/api2go/jsonapi"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/chains"
 )
 
 type ChainsController interface {

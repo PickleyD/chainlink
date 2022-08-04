@@ -9,8 +9,8 @@ import (
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 	"github.com/smartcontractkit/sqlx"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 // ORM manages the data model for terra tx management.

@@ -11,9 +11,9 @@ import (
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
-	"github.com/smartcontractkit/chainlink/core/web"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/web"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // JobRenderer wraps the JSONAPI Job Resource and adds rendering functionality

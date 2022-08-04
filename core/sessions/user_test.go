@@ -3,9 +3,9 @@ package sessions_test
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/utils"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/stretchr/testify/assert"

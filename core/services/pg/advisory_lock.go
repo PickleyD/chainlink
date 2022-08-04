@@ -10,8 +10,8 @@ import (
 	"github.com/smartcontractkit/sqlx"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // AdvisoryLock is an interface for postgresql advisory locks.

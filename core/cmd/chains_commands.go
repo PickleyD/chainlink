@@ -12,8 +12,8 @@ import (
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 var chainHeaders = []string{"ID", "Enabled", "Config", "Created", "Updated"}

@@ -18,12 +18,12 @@ import (
 	uuid "github.com/satori/go.uuid"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/config"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	cnull "github.com/smartcontractkit/chainlink/core/null"
-	"github.com/smartcontractkit/chainlink/core/store/models"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm"
+	"github.com/pickleyd/chainlink/core/chains/evm/config"
+	"github.com/pickleyd/chainlink/core/logger"
+	cnull "github.com/pickleyd/chainlink/core/null"
+	"github.com/pickleyd/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 const (

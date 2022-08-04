@@ -14,8 +14,8 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/rpc"
 
-	link "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/link_token_interface"
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/config"
+	link "github.com/pickleyd/chainlink/core/gethwrappers/generated/link_token_interface"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/config"
 )
 
 // baseHandler is the common handler with a common logic

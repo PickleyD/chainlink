@@ -3,9 +3,9 @@ package resolver
 import (
 	"github.com/graph-gophers/graphql-go"
 
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/utils/stringutils"
-	"github.com/smartcontractkit/chainlink/core/web/gqlscalar"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/utils/stringutils"
+	"github.com/pickleyd/chainlink/core/web/gqlscalar"
 )
 
 type SpecResolver struct {

@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func TestVRFKeys_PrivateKey(t *testing.T) {

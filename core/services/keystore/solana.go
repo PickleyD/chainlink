@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/solkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/solkey"
 )
 
 //go:generate mockery --name Solana --output ./mocks/ --case=underscore --filename solana.go

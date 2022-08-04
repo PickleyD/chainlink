@@ -5,10 +5,10 @@ package mocks
 import (
 	context "context"
 
-	logger "github.com/smartcontractkit/chainlink/core/logger"
+	logger "github.com/pickleyd/chainlink/core/logger"
 	mock "github.com/stretchr/testify/mock"
 
-	pipeline "github.com/smartcontractkit/chainlink/core/services/pipeline"
+	pipeline "github.com/pickleyd/chainlink/core/services/pipeline"
 
 	time "time"
 )

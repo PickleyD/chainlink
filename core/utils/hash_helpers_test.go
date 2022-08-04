@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -5,9 +5,9 @@ import (
 
 	"github.com/graph-gophers/graphql-go"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/web/loader"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/web/loader"
 )
 
 // JobResolver resolves the Job type.

@@ -40,7 +40,7 @@ export const BuildInfoFooter = withStyles(styles)(({ classes }: Props) => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href={`https://github.com/smartcontractkit/chainlink/commit/${sha}`}
+          href={`https://github.com/pickleyd/chainlink/commit/${sha}`}
           className={classes.bareAnchor}
         >
           {sha}

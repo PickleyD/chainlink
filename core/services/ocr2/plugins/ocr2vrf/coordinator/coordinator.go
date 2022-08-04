@@ -16,15 +16,15 @@ import (
 	"github.com/smartcontractkit/ocr2vrf/dkg"
 	ocr2vrftypes "github.com/smartcontractkit/ocr2vrf/types"
 
-	vrf_wrapper "github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_coordinator"
+	vrf_wrapper "github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_coordinator"
 
-	dkg_wrapper "github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/dkg"
+	dkg_wrapper "github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/dkg"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/logpoller"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/chains/evm/logpoller"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 var _ ocr2vrftypes.CoordinatorInterface = &coordinator{}

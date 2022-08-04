@@ -5,8 +5,8 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 const keyTypeIdentifier = "P2P"

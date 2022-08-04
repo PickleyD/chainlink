@@ -20,14 +20,14 @@ import (
 	"github.com/spf13/viper"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/config/parse"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/static"
-	"github.com/smartcontractkit/chainlink/core/store/dialects"
-	"github.com/smartcontractkit/chainlink/core/store/models"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/config/parse"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/store/dialects"
+	"github.com/pickleyd/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 //go:generate mockery --name GeneralConfig --output ./mocks/ --case=underscore

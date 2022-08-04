@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
-	"github.com/smartcontractkit/chainlink/core/testutils/evmtest"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/testutils/configtest"
+	"github.com/pickleyd/chainlink/core/testutils/evmtest"
 )
 
 func TestValidateOracleSpec(t *testing.T) {

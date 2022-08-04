@@ -4,10 +4,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/shopspring/decimal"
 
-	v2 "github.com/smartcontractkit/chainlink/core/chains/evm/config/v2"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/store/models"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	v2 "github.com/pickleyd/chainlink/core/chains/evm/config/v2"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func ChainSpecificConfigDefaultsAsV2() map[int64]v2.Chain {

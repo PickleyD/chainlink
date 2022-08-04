@@ -3,9 +3,9 @@ package cron
 import (
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
 )
 
 type Delegate struct {

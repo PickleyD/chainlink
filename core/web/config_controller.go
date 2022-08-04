@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/utils"
 
 	"github.com/gin-gonic/gin"
 )

@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"testing"
 
+	"github.com/pickleyd/chainlink/core/services/fluxmonitorv2"
 	"github.com/shopspring/decimal"
-	"github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2"
 	"github.com/stretchr/testify/assert"
 )
 

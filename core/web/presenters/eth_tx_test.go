@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/txmgr"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/chains/evm/txmgr"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func TestEthTxResource(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	telemPb "github.com/smartcontractkit/chainlink/core/services/synchronization/telem"
+	"github.com/pickleyd/chainlink/core/logger"
+	telemPb "github.com/pickleyd/chainlink/core/services/synchronization/telem"
 	"go.uber.org/atomic"
 )
 

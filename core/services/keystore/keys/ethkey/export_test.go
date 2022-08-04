@@ -3,7 +3,7 @@ package ethkey
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
 )
 
 func TestEthKeys_ExportImport(t *testing.T) {

@@ -16,11 +16,11 @@ import (
 	"github.com/shopspring/decimal"
 	"go.uber.org/atomic"
 
-	helpers "github.com/smartcontractkit/chainlink/core/scripts/common"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
-	"github.com/smartcontractkit/chainlink/core/services/vrf/proof"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	helpers "github.com/pickleyd/chainlink/core/scripts/common"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/services/vrf/proof"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func main() {

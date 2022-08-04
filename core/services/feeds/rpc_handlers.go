@@ -3,8 +3,8 @@ package feeds
 import (
 	"context"
 
+	pb "github.com/pickleyd/chainlink/core/services/feeds/proto"
 	uuid "github.com/satori/go.uuid"
-	pb "github.com/smartcontractkit/chainlink/core/services/feeds/proto"
 )
 
 // RPCHandlers define handlers for RPC method calls from the Feeds Manager

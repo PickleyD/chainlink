@@ -8,13 +8,13 @@ import (
 
 	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
 
-	"github.com/smartcontractkit/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/bridges"
 
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
-	"github.com/smartcontractkit/chainlink/core/utils"
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 

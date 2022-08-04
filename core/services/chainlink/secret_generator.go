@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/gorilla/securecookie"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // this permission grants read / write access to file owners only

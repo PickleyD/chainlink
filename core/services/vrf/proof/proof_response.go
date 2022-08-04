@@ -6,15 +6,15 @@ package proof
 import (
 	"math/big"
 
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
 
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
 
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 // ProofResponse is the data which is sent back to the VRFCoordinator, so that

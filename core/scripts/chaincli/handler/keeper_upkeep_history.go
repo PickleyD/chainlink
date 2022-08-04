@@ -18,11 +18,11 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/rpc"
 
-	registry11 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
-	registry12 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_2"
-	"github.com/smartcontractkit/chainlink/core/services/keeper"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	registry11 "github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
+	registry12 "github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_2"
+	"github.com/pickleyd/chainlink/core/services/keeper"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 const (

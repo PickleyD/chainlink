@@ -1,4 +1,4 @@
-module github.com/smartcontractkit/chainlink/integration-tests
+module github.com/pickleyd/chainlink/integration-tests
 
 go 1.18
 

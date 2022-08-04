@@ -17,8 +17,8 @@ import (
 	solanaClient "github.com/smartcontractkit/chainlink-solana/pkg/solana/client"
 	solanadb "github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/cmd"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/testutils"
 )
 
 func TestClient_SolanaSendSol(t *testing.T) {

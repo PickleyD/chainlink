@@ -3,8 +3,8 @@ package ocrbootstrap
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/testutils/configtest"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

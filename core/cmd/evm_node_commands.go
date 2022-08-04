@@ -6,9 +6,9 @@ import (
 	"github.com/urfave/cli"
 	"gopkg.in/guregu/null.v4"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // EVMNodePresenter implements TableRenderer for an EVMNodeResource.

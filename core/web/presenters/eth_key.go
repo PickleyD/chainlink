@@ -3,9 +3,9 @@ package presenters
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // ETHKeyResource represents a ETH key JSONAPI resource. It holds the hex

@@ -5,10 +5,10 @@ import (
 
 	terradb "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/chains/terra/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/chains/terra/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 // NewORM returns an ORM backed by db.

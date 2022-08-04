@@ -13,15 +13,15 @@ import (
 	"github.com/rs/zerolog/log"
 	uuid "github.com/satori/go.uuid"
 
+	networks "github.com/pickleyd/chainlink/integration-tests"
+	"github.com/pickleyd/chainlink/integration-tests/actions"
+	"github.com/pickleyd/chainlink/integration-tests/client"
+	"github.com/pickleyd/chainlink/integration-tests/contracts"
 	"github.com/smartcontractkit/chainlink-env/environment"
 	"github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
 	"github.com/smartcontractkit/chainlink-env/pkg/helm/ethereum"
 	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 	"github.com/smartcontractkit/chainlink-testing-framework/utils"
-	networks "github.com/smartcontractkit/chainlink/integration-tests"
-	"github.com/smartcontractkit/chainlink/integration-tests/actions"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink/integration-tests/contracts"
 )
 
 var _ = Describe("VRF suite @vrf", func() {

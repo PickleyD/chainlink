@@ -10,11 +10,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/cmd"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 func TestBridgePresenter_RenderTable(t *testing.T) {

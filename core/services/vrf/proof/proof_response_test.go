@@ -4,18 +4,18 @@ import (
 	"math/big"
 	"testing"
 
-	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
+	proof2 "github.com/pickleyd/chainlink/core/services/vrf/proof"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/eth/ethconfig"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/solidity_vrf_verifier_wrapper"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/solidity_vrf_verifier_wrapper"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
 	"github.com/stretchr/testify/require"
 )
 

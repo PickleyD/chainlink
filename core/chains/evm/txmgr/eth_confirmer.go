@@ -25,14 +25,14 @@ import (
 
 	"github.com/smartcontractkit/sqlx"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/gas"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/label"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/chains/evm/gas"
+	"github.com/pickleyd/chainlink/core/chains/evm/label"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 const (
@@ -1095,7 +1095,7 @@ func (ec *EthConfirmer) attemptForRebroadcast(ctx context.Context, lggr logger.L
 	}
 	return attempt, errors.Errorf("invariant violation: EthTx %v was unconfirmed but didn't have any attempts. "+
 		"Falling back to default gas price instead."+
-		"This is a bug! Please report to https://github.com/smartcontractkit/chainlink/issues", etx.ID)
+		"This is a bug! Please report to https://github.com/pickleyd/chainlink/issues", etx.ID)
 }
 
 func (ec *EthConfirmer) logFieldsPreviousAttempt(attempt EthTxAttempt) []interface{} {
@@ -1135,7 +1135,7 @@ func (ec *EthConfirmer) bumpGas(previousAttempt EthTxAttempt) (bumpedAttempt Eth
 		}
 	default:
 		err = errors.Errorf("invariant violation: Attempt %v had unrecognised transaction type %v"+
-			"This is a bug! Please report to https://github.com/smartcontractkit/chainlink/issues", previousAttempt.ID, previousAttempt.TxType)
+			"This is a bug! Please report to https://github.com/pickleyd/chainlink/issues", previousAttempt.ID, previousAttempt.TxType)
 	}
 
 	if errors.Is(errors.Cause(err), gas.ErrBumpGasExceedsLimit) {

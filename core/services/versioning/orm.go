@@ -9,8 +9,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/sqlx"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 // Version ORM manages the node_versions table

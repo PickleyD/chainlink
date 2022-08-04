@@ -10,10 +10,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/gas"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/gas/mocks"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/chains/evm/gas"
+	"github.com/pickleyd/chainlink/core/chains/evm/gas/mocks"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
 )
 
 func TestL2SuggestedEstimator(t *testing.T) {

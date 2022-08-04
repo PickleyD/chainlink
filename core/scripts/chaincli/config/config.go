@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/smartcontractkit/chainlink/core/services/keeper"
+	"github.com/pickleyd/chainlink/core/services/keeper"
 )
 
 // Config represents configuration fields

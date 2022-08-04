@@ -12,9 +12,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	medianconfig "github.com/smartcontractkit/chainlink/core/services/ocr2/plugins/median/config"
-	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
+	"github.com/pickleyd/chainlink/core/services/job"
+	medianconfig "github.com/pickleyd/chainlink/core/services/ocr2/plugins/median/config"
+	"github.com/pickleyd/chainlink/core/testutils/configtest"
 )
 
 func TestValidateOracleSpec(t *testing.T) {

@@ -8,9 +8,9 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/log/mocks"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/chains/evm/log/mocks"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
 )
 
 func Test_BatchFulfillments_AddRun(t *testing.T) {

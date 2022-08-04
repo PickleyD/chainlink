@@ -12,10 +12,10 @@ import (
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/web"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/web"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 type testCase struct {

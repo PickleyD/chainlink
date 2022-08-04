@@ -6,8 +6,8 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/pickleyd/chainlink/core/logger"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/logger"
 )
 
 type TestNodeConfig struct {

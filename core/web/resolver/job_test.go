@@ -13,13 +13,13 @@ import (
 	"github.com/stretchr/testify/mock"
 	"gopkg.in/guregu/null.v4"
 
-	clnull "github.com/smartcontractkit/chainlink/core/null"
-	"github.com/smartcontractkit/chainlink/core/services/directrequest"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
-	"github.com/smartcontractkit/chainlink/core/store/models"
-	"github.com/smartcontractkit/chainlink/core/testdata/testspecs"
-	"github.com/smartcontractkit/chainlink/core/utils/stringutils"
+	clnull "github.com/pickleyd/chainlink/core/null"
+	"github.com/pickleyd/chainlink/core/services/directrequest"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/testdata/testspecs"
+	"github.com/pickleyd/chainlink/core/utils/stringutils"
 )
 
 // This tests the main fields on the job results. Embedded spec testing is done

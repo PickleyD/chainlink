@@ -6,12 +6,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 	"github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/cmd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

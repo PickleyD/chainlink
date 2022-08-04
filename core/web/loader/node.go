@@ -5,9 +5,9 @@ import (
 
 	"github.com/graph-gophers/dataloader"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 type nodeBatcher struct {

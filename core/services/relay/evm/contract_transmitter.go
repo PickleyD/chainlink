@@ -14,9 +14,9 @@ import (
 	"github.com/smartcontractkit/libocr/offchainreporting2/chains/evmutil"
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/logpoller"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm/logpoller"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 var _ ocrtypes.ContractTransmitter = &ContractTransmitter{}

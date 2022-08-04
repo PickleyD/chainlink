@@ -5,9 +5,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/auth"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/auth"
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/cltest"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -12,10 +12,10 @@ import (
 	uuid "github.com/satori/go.uuid"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services"
-	"github.com/smartcontractkit/chainlink/core/static"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services"
+	"github.com/pickleyd/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 //go:generate mockery --name EventBroadcaster --output ./mocks/ --case=underscore

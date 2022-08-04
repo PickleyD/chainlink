@@ -1,6 +1,6 @@
 package config
 
-import "github.com/smartcontractkit/chainlink/core/chains/evm/types"
+import "github.com/pickleyd/chainlink/core/chains/evm/types"
 
 func UpdatePersistedCfg(cfg ChainScopedConfig, updateFn func(*types.ChainCfg)) {
 	c := cfg.(*chainScopedConfig)

@@ -10,7 +10,7 @@ import (
 	"github.com/getsentry/sentry-go"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/smartcontractkit/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/static"
 )
 
 const (

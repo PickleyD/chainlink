@@ -5,12 +5,12 @@ package mocks
 import (
 	context "context"
 
-	logger "github.com/smartcontractkit/chainlink/core/logger"
+	logger "github.com/pickleyd/chainlink/core/logger"
 	mock "github.com/stretchr/testify/mock"
 
-	pg "github.com/smartcontractkit/chainlink/core/services/pg"
+	pg "github.com/pickleyd/chainlink/core/services/pg"
 
-	pipeline "github.com/smartcontractkit/chainlink/core/services/pipeline"
+	pipeline "github.com/pickleyd/chainlink/core/services/pipeline"
 
 	uuid "github.com/satori/go.uuid"
 )

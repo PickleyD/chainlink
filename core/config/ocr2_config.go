@@ -5,9 +5,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/config/parse"
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/config/parse"
+	"github.com/pickleyd/chainlink/core/store/models"
 )
 
 // OCR2Config is a subset of global config relevant to OCR v2.

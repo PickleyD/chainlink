@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/getsentry/sentry-go"
+	"github.com/pickleyd/chainlink/core/logger"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/sqlx"
 	"go.uber.org/multierr"
 )

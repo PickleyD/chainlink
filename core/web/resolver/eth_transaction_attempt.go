@@ -3,8 +3,8 @@ package resolver
 import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/txmgr"
-	"github.com/smartcontractkit/chainlink/core/utils/stringutils"
+	"github.com/pickleyd/chainlink/core/chains/evm/txmgr"
+	"github.com/pickleyd/chainlink/core/utils/stringutils"
 )
 
 type EthTransactionAttemptResolver struct {

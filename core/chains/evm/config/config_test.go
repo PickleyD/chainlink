@@ -12,15 +12,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	evmconfig "github.com/smartcontractkit/chainlink/core/chains/evm/config"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	evmconfig "github.com/pickleyd/chainlink/core/chains/evm/config"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/configtest"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func TestChainScopedConfig(t *testing.T) {

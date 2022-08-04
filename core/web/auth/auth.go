@@ -8,10 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/auth"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	clsessions "github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/auth"
+	"github.com/pickleyd/chainlink/core/bridges"
+	clsessions "github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/static"
 )
 
 const (

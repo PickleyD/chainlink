@@ -6,11 +6,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/dkgsignkey"
-	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/dkgsignkey"
+	"github.com/pickleyd/chainlink/core/testutils/configtest"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 )
 
 func Test_DKGSignKeyStore_E2E(t *testing.T) {

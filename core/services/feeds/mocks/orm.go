@@ -3,10 +3,10 @@
 package mocks
 
 import (
-	feeds "github.com/smartcontractkit/chainlink/core/services/feeds"
+	feeds "github.com/pickleyd/chainlink/core/services/feeds"
 	mock "github.com/stretchr/testify/mock"
 
-	pg "github.com/smartcontractkit/chainlink/core/services/pg"
+	pg "github.com/pickleyd/chainlink/core/services/pg"
 
 	uuid "github.com/satori/go.uuid"
 )

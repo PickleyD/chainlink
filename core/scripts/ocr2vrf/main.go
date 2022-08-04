@@ -10,7 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 
-	helpers "github.com/smartcontractkit/chainlink/core/scripts/common"
+	helpers "github.com/pickleyd/chainlink/core/scripts/common"
 )
 
 type commonSetConfigArgs struct {

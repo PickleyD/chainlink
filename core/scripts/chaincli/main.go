@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/command"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/command"
 )
 
 func main() {

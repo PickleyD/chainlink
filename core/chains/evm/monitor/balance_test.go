@@ -13,13 +13,13 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/atomic"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	evmmocks "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/monitor"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/assets"
+	evmmocks "github.com/pickleyd/chainlink/core/chains/evm/mocks"
+	"github.com/pickleyd/chainlink/core/chains/evm/monitor"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 )
 
 var nilBigInt *big.Int

@@ -8,7 +8,7 @@ import (
 	"go.uber.org/zap/zaptest"
 	"go.uber.org/zap/zaptest/observer"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/config/envvar"
 )
 
 // TestLogger creates a logger that directs output to PrettyConsole configured

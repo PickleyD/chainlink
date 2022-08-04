@@ -8,12 +8,12 @@ import (
 	"github.com/stretchr/testify/require"
 	null "gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/testutils/evmtest"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm"
+	"github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/testutils/evmtest"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func TestUpdateKeySpecificMaxGasPrice_NewEntry(t *testing.T) {

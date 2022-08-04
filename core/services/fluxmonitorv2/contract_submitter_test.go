@@ -6,10 +6,10 @@ import (
 
 	"github.com/stretchr/testify/mock"
 
-	"github.com/smartcontractkit/chainlink/core/mocks"
-	"github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2"
-	fmmocks "github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2/mocks"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/mocks"
+	"github.com/pickleyd/chainlink/core/services/fluxmonitorv2"
+	fmmocks "github.com/pickleyd/chainlink/core/services/fluxmonitorv2/mocks"
+	"github.com/pickleyd/chainlink/core/testutils"
 	"github.com/stretchr/testify/assert"
 )
 

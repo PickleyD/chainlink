@@ -3,8 +3,8 @@ package web
 import (
 	"net/http"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/static"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/static"
 
 	"github.com/gin-gonic/gin"
 )

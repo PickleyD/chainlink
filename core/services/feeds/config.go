@@ -3,7 +3,7 @@ package feeds
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/store/models"
 )
 
 //go:generate mockery --name Config --output ./mocks/ --case=underscore

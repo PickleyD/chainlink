@@ -13,7 +13,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 // Go's new embed feature doesn't allow us to embed things outside of the current module.

@@ -8,12 +8,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
-	"github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	clhttptest "github.com/smartcontractkit/chainlink/core/testutils/httptest"
-	"github.com/smartcontractkit/chainlink/core/web"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/testutils"
+	clhttptest "github.com/pickleyd/chainlink/core/testutils/httptest"
+	"github.com/pickleyd/chainlink/core/web"
 
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/assert"

@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	csakey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
+	csakey "github.com/pickleyd/chainlink/core/services/keystore/keys/csakey"
 
 	mock "github.com/stretchr/testify/mock"
 )

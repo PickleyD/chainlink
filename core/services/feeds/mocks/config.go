@@ -5,7 +5,7 @@ package mocks
 import (
 	time "time"
 
-	models "github.com/smartcontractkit/chainlink/core/store/models"
+	models "github.com/pickleyd/chainlink/core/store/models"
 	mock "github.com/stretchr/testify/mock"
 )
 

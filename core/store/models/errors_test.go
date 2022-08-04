@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/store/models"
 	"github.com/stretchr/testify/require"
 )
 

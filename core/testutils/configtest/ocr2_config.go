@@ -3,7 +3,7 @@ package configtest
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/config"
 )
 
 var _ config.OCR2Config = &TestGeneralConfig{}

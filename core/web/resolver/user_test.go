@@ -6,8 +6,8 @@ import (
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/web/auth"
 )
 
 func TestResolver_UpdateUserPassword(t *testing.T) {

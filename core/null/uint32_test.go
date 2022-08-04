@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/null"
+	"github.com/pickleyd/chainlink/core/null"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

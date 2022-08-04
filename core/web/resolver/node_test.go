@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/chainlink/core/utils/stringutils"
+	"github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils/stringutils"
 )
 
 func TestResolver_Nodes(t *testing.T) {

@@ -9,10 +9,10 @@ import (
 
 	solanaClient "github.com/smartcontractkit/chainlink-solana/pkg/solana/client"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/solkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/solkey"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Config defines the monitor configuration.

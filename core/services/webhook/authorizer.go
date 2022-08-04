@@ -4,9 +4,9 @@ import (
 	"context"
 	"database/sql"
 
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/sessions"
 	uuid "github.com/satori/go.uuid"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/sessions"
 )
 
 type AuthorizerConfig interface {

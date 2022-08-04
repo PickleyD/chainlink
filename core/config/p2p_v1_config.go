@@ -10,8 +10,8 @@ import (
 	"github.com/pkg/errors"
 	ocrnetworking "github.com/smartcontractkit/libocr/networking"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/config/parse"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/config/parse"
 )
 
 // P2PV1Networking is a subset of global config relevant to p2p v1 networking.

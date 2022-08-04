@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	log "github.com/smartcontractkit/chainlink/core/chains/evm/log"
+	log "github.com/pickleyd/chainlink/core/chains/evm/log"
 	mock "github.com/stretchr/testify/mock"
 )
 

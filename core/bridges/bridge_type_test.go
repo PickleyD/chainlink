@@ -11,10 +11,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common/math"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/store/models"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

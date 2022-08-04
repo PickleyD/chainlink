@@ -5,8 +5,8 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/starkkey"
 	stark "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/keys"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/starkkey"
 )
 
 //go:generate mockery --name StarkNet --output ./mocks/ --case=underscore --filename starknet.go

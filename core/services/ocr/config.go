@@ -1,7 +1,7 @@
 package ocr
 
 import (
-	"github.com/smartcontractkit/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/job"
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 

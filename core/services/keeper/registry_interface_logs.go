@@ -4,10 +4,10 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/pickleyd/chainlink/core/chains/evm/log"
+	registry1_1 "github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
+	registry1_2 "github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_2"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/log"
-	registry1_1 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
-	registry1_2 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_2"
 )
 
 func (rw *RegistryWrapper) GetLogListenerOpts(minIncomingConfirmations uint32, upkeepPerformedFilter [][]log.Topic) (*log.ListenerOpts, error) {

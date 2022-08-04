@@ -2,10 +2,10 @@ package ocr
 
 import (
 	"github.com/ethereum/go-ethereum/common"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/flags_wrapper"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/pkg/errors"
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/flags_wrapper"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 // ContractFlags wraps the a contract

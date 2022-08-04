@@ -3,8 +3,8 @@ package configtest
 import (
 	ocrcommontypes "github.com/smartcontractkit/libocr/commontypes"
 
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/store/models"
 )
 
 var _ config.P2PV1Networking = &TestGeneralConfig{}

@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	proof2 "github.com/pickleyd/chainlink/core/services/vrf/proof"
+	"github.com/pickleyd/chainlink/core/testutils"
 
 	"github.com/ethereum/go-ethereum/eth/ethconfig"
 
@@ -18,12 +18,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.dedis.ch/kyber/v3"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/solidity_vrf_verifier_wrapper"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/solidity_vrf_verifier_wrapper"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Cross-checks of golang implementation details vs corresponding solidity

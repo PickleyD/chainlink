@@ -11,13 +11,13 @@ import (
 	"github.com/smartcontractkit/ocr2vrf/altbn_128"
 	"github.com/smartcontractkit/ocr2vrf/dkg"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	"github.com/smartcontractkit/chainlink/core/services/ocr2/plugins"
-	"github.com/smartcontractkit/chainlink/core/services/ocr2/plugins/dkg/config"
-	evmrelay "github.com/smartcontractkit/chainlink/core/services/relay/evm"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	"github.com/pickleyd/chainlink/core/services/ocr2/plugins"
+	"github.com/pickleyd/chainlink/core/services/ocr2/plugins/dkg/config"
+	evmrelay "github.com/pickleyd/chainlink/core/services/relay/evm"
 )
 
 type container struct {

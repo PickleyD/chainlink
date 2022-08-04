@@ -6,7 +6,7 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 
-	"github.com/smartcontractkit/chainlink/integration-tests/actions"
+	"github.com/pickleyd/chainlink/integration-tests/actions"
 )
 
 func Test_Suite(t *testing.T) {

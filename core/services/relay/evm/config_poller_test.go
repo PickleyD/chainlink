@@ -20,13 +20,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/logpoller"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/link_token_interface"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/chains/evm/logpoller"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/link_token_interface"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func TestConfigPoller(t *testing.T) {

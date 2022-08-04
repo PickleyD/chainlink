@@ -3,9 +3,9 @@ package starkkey
 import (
 	"testing"
 
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/utils"
 	starknet "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/keys"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 func TestStarkNetKeys_ExportImport(t *testing.T) {

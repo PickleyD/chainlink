@@ -10,8 +10,8 @@ import (
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/store/models/terra"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/store/models/terra"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 type TerraMsgPresenter struct {

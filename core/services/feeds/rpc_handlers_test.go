@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
+	"github.com/pickleyd/chainlink/core/services/feeds"
+	"github.com/pickleyd/chainlink/core/services/feeds/mocks"
+	pb "github.com/pickleyd/chainlink/core/services/feeds/proto"
 	uuid "github.com/satori/go.uuid"
-	"github.com/smartcontractkit/chainlink/core/services/feeds"
-	"github.com/smartcontractkit/chainlink/core/services/feeds/mocks"
-	pb "github.com/smartcontractkit/chainlink/core/services/feeds/proto"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )

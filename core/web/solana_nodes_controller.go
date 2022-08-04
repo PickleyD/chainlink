@@ -8,8 +8,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // ErrSolanaNotEnabled is returned when SOLANA_ENABLED is not true.

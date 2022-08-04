@@ -8,11 +8,11 @@ import (
 
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra/denom"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/terra/denom"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Config defines the monitor configuration.

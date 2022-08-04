@@ -5,9 +5,9 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/solidity_vrf_v08_verifier_wrapper"
-	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/solidity_vrf_v08_verifier_wrapper"
+	proof2 "github.com/pickleyd/chainlink/core/services/vrf/proof"
+	"github.com/pickleyd/chainlink/core/testutils"
 
 	"github.com/ethereum/go-ethereum/eth/ethconfig"
 
@@ -15,11 +15,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Note these tests are identical to the ones in vrf_solidity_crosscheck_test.go,

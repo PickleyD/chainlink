@@ -16,14 +16,14 @@ import (
 	terraclient "github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
 	terradb "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra/denom"
-	"github.com/smartcontractkit/chainlink/core/chains/terra/terratxm"
-	"github.com/smartcontractkit/chainlink/core/cmd"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/testutils/terratest"
+	"github.com/pickleyd/chainlink/core/chains/terra/denom"
+	"github.com/pickleyd/chainlink/core/chains/terra/terratxm"
+	"github.com/pickleyd/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/testutils/terratest"
 )
 
 func TestClient_SendTerraCoins(t *testing.T) {

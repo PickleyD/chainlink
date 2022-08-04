@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
 )
 
 func TestRun_Status(t *testing.T) {

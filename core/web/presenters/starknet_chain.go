@@ -5,7 +5,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/db"
 
-	starknet "github.com/smartcontractkit/chainlink/core/chains/starknet/types"
+	starknet "github.com/pickleyd/chainlink/core/chains/starknet/types"
 )
 
 // StarkNetChainResource is an StarkNet chain JSONAPI resource.

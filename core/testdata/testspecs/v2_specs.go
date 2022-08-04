@@ -8,7 +8,7 @@ import (
 
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/smartcontractkit/chainlink/core/services/webhook"
+	"github.com/pickleyd/chainlink/core/services/webhook"
 )
 
 var (

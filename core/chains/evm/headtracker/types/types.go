@@ -6,8 +6,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"go.uber.org/zap/zapcore"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/services"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/services"
 )
 
 // HeadSaver maintains chains persisted in DB. All methods are thread-safe.

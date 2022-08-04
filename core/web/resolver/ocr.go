@@ -4,8 +4,8 @@ import (
 	"github.com/graph-gophers/graphql-go"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocrkey"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ocrkey"
 )
 
 type OCRKeyBundleResolver struct {

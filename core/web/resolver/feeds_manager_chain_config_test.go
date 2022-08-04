@@ -6,8 +6,8 @@ import (
 
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/services/feeds"
-	"github.com/smartcontractkit/chainlink/core/utils/stringutils"
+	"github.com/pickleyd/chainlink/core/services/feeds"
+	"github.com/pickleyd/chainlink/core/utils/stringutils"
 	"github.com/stretchr/testify/mock"
 )
 

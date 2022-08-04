@@ -1,6 +1,6 @@
 package gas
 
-import "github.com/smartcontractkit/chainlink/core/config"
+import "github.com/pickleyd/chainlink/core/config"
 
 // chainSpecificIsUsable allows for additional logic specific to a particular
 // Config that determines whether a transaction should be used for gas estimation

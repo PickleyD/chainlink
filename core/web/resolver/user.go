@@ -3,7 +3,7 @@ package resolver
 import (
 	"github.com/graph-gophers/graphql-go"
 
-	"github.com/smartcontractkit/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/sessions"
 )
 
 type clearSessionsError struct{}

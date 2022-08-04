@@ -1,17 +1,17 @@
 <br/>
 <p align="center">
 <a href="https://chain.link" target="_blank">
-<img src="https://raw.githubusercontent.com/smartcontractkit/chainlink/develop/docs/logo-chainlink-blue.svg" width="225" alt="Chainlink logo">
+<img src="https://raw.githubusercontent.com/pickleyd/chainlink/develop/docs/logo-chainlink-blue.svg" width="225" alt="Chainlink logo">
 </a>
 </p>
 <br/>
 
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/smartcontractkit/chainlink?style=flat-square)](https://hub.docker.com/r/smartcontract/chainlink/tags)
-[![GitHub license](https://img.shields.io/github/license/smartcontractkit/chainlink?style=flat-square)](https://github.com/smartcontractkit/chainlink/blob/master/LICENSE)
-[![GitHub workflow changelog](https://img.shields.io/github/workflow/status/smartcontractkit/chainlink/Changelog?style=flat-square&label=github-actions)](https://github.com/smartcontractkit/chainlink/actions?query=workflow%3AChangelog)
-[![CircleCI build](https://img.shields.io/circleci/build/github/smartcontractkit/chainlink/master?style=flat-square&label=circleci&logo=circleci)](https://circleci.com/gh/smartcontractkit/chainlink/tree/master)
-[![GitHub contributors](https://img.shields.io/github/contributors-anon/smartcontractkit/chainlink?style=flat-square)](https://github.com/smartcontractkit/chainlink/graphs/contributors)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/smartcontractkit/chainlink?style=flat-square)](https://github.com/smartcontractkit/chainlink/commits/master)
+[![GitHub license](https://img.shields.io/github/license/smartcontractkit/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/blob/master/LICENSE)
+[![GitHub workflow changelog](https://img.shields.io/github/workflow/status/pickleyd/chainlink/Changelog?style=flat-square&label=github-actions)](https://github.com/pickleyd/chainlink/actions?query=workflow%3AChangelog)
+[![CircleCI build](https://img.shields.io/circleci/build/github/pickleyd/chainlink/master?style=flat-square&label=circleci&logo=circleci)](https://circleci.com/gh/pickleyd/chainlink/tree/master)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/smartcontractkit/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/graphs/contributors)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/smartcontractkit/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/commits/master)
 [![Official documentation](https://img.shields.io/static/v1?label=docs&message=latest&color=blue)](https://docs.chain.link/)
 
 [Chainlink](https://chain.link/) expands the capabilities of smart contracts by enabling access to real-world data and off-chain computation while maintaining the security and reliability guarantees inherent to blockchain technology.
@@ -19,7 +19,7 @@
 This repo contains the Chainlink core node, operator UI and contracts. The core node is the bundled binary available to be run by node operators participating in a [decentralized oracle network](https://link.smartcontract.com/whitepaper).
 All major release versions have pre-built docker images available for download from the [Chainlink dockerhub](https://hub.docker.com/r/smartcontract/chainlink/tags).
 If you are interested in contributing please see our [contribution guidelines](./docs/CONTRIBUTING.md).
-If you are here to report a bug or request a feature, please [check currently open Issues](https://github.com/smartcontractkit/chainlink/issues).
+If you are here to report a bug or request a feature, please [check currently open Issues](https://github.com/pickleyd/chainlink/issues).
 For more information about how to get started with Chainlink, check our [official documentation](https://docs.chain.link/).
 Resources for Solidity developers can be found in the [Chainlink Hardhat Box](https://github.com/smartcontractkit/hardhat-starter-kit).
 
@@ -46,7 +46,7 @@ regarding Chainlink social accounts, news, and networking.
    - If `yarn install` throws a network connection error, try increasing the network timeout by running `yarn install --network-timeout 150000` before this step
 7. Run the node: `chainlink help`
 
-For the latest information on setting up a development environment, see the [Development Setup Guide](https://github.com/smartcontractkit/chainlink/wiki/Development-Setup-Guide).
+For the latest information on setting up a development environment, see the [Development Setup Guide](https://github.com/pickleyd/chainlink/wiki/Development-Setup-Guide).
 
 ### Mac M1/ARM64 [EXPERIMENTAL]
 
@@ -95,7 +95,7 @@ CHAINLINK_TLS_PORT=0
 SECURE_COOKIES=false
 ```
 
-Alternatively, you can generate self signed certificates using `tools/bin/self-signed-certs` or [manually](https://github.com/smartcontractkit/chainlink/wiki/Creating-Self-Signed-Certificates).
+Alternatively, you can generate self signed certificates using `tools/bin/self-signed-certs` or [manually](https://github.com/pickleyd/chainlink/wiki/Creating-Self-Signed-Certificates).
 
 To start your Chainlink node, simply run:
 
@@ -264,7 +264,7 @@ Now you can run tests or compile code as usual.
 
 ### Tips
 
-For more tips on how to build and test Chainlink, see our [development tips page](https://github.com/smartcontractkit/chainlink/wiki/Development-Tips).
+For more tips on how to build and test Chainlink, see our [development tips page](https://github.com/pickleyd/chainlink/wiki/Development-Tips).
 
 ### Contributing
 

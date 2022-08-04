@@ -3,7 +3,7 @@ package presenters
 import (
 	"github.com/manyminds/api2go/jsonapi"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/dkgencryptkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/dkgencryptkey"
 )
 
 // DKGEncryptKeyResource is just that.

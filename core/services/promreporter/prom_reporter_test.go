@@ -6,19 +6,19 @@ import (
 	"testing"
 	"time"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/services/promreporter"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/services/promreporter"
+	"github.com/pickleyd/chainlink/core/testutils"
 
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/atomic"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/mocks"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/mocks"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func newHead() evmtypes.Head {

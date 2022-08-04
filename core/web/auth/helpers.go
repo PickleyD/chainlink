@@ -3,7 +3,7 @@ package auth
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/store/models"
 )
 
 // jsonAPIError adds an error to the gin context and sets

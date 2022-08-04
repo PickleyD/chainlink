@@ -7,6 +7,9 @@ import (
 
 	"github.com/rs/zerolog/log"
 
+	"github.com/pickleyd/chainlink/integration-tests/actions"
+	"github.com/pickleyd/chainlink/integration-tests/client"
+	"github.com/pickleyd/chainlink/integration-tests/contracts"
 	"github.com/smartcontractkit/chainlink-env/chaos"
 	"github.com/smartcontractkit/chainlink-env/environment"
 	a "github.com/smartcontractkit/chainlink-env/pkg/alias"
@@ -17,9 +20,6 @@ import (
 	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
 	"github.com/smartcontractkit/chainlink-testing-framework/utils"
-	"github.com/smartcontractkit/chainlink/integration-tests/actions"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink/integration-tests/contracts"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

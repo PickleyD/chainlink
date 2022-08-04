@@ -13,10 +13,10 @@ import (
 	"github.com/smartcontractkit/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/sqlx"
 
+	"github.com/pickleyd/chainlink/core/chains/evm"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/ocr2/plugins/dkg/config"
 	relaytypes "github.com/smartcontractkit/chainlink-relay/pkg/types"
-	"github.com/smartcontractkit/chainlink/core/chains/evm"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/ocr2/plugins/dkg/config"
 )
 
 // DKGProvider provides all components needed for a DKG plugin.

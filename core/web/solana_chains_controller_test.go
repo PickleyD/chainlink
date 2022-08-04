@@ -20,11 +20,11 @@ import (
 
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/solanatest"
-	"github.com/smartcontractkit/chainlink/core/web"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/solanatest"
+	"github.com/pickleyd/chainlink/core/web"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 func Test_SolanaChainsController_Create(t *testing.T) {

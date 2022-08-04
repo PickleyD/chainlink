@@ -2,7 +2,7 @@ package terratxm
 
 import (
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
 	"github.com/smartcontractkit/terra.go/key"
 )
 

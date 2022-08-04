@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
 )
 
 //go:embed testdata/dump/*.env

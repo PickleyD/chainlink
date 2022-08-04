@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	bm "github.com/smartcontractkit/chainlink/core/utils/big_math"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/utils"
+	bm "github.com/pickleyd/chainlink/core/utils/big_math"
 	"go.dedis.ch/kyber/v3"
 )
 

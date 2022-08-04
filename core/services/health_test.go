@@ -7,7 +7,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/smartcontractkit/chainlink/core/services"
+	"github.com/pickleyd/chainlink/core/services"
 )
 
 var ErrUnhealthy = errors.New("Unhealthy")

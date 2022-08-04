@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	logmocks "github.com/smartcontractkit/chainlink/core/chains/evm/log/mocks"
-	evmmocks "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	registry1_1 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keeper"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	logmocks "github.com/pickleyd/chainlink/core/chains/evm/log/mocks"
+	evmmocks "github.com/pickleyd/chainlink/core/chains/evm/mocks"
+	"github.com/pickleyd/chainlink/core/cltest"
+	registry1_1 "github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keeper"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 var registryConfig1_1 = registry1_1.GetConfig{

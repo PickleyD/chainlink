@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/pickleyd/chainlink/core/null"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/null"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 type KeeperIndexMap map[ethkey.EIP55Address]int32

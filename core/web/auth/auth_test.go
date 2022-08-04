@@ -10,12 +10,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/auth"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/web"
-	webauth "github.com/smartcontractkit/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/auth"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/web"
+	webauth "github.com/pickleyd/chainlink/core/web/auth"
 )
 
 func authError(*gin.Context, webauth.Authenticator) error {

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/services/feeds"
-	"github.com/smartcontractkit/chainlink/core/utils/crypto"
+	"github.com/pickleyd/chainlink/core/services/feeds"
+	"github.com/pickleyd/chainlink/core/utils/crypto"
 )
 
 func Test_FeedsManagers(t *testing.T) {

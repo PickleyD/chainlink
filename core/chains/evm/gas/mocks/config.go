@@ -5,7 +5,7 @@ package mocks
 import (
 	big "math/big"
 
-	config "github.com/smartcontractkit/chainlink/core/config"
+	config "github.com/pickleyd/chainlink/core/config"
 
 	mock "github.com/stretchr/testify/mock"
 )

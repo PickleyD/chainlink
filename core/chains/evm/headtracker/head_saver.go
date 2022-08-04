@@ -5,9 +5,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	httypes "github.com/smartcontractkit/chainlink/core/chains/evm/headtracker/types"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	httypes "github.com/pickleyd/chainlink/core/chains/evm/headtracker/types"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 type headSaver struct {

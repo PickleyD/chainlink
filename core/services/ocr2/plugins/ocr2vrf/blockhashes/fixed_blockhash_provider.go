@@ -11,8 +11,8 @@ import (
 	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/smartcontractkit/ocr2vrf/types"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/chains/evm/client"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
 )
 
 // fixedBlockhashProvider returns blockhashes with fixed-sized windows relative to current block height

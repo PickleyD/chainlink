@@ -17,8 +17,8 @@ import (
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 	"golang.org/x/crypto/curve25519"
 
-	"github.com/smartcontractkit/chainlink/core/store/models"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 type (

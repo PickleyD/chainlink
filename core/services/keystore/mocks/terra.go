@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	terrakey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
+	terrakey "github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
 	mock "github.com/stretchr/testify/mock"
 )
 

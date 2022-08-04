@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	telem "github.com/smartcontractkit/chainlink/core/services/synchronization/telem"
+	telem "github.com/pickleyd/chainlink/core/services/synchronization/telem"
 	mock "github.com/stretchr/testify/mock"
 )
 

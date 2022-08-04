@@ -12,9 +12,9 @@ import (
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils"
 )
 
 func standardHandler(method string, params gjson.Result) (string, string) {

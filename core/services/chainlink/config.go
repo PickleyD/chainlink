@@ -10,12 +10,12 @@ import (
 	tercfg "github.com/smartcontractkit/chainlink-terra/pkg/terra/config"
 	terdb "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	evmcfg "github.com/smartcontractkit/chainlink/core/chains/evm/config/v2"
-	evmtyp "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/chains/solana"
-	tertyp "github.com/smartcontractkit/chainlink/core/chains/terra/types"
-	config "github.com/smartcontractkit/chainlink/core/config/v2"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	evmcfg "github.com/pickleyd/chainlink/core/chains/evm/config/v2"
+	evmtyp "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/chains/solana"
+	tertyp "github.com/pickleyd/chainlink/core/chains/terra/types"
+	config "github.com/pickleyd/chainlink/core/config/v2"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Config is the root type used for TOML configuration.

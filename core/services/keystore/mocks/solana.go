@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	solkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/solkey"
+	solkey "github.com/pickleyd/chainlink/core/services/keystore/keys/solkey"
 	mock "github.com/stretchr/testify/mock"
 )
 

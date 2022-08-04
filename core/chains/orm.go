@@ -9,7 +9,7 @@ import (
 	"github.com/lib/pq"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 type ChainsORM[I ID, CFG Config, C DBChain[I, CFG]] interface {

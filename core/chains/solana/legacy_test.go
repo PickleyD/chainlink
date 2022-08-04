@@ -8,10 +8,10 @@ import (
 
 	solanadb "github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains/solana"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/chains/solana"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 )
 
 func TestSetupNodes(t *testing.T) {

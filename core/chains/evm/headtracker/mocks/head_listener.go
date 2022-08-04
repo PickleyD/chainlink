@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	types "github.com/smartcontractkit/chainlink/core/chains/evm/headtracker/types"
+	types "github.com/pickleyd/chainlink/core/chains/evm/headtracker/types"
 	mock "github.com/stretchr/testify/mock"
 )
 

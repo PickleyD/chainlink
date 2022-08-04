@@ -8,9 +8,9 @@ import (
 	"github.com/graph-gophers/graphql-go"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/utils/stringutils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/utils/stringutils"
 )
 
 const (

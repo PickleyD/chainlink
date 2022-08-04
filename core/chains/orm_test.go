@@ -8,8 +8,8 @@ import (
 	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 type Config struct {

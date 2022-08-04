@@ -19,11 +19,11 @@ import (
 
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/terratest"
-	"github.com/smartcontractkit/chainlink/core/web"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/terratest"
+	"github.com/pickleyd/chainlink/core/web"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 func Test_TerraChainsController_Create(t *testing.T) {

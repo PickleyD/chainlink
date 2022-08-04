@@ -3,7 +3,7 @@ package utils_test
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/stretchr/testify/require"
 )
 

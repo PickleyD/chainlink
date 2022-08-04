@@ -12,11 +12,11 @@ import (
 	"github.com/smartcontractkit/wsrpc/examples/simple/keys"
 	"go.uber.org/atomic"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services"
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	telemPb "github.com/smartcontractkit/chainlink/core/services/synchronization/telem"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	telemPb "github.com/pickleyd/chainlink/core/services/synchronization/telem"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 //go:generate mockery --dir ./telem --name TelemClient --output ./mocks/ --case=underscore

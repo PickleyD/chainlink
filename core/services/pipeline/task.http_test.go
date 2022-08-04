@@ -15,14 +15,14 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	clhttptest "github.com/smartcontractkit/chainlink/core/testutils/httptest"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	clhttp "github.com/smartcontractkit/chainlink/core/utils/http"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/testutils"
+	clhttptest "github.com/pickleyd/chainlink/core/testutils/httptest"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/utils"
+	clhttp "github.com/pickleyd/chainlink/core/utils/http"
 )
 
 // ethUSDPairing has the ETH/USD parameters needed when POSTing to the price

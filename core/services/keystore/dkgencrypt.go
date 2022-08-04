@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/dkgencryptkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/dkgencryptkey"
 )
 
 //go:generate mockery --name DKGEncrypt --output mocks/ --case=underscore

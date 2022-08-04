@@ -11,9 +11,9 @@ import (
 	"github.com/shopspring/decimal"
 	"github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/cmd"
-	helpers "github.com/smartcontractkit/chainlink/core/scripts/common"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/cmd"
+	helpers "github.com/pickleyd/chainlink/core/scripts/common"
 )
 
 type jobType string

@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
+	"github.com/pickleyd/chainlink/core/services/keystore/chaintype"
 )
 
 type (

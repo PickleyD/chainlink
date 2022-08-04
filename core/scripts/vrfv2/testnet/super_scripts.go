@@ -12,10 +12,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/shopspring/decimal"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/link_token_interface"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
-	helpers "github.com/smartcontractkit/chainlink/core/scripts/common"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/link_token_interface"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
+	helpers "github.com/pickleyd/chainlink/core/scripts/common"
 )
 
 func deployUniverse(e helpers.Environment) {

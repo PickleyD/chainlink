@@ -9,7 +9,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/cmd"
 )
 
 func TestClient_SolanaInit(t *testing.T) {

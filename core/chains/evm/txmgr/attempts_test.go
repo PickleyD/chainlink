@@ -10,14 +10,14 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/gas"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/txmgr"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	ksmocks "github.com/smartcontractkit/chainlink/core/services/keystore/mocks"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	"github.com/smartcontractkit/chainlink/core/testutils/configtest"
-	"github.com/smartcontractkit/chainlink/core/testutils/evmtest"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/chains/evm/gas"
+	"github.com/pickleyd/chainlink/core/chains/evm/txmgr"
+	"github.com/pickleyd/chainlink/core/cltest"
+	ksmocks "github.com/pickleyd/chainlink/core/services/keystore/mocks"
+	"github.com/pickleyd/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/testutils/configtest"
+	"github.com/pickleyd/chainlink/core/testutils/evmtest"
 )
 
 func TestTxm_NewDynamicFeeTx(t *testing.T) {

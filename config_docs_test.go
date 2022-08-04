@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/smartcontractkit/chainlink/internal/config"
+	"github.com/pickleyd/chainlink/internal/config"
 )
 
 //go:embed docs/CONFIG.md

@@ -12,8 +12,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/sqlx"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 // Tries to send transactions in batches. Even if some batch(es) fail to get sent, it tries all remaining batches,

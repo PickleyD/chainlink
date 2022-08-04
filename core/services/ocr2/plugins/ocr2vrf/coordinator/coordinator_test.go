@@ -19,14 +19,14 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/logpoller"
-	lp_mocks "github.com/smartcontractkit/chainlink/core/chains/evm/logpoller/mocks"
-	evm_mocks "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	dkg_wrapper "github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/dkg"
-	vrf_wrapper "github.com/smartcontractkit/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_coordinator"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/ocr2/plugins/ocr2vrf/coordinator/mocks"
+	"github.com/pickleyd/chainlink/core/chains/evm/logpoller"
+	lp_mocks "github.com/pickleyd/chainlink/core/chains/evm/logpoller/mocks"
+	evm_mocks "github.com/pickleyd/chainlink/core/chains/evm/mocks"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	dkg_wrapper "github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/dkg"
+	vrf_wrapper "github.com/pickleyd/chainlink/core/gethwrappers/ocr2vrf/generated/vrf_beacon_coordinator"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/ocr2/plugins/ocr2vrf/coordinator/mocks"
 )
 
 func TestCoordinator_BeaconPeriod(t *testing.T) {

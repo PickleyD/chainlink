@@ -3,8 +3,8 @@ package types
 import (
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 // ORM manages terra chains and nodes.

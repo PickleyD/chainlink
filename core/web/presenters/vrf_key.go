@@ -1,8 +1,8 @@
 package presenters
 
 import (
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
 )
 
 type VRFKeyResource struct {

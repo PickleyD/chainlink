@@ -5,7 +5,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains/solana"
+	"github.com/pickleyd/chainlink/core/chains/solana"
 )
 
 // SolanaChainResource is an Solana chain JSONAPI resource.

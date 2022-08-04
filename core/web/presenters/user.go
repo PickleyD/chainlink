@@ -3,7 +3,7 @@ package presenters
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/sessions"
 )
 
 // UserResource represents a User JSONAPI resource.

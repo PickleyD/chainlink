@@ -11,12 +11,12 @@ import (
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra"
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
-	"github.com/smartcontractkit/chainlink/core/chains/terra/types"
-	coreconfig "github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/chains/terra/types"
+	coreconfig "github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 var (

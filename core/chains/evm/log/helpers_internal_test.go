@@ -2,9 +2,9 @@ package log
 
 import (
 	"github.com/ethereum/go-ethereum/core/types"
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 // NewTestBroadcaster creates a broadcaster with Pause/Resume enabled.

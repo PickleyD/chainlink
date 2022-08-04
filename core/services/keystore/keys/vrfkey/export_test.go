@@ -3,7 +3,7 @@ package vrfkey
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
 )
 
 func TestVRFKeys_ExportImport(t *testing.T) {

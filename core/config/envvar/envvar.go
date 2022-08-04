@@ -10,7 +10,7 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/smartcontractkit/chainlink/core/config/parse"
+	"github.com/pickleyd/chainlink/core/config/parse"
 )
 
 //nolint

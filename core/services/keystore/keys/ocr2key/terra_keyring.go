@@ -11,7 +11,7 @@ import (
 	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
 	"golang.org/x/crypto/blake2s"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 var _ ocrtypes.OnchainKeyring = &terraKeyring{}

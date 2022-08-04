@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/cltest"
 	"gopkg.in/guregu/null.v4"
 )
 

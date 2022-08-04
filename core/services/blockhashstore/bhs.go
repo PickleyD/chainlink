@@ -11,9 +11,9 @@ import (
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/txmgr"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/blockhash_store"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	"github.com/pickleyd/chainlink/core/chains/evm/txmgr"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/blockhash_store"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 var _ BHS = &BulletproofBHS{}

@@ -3,8 +3,8 @@ package configtest
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
 )
 
 var _ config.OCR1Config = &TestGeneralConfig{}

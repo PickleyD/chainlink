@@ -6,7 +6,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // SolanaChainPresenter implements TableRenderer for a SolanaChainResource

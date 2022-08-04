@@ -9,9 +9,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	clsessions "github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	clsessions "github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/web/auth"
 )
 
 // SessionsController manages session requests.

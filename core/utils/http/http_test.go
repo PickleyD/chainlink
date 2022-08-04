@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/utils/http"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/utils/http"
 	"github.com/stretchr/testify/assert"
 )
 

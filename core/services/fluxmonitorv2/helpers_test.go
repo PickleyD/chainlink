@@ -3,9 +3,9 @@ package fluxmonitorv2
 import (
 	"fmt"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/log"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/flux_aggregator_wrapper"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm/log"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/flux_aggregator_wrapper"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // Format implements fmt.Formatter to always print just the pointer address.

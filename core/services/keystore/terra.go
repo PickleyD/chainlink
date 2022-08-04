@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
 )
 
 //go:generate mockery --name Terra --output ./mocks/ --case=underscore --filename terra.go

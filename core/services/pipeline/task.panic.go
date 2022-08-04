@@ -3,7 +3,7 @@ package pipeline
 import (
 	"context"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 type PanicTask struct {

@@ -8,11 +8,11 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/utils"
+	bm "github.com/pickleyd/chainlink/core/utils/big_math"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	bm "github.com/smartcontractkit/chainlink/core/utils/big_math"
 	"go.dedis.ch/kyber/v3"
 )
 

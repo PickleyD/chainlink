@@ -10,7 +10,7 @@ import (
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/chains"
 )
 
 // nodeCommand returns a cli.Command with subcommands for the given NodeClient.

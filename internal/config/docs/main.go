@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/smartcontractkit/chainlink/internal/config"
+	"github.com/pickleyd/chainlink/internal/config"
 )
 
 func main() {

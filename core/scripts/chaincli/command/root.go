@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/command/feed"
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/command/keeper"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/command/feed"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/command/keeper"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

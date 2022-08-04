@@ -7,7 +7,7 @@ import (
 	"github.com/pkg/errors"
 	mapper "github.com/scylladb/go-reflectx"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 	"github.com/smartcontractkit/sqlx"
 )
 

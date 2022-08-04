@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/dkgencryptkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/dkgsignkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocr2key"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/solkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/dkgencryptkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/dkgsignkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ocr2key"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/solkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
 
 	gethkeystore "github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/pkg/errors"
@@ -17,13 +17,13 @@ import (
 
 	starkkey "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/keys"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocrkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/csakey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ocrkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/p2pkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 type encryptedKeyRing struct {

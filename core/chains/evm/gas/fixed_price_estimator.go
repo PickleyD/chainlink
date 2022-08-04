@@ -6,8 +6,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 var _ Estimator = &fixedPriceEstimator{}

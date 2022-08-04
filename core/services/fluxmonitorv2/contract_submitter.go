@@ -5,9 +5,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/flux_aggregator_wrapper"
-	"github.com/smartcontractkit/chainlink/core/services/pg"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/flux_aggregator_wrapper"
+	"github.com/pickleyd/chainlink/core/services/pg"
 )
 
 //go:generate mockery --name ContractSubmitter --output ./mocks/ --case=underscore

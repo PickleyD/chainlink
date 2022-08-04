@@ -13,9 +13,9 @@ import (
 	"go.uber.org/multierr"
 	"gopkg.in/guregu/null.v4"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 //go:generate mockery --name PrometheusBackend --output ../../internal/mocks/ --case=underscore

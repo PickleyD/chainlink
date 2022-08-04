@@ -3,7 +3,7 @@ package dkgsignkey
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
 )
 
 func TestDKGSignKeys_ExportImport(t *testing.T) {

@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/services/keystore/chaintype"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
 )
 
 // OCRKeysController manages OCR key bundles

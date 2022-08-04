@@ -5,8 +5,8 @@ import (
 
 	"github.com/ethereum/go-ethereum"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 var _ ethereum.Subscription = &chainIDSubForwarder{}

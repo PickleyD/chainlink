@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	clhttptest "github.com/smartcontractkit/chainlink/core/testutils/httptest"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/testutils"
+	clhttptest "github.com/pickleyd/chainlink/core/testutils/httptest"
 
 	"github.com/stretchr/testify/require"
 )

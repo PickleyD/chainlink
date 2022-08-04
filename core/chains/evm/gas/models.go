@@ -14,12 +14,12 @@ import (
 	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/label"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/config"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	bigmath "github.com/smartcontractkit/chainlink/core/utils/big_math"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/chains/evm/label"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/config"
+	"github.com/pickleyd/chainlink/core/logger"
+	bigmath "github.com/pickleyd/chainlink/core/utils/big_math"
 )
 
 var (

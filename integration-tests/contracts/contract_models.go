@@ -11,8 +11,8 @@ import (
 	ocrConfigHelper "github.com/smartcontractkit/libocr/offchainreporting/confighelper"
 	ocrConfigHelper2 "github.com/smartcontractkit/libocr/offchainreporting2/confighelper"
 
+	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
 )
 
 type FluxAggregatorOptions struct {

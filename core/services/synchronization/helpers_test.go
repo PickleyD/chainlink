@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	telemPb "github.com/smartcontractkit/chainlink/core/services/synchronization/telem"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	telemPb "github.com/pickleyd/chainlink/core/services/synchronization/telem"
 )
 
 // NewTestTelemetryIngressClient calls NewTelemetryIngressClient and injects telemClient.

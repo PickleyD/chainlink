@@ -10,11 +10,11 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	clsessions "github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/sessions/mocks"
-	"github.com/smartcontractkit/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/logger"
+	clsessions "github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/sessions/mocks"
+	"github.com/pickleyd/chainlink/core/web/auth"
 )
 
 func Test_AuthenticateGQL_Unauthenticated(t *testing.T) {

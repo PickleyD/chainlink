@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 type chainScopedConfigORM struct {

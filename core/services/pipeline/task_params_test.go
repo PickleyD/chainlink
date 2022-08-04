@@ -13,8 +13,8 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline/mocks"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
+	"github.com/pickleyd/chainlink/core/services/pipeline/mocks"
 )
 
 func TestStringParam_UnmarshalPipelineParam(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/vrfkey"
 )
 
 //go:generate mockery --name VRF --output ./mocks/ --case=underscore --filename vrf.go

@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/synchronization"
-	"github.com/smartcontractkit/chainlink/core/services/synchronization/mocks"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/synchronization"
+	"github.com/pickleyd/chainlink/core/services/synchronization/mocks"
 	"github.com/stretchr/testify/assert"
 )
 

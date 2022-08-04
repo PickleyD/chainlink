@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/utils"
 	"github.com/smartcontractkit/sqlx"
 	"go.uber.org/multierr"
 )

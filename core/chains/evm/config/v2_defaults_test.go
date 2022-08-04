@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/config"
-	v2 "github.com/smartcontractkit/chainlink/core/chains/evm/config/v2"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/chains/evm/config"
+	v2 "github.com/pickleyd/chainlink/core/chains/evm/config/v2"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 func Test_v2Config_SetDefaults(t *testing.T) {

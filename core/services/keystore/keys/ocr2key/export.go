@@ -5,10 +5,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 
+	"github.com/pickleyd/chainlink/core/services/keystore/chaintype"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/utils"
 	starknet "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/keys"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 const keyTypeIdentifier = "OCR2"

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra/types"
-	"github.com/smartcontractkit/chainlink/core/cmd"
+	"github.com/pickleyd/chainlink/core/chains/terra/types"
+	"github.com/pickleyd/chainlink/core/cmd"
 )
 
 func TestClient_TerraInit(t *testing.T) {

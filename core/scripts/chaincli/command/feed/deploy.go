@@ -3,8 +3,8 @@ package feed
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/config"
-	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/handler"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/config"
+	"github.com/pickleyd/chainlink/core/scripts/chaincli/handler"
 )
 
 // deployCmd represents the command to run the service.

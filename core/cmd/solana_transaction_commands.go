@@ -11,8 +11,8 @@ import (
 	"github.com/urfave/cli"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/store/models/solana"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/store/models/solana"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 type SolanaMsgPresenter struct {

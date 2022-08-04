@@ -5,11 +5,11 @@ import (
 	"sync"
 	"time"
 
+	"github.com/pickleyd/chainlink/core/chains/evm/log"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/utils"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/chains/evm/log"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 // RegistrySynchronizer conforms to the Service and Listener interfaces

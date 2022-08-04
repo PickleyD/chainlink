@@ -3,9 +3,9 @@ package starkkey
 import (
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 
+	"github.com/pickleyd/chainlink/core/services/keystore/keys"
+	"github.com/pickleyd/chainlink/core/utils"
 	stark "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/keys"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys"
-	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 const keyTypeIdentifier = "StarkNet"

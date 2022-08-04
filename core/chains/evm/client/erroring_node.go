@@ -4,7 +4,7 @@ import (
 	"context"
 	"math/big"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
 
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"

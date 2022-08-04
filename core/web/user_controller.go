@@ -8,12 +8,12 @@ import (
 	"github.com/jackc/pgconn"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/auth"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	clsession "github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	webauth "github.com/smartcontractkit/chainlink/core/web/auth"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/auth"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	clsession "github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/utils"
+	webauth "github.com/pickleyd/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // UserController manages the current Session's User.

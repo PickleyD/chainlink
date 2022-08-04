@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	utilsmocks "github.com/smartcontractkit/chainlink/core/utils/mocks"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/utils"
+	utilsmocks "github.com/pickleyd/chainlink/core/utils/mocks"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

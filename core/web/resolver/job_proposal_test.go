@@ -7,7 +7,7 @@ import (
 
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/smartcontractkit/chainlink/core/services/feeds"
+	"github.com/pickleyd/chainlink/core/services/feeds"
 )
 
 func TestResolver_GetJobProposal(t *testing.T) {

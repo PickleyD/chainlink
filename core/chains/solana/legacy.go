@@ -10,7 +10,7 @@ import (
 
 	solanadb "github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 type SetupConfig interface {

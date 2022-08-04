@@ -10,7 +10,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/assets"
 )
 
 func TestAssets_NewLinkAndString(t *testing.T) {

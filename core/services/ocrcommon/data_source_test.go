@@ -3,12 +3,12 @@ package ocrcommon_test
 import (
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/chainlink/core/services/ocrcommon"
-	"github.com/smartcontractkit/chainlink/core/services/pipeline"
-	pipelinemocks "github.com/smartcontractkit/chainlink/core/services/pipeline/mocks"
-	"github.com/smartcontractkit/chainlink/core/testutils"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/job"
+	"github.com/pickleyd/chainlink/core/services/ocrcommon"
+	"github.com/pickleyd/chainlink/core/services/pipeline"
+	pipelinemocks "github.com/pickleyd/chainlink/core/services/pipeline/mocks"
+	"github.com/pickleyd/chainlink/core/testutils"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

@@ -11,8 +11,8 @@ import (
 
 	starknet "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/keys"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/services/keystore/chaintype"
+	"github.com/pickleyd/chainlink/core/store/models"
 )
 
 //nolint

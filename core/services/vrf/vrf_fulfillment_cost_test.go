@@ -4,12 +4,12 @@ import (
 	"math/big"
 	"testing"
 
-	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
+	proof2 "github.com/pickleyd/chainlink/core/services/vrf/proof"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/cltest"
 )
 
 // TestMeasureFulfillmentGasCost establishes rough bounds on the cost of

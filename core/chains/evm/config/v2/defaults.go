@@ -10,7 +10,7 @@ import (
 	"github.com/pelletier/go-toml/v2"
 	"golang.org/x/exp/slices"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 var (

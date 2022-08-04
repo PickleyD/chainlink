@@ -5,40 +5,40 @@ package mocks
 import (
 	big "math/big"
 
-	bridges "github.com/smartcontractkit/chainlink/core/bridges"
-	chainlink "github.com/smartcontractkit/chainlink/core/services/chainlink"
+	bridges "github.com/pickleyd/chainlink/core/bridges"
+	chainlink "github.com/pickleyd/chainlink/core/services/chainlink"
 
-	config "github.com/smartcontractkit/chainlink/core/config"
+	config "github.com/pickleyd/chainlink/core/config"
 
 	context "context"
 
-	feeds "github.com/smartcontractkit/chainlink/core/services/feeds"
+	feeds "github.com/pickleyd/chainlink/core/services/feeds"
 
-	job "github.com/smartcontractkit/chainlink/core/services/job"
+	job "github.com/pickleyd/chainlink/core/services/job"
 
-	keystore "github.com/smartcontractkit/chainlink/core/services/keystore"
+	keystore "github.com/pickleyd/chainlink/core/services/keystore"
 
-	logger "github.com/smartcontractkit/chainlink/core/logger"
+	logger "github.com/pickleyd/chainlink/core/logger"
 
 	mock "github.com/stretchr/testify/mock"
 
-	pg "github.com/smartcontractkit/chainlink/core/services/pg"
+	pg "github.com/pickleyd/chainlink/core/services/pg"
 
-	pipeline "github.com/smartcontractkit/chainlink/core/services/pipeline"
+	pipeline "github.com/pickleyd/chainlink/core/services/pipeline"
 
-	services "github.com/smartcontractkit/chainlink/core/services"
+	services "github.com/pickleyd/chainlink/core/services"
 
-	sessions "github.com/smartcontractkit/chainlink/core/sessions"
+	sessions "github.com/pickleyd/chainlink/core/sessions"
 
 	sqlx "github.com/smartcontractkit/sqlx"
 
-	txmgr "github.com/smartcontractkit/chainlink/core/chains/evm/txmgr"
+	txmgr "github.com/pickleyd/chainlink/core/chains/evm/txmgr"
 
-	types "github.com/smartcontractkit/chainlink/core/chains/evm/types"
+	types "github.com/pickleyd/chainlink/core/chains/evm/types"
 
 	uuid "github.com/satori/go.uuid"
 
-	webhook "github.com/smartcontractkit/chainlink/core/services/webhook"
+	webhook "github.com/pickleyd/chainlink/core/services/webhook"
 
 	zapcore "go.uber.org/zap/zapcore"
 )

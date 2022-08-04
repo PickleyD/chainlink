@@ -7,8 +7,8 @@ import (
 	"github.com/pkg/errors"
 	clipkg "github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/services/keystore"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 var (

@@ -12,9 +12,9 @@ import (
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 	"github.com/smartcontractkit/sqlx"
 
-	"github.com/smartcontractkit/chainlink/core/chains/solana"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/chains/solana"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 )
 
 func setupORM(t *testing.T) (*sqlx.DB, solana.ORM) {

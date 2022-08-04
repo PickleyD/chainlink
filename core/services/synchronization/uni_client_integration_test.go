@@ -9,8 +9,8 @@ import (
 	"github.com/smartcontractkit/wsrpc"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/services/synchronization/telem"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/services/synchronization/telem"
 )
 
 func TestUniClient(t *testing.T) {

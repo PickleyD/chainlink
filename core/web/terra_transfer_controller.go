@@ -10,11 +10,11 @@ import (
 
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra"
-	"github.com/smartcontractkit/chainlink/core/chains/terra/denom"
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	terramodels "github.com/smartcontractkit/chainlink/core/store/models/terra"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/chains/terra"
+	"github.com/pickleyd/chainlink/core/chains/terra/denom"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	terramodels "github.com/pickleyd/chainlink/core/store/models/terra"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // maxGasUsedTransfer is an upper bound on how much gas we expect a MsgSend for a single coin to use.

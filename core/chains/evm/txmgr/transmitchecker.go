@@ -9,12 +9,12 @@ import (
 	gethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/pkg/errors"
 
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	v1 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/solidity_vrf_coordinator_interface"
-	v2 "github.com/smartcontractkit/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	bigmath "github.com/smartcontractkit/chainlink/core/utils/big_math"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	v1 "github.com/pickleyd/chainlink/core/gethwrappers/generated/solidity_vrf_coordinator_interface"
+	v2 "github.com/pickleyd/chainlink/core/gethwrappers/generated/vrf_coordinator_v2"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/utils"
+	bigmath "github.com/pickleyd/chainlink/core/utils/big_math"
 )
 
 var (

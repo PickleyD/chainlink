@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/solkey"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/solkey"
+	"github.com/pickleyd/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 type SolanaKeyPresenter struct {

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"strconv"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // EVMChainPresenter implements TableRenderer for an EVMChainResource.

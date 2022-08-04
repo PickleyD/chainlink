@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/smartcontractkit/chainlink/core/sessions"
-	"github.com/smartcontractkit/chainlink/core/web/auth"
+	"github.com/pickleyd/chainlink/core/sessions"
+	"github.com/pickleyd/chainlink/core/web/auth"
 )
 
 // Authenticates the user from the session cookie, presence of user inherently provides 'view' access.

@@ -8,13 +8,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/chains/terra"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 
 	. "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	. "github.com/smartcontractkit/chainlink/core/chains/terra/terratxm"
+	. "github.com/pickleyd/chainlink/core/chains/terra/terratxm"
 )
 
 func TestORM(t *testing.T) {

@@ -3,8 +3,8 @@ package web
 import (
 	"math/big"
 
+	"github.com/pickleyd/chainlink/core/chains/evm"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/chains/evm"
 )
 
 var (

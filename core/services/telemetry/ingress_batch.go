@@ -3,7 +3,7 @@ package telemetry
 import (
 	"context"
 
-	"github.com/smartcontractkit/chainlink/core/services/synchronization"
+	"github.com/pickleyd/chainlink/core/services/synchronization"
 	ocrtypes "github.com/smartcontractkit/libocr/commontypes"
 )
 

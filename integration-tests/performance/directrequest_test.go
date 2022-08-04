@@ -8,6 +8,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/pickleyd/chainlink/integration-tests/actions"
+	"github.com/pickleyd/chainlink/integration-tests/client"
+	"github.com/pickleyd/chainlink/integration-tests/contracts"
+	"github.com/pickleyd/chainlink/integration-tests/testsetups"
 	"github.com/smartcontractkit/chainlink-env/environment"
 	"github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
 	"github.com/smartcontractkit/chainlink-env/pkg/helm/ethereum"
@@ -16,10 +20,6 @@ import (
 	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
 	"github.com/smartcontractkit/chainlink-testing-framework/utils"
-	"github.com/smartcontractkit/chainlink/integration-tests/actions"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink/integration-tests/contracts"
-	"github.com/smartcontractkit/chainlink/integration-tests/testsetups"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

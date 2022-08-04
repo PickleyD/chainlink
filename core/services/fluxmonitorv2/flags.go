@@ -5,10 +5,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/flags_wrapper"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	evmclient "github.com/pickleyd/chainlink/core/chains/evm/client"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/flags_wrapper"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 //go:generate mockery --name Flags --output ./mocks/ --case=underscore --structname Flags --filename flags.go

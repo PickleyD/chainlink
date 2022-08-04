@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/manyminds/api2go/jsonapi"
 
-	"github.com/smartcontractkit/chainlink/core/chains"
+	"github.com/pickleyd/chainlink/core/chains"
 )
 
 type NodesController interface {

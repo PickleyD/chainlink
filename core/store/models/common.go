@@ -14,8 +14,8 @@ import (
 	"github.com/robfig/cron/v3"
 	"github.com/tidwall/gjson"
 
-	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/assets"
+	"github.com/pickleyd/chainlink/core/utils"
 )
 
 // CronParser is the global parser for crontabs.

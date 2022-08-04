@@ -7,9 +7,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/recovery"
-	pb "github.com/smartcontractkit/chainlink/core/services/feeds/proto"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/recovery"
+	pb "github.com/pickleyd/chainlink/core/services/feeds/proto"
 	"github.com/smartcontractkit/wsrpc"
 	"github.com/smartcontractkit/wsrpc/connectivity"
 )

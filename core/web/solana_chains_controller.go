@@ -3,8 +3,8 @@ package web
 import (
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 func NewSolanaChainsController(app chainlink.Application) ChainsController {

@@ -7,8 +7,8 @@ import (
 
 	ocrnetworking "github.com/smartcontractkit/libocr/networking"
 
-	"github.com/smartcontractkit/chainlink/core/config/envvar"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
+	"github.com/pickleyd/chainlink/core/config/envvar"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/p2pkey"
 )
 
 // P2PNetworking is a subset of global config relevant to p2p networking.

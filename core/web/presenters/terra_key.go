@@ -1,7 +1,7 @@
 package presenters
 
 import (
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
 )
 
 // TerraKeyResource represents a Terra key JSONAPI resource.

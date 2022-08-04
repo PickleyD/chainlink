@@ -10,7 +10,7 @@ import (
 
 	terradb "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 type SetupConfig interface {

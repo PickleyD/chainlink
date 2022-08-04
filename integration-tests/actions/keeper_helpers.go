@@ -10,10 +10,10 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/rs/zerolog/log"
 
+	"github.com/pickleyd/chainlink/integration-tests/client"
+	"github.com/pickleyd/chainlink/integration-tests/contracts"
 	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink/integration-tests/contracts"
 )
 
 var ZeroAddress = common.Address{}

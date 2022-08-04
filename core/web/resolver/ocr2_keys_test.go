@@ -7,10 +7,10 @@ import (
 	"testing"
 
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
+	"github.com/pickleyd/chainlink/core/services/keystore/chaintype"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/ocr2key"
+	"github.com/pickleyd/chainlink/core/testutils/keystest"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocr2key"
-	"github.com/smartcontractkit/chainlink/core/testutils/keystest"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

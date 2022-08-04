@@ -10,7 +10,7 @@ import (
 
 	starknetdb "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/db"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 type SetupConfig interface {

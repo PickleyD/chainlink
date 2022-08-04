@@ -1,9 +1,9 @@
 package web
 
 import (
-	"github.com/smartcontractkit/chainlink/core/services/chainlink"
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/services/chainlink"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/terrakey"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 func NewTerraKeysController(app chainlink.Application) KeysController {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra/types"
+	"github.com/pickleyd/chainlink/core/chains/terra/types"
 )
 
 // TerraChainResource is an Terra chain JSONAPI resource.

@@ -5,14 +5,14 @@ package mocks
 import (
 	context "context"
 
-	job "github.com/smartcontractkit/chainlink/core/services/job"
-	ethkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
+	job "github.com/pickleyd/chainlink/core/services/job"
+	ethkey "github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
 
 	mock "github.com/stretchr/testify/mock"
 
-	pg "github.com/smartcontractkit/chainlink/core/services/pg"
+	pg "github.com/pickleyd/chainlink/core/services/pg"
 
-	pipeline "github.com/smartcontractkit/chainlink/core/services/pipeline"
+	pipeline "github.com/pickleyd/chainlink/core/services/pipeline"
 
 	uuid "github.com/satori/go.uuid"
 )

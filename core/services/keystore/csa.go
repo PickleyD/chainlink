@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
+	"github.com/pickleyd/chainlink/core/services/keystore/keys/csakey"
 )
 
 //go:generate mockery --name CSA --output mocks/ --case=underscore

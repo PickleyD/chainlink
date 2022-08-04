@@ -8,7 +8,7 @@ import (
 
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/services/chainlink/cfgtest"
+	"github.com/pickleyd/chainlink/core/services/chainlink/cfgtest"
 )
 
 const (

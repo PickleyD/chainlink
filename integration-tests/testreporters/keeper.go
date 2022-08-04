@@ -13,8 +13,8 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/slack-go/slack"
 
+	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/smartcontractkit/chainlink-testing-framework/testreporters"
-	"github.com/smartcontractkit/chainlink/integration-tests/client"
 )
 
 // KeeperBlockTimeTestReporter enables reporting on the keeper block time test

@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink/core/chains/evm/logpoller"
-	lpmocks "github.com/smartcontractkit/chainlink/core/chains/evm/logpoller/mocks"
-	evmmocks "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/chains/evm/logpoller"
+	lpmocks "github.com/pickleyd/chainlink/core/chains/evm/logpoller/mocks"
+	evmmocks "github.com/pickleyd/chainlink/core/chains/evm/mocks"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 func TestContractTransmitter(t *testing.T) {

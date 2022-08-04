@@ -5,9 +5,9 @@ import (
 	"time"
 
 	gethcommon "github.com/ethereum/go-ethereum/common"
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
-	"github.com/smartcontractkit/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_2"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_1"
+	"github.com/pickleyd/chainlink/core/gethwrappers/generated/keeper_registry_wrapper1_2"
 )
 
 var Registry1_1ABI = evmtypes.MustGetABI(keeper_registry_wrapper1_1.KeeperRegistryABI)

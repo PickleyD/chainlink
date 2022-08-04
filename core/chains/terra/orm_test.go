@@ -11,10 +11,10 @@ import (
 	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
 	"github.com/smartcontractkit/sqlx"
 
-	"github.com/smartcontractkit/chainlink/core/chains/terra"
-	"github.com/smartcontractkit/chainlink/core/chains/terra/types"
-	"github.com/smartcontractkit/chainlink/core/logger"
-	"github.com/smartcontractkit/chainlink/core/testutils/pgtest"
+	"github.com/pickleyd/chainlink/core/chains/terra"
+	"github.com/pickleyd/chainlink/core/chains/terra/types"
+	"github.com/pickleyd/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/testutils/pgtest"
 )
 
 func setupORM(t *testing.T) (*sqlx.DB, types.ORM) {

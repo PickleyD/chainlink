@@ -5,12 +5,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/smartcontractkit/chainlink/core/auth"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/cltest"
-	"github.com/smartcontractkit/chainlink/core/testutils"
-	clhttptest "github.com/smartcontractkit/chainlink/core/testutils/httptest"
-	"github.com/smartcontractkit/chainlink/core/web"
+	"github.com/pickleyd/chainlink/core/auth"
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/cltest"
+	"github.com/pickleyd/chainlink/core/testutils"
+	clhttptest "github.com/pickleyd/chainlink/core/testutils/httptest"
+	"github.com/pickleyd/chainlink/core/web"
 
 	"github.com/stretchr/testify/require"
 )

@@ -5,7 +5,7 @@ package mocks
 import (
 	big "math/big"
 
-	assets "github.com/smartcontractkit/chainlink/core/assets"
+	assets "github.com/pickleyd/chainlink/core/assets"
 
 	common "github.com/ethereum/go-ethereum/common"
 
@@ -13,7 +13,7 @@ import (
 
 	ethereum "github.com/ethereum/go-ethereum"
 
-	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
+	evmtypes "github.com/pickleyd/chainlink/core/chains/evm/types"
 
 	mock "github.com/stretchr/testify/mock"
 

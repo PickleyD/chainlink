@@ -7,8 +7,8 @@ import (
 	"github.com/graph-gophers/graphql-go"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/chainlink/core/services/feeds"
-	"github.com/smartcontractkit/chainlink/core/web/loader"
+	"github.com/pickleyd/chainlink/core/services/feeds"
+	"github.com/pickleyd/chainlink/core/web/loader"
 )
 
 var notFoundErrorMessage = "spec not found"

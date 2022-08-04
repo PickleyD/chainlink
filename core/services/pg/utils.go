@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/config/parse"
+	"github.com/pickleyd/chainlink/core/config/parse"
 )
 
 func init() {

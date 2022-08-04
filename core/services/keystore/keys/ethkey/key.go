@@ -3,7 +3,7 @@ package ethkey
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/services/pg/datatypes"
+	"github.com/pickleyd/chainlink/core/services/pg/datatypes"
 )
 
 // Key holds the private key metadata for a given address that is used to unlock

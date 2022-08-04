@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/auth"
-	"github.com/smartcontractkit/chainlink/core/bridges"
-	"github.com/smartcontractkit/chainlink/core/store/models"
+	"github.com/pickleyd/chainlink/core/auth"
+	"github.com/pickleyd/chainlink/core/bridges"
+	"github.com/pickleyd/chainlink/core/store/models"
 )
 
 // ExternalInitiatorAuthentication includes initiator and authentication details.

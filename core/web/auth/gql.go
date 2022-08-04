@@ -3,12 +3,12 @@ package auth
 import (
 	"context"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 
-	clsessions "github.com/smartcontractkit/chainlink/core/sessions"
+	clsessions "github.com/pickleyd/chainlink/core/sessions"
 )
 
 type sessionUserKey struct{}

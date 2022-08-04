@@ -5,25 +5,25 @@ package mocks
 import (
 	big "math/big"
 
-	assets "github.com/smartcontractkit/chainlink/core/assets"
+	assets "github.com/pickleyd/chainlink/core/assets"
 
 	commontypes "github.com/smartcontractkit/libocr/commontypes"
 
-	config "github.com/smartcontractkit/chainlink/core/config"
+	config "github.com/pickleyd/chainlink/core/config"
 
-	dialects "github.com/smartcontractkit/chainlink/core/store/dialects"
+	dialects "github.com/pickleyd/chainlink/core/store/dialects"
 
-	ethkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
+	ethkey "github.com/pickleyd/chainlink/core/services/keystore/keys/ethkey"
 
 	mock "github.com/stretchr/testify/mock"
 
-	models "github.com/smartcontractkit/chainlink/core/store/models"
+	models "github.com/pickleyd/chainlink/core/store/models"
 
 	net "net"
 
 	networking "github.com/smartcontractkit/libocr/networking"
 
-	p2pkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
+	p2pkey "github.com/pickleyd/chainlink/core/services/keystore/keys/p2pkey"
 
 	sessions "github.com/gin-gonic/contrib/sessions"
 
@@ -31,7 +31,7 @@ import (
 
 	url "net/url"
 
-	utils "github.com/smartcontractkit/chainlink/core/utils"
+	utils "github.com/pickleyd/chainlink/core/utils"
 
 	uuid "github.com/satori/go.uuid"
 

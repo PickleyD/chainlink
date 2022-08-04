@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/smartcontractkit/chainlink/core/utils"
+	"github.com/pickleyd/chainlink/core/utils"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

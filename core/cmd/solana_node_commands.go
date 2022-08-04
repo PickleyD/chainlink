@@ -7,7 +7,7 @@ import (
 	"github.com/smartcontractkit/chainlink-solana/pkg/solana/db"
 	"github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/web/presenters"
+	"github.com/pickleyd/chainlink/core/web/presenters"
 )
 
 // SolanaNodePresenter implements TableRenderer for a SolanaNodeResource.

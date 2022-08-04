@@ -7,9 +7,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"go.dedis.ch/kyber/v3"
 
-	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
-	"github.com/smartcontractkit/chainlink/core/utils"
-	bm "github.com/smartcontractkit/chainlink/core/utils/big_math"
+	"github.com/pickleyd/chainlink/core/services/signatures/secp256k1"
+	"github.com/pickleyd/chainlink/core/utils"
+	bm "github.com/pickleyd/chainlink/core/utils/big_math"
 )
 
 // This file contains golang re-implementations of functions on the VRF solidity

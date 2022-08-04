@@ -9,8 +9,8 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/smartcontractkit/chainlink/core/cmd"
-	helpers "github.com/smartcontractkit/chainlink/core/scripts/common"
+	"github.com/pickleyd/chainlink/core/cmd"
+	helpers "github.com/pickleyd/chainlink/core/scripts/common"
 )
 
 func setupDKGNodes(e helpers.Environment) {
