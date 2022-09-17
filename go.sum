@@ -1790,9 +1790,6 @@ github.com/tendermint/tm-db v0.6.6/go.mod h1:wP8d49A85B7/erz/r4YbKssKw6ylsO/hKtF
 github.com/teris-io/shortid v0.0.0-20171029131806-771a37caa5cf/go.mod h1:M8agBzgqHIhgj7wEn9/0hJUZcrvt9VY+Ln+S1I5Mha0=
 github.com/teris-io/shortid v0.0.0-20201117134242-e59966efd125 h1:3SNcvBmEPE1YlB1JpVZouslJpI3GBNoiqW7+wb0Rz7w=
 github.com/teris-io/shortid v0.0.0-20201117134242-e59966efd125/go.mod h1:M8agBzgqHIhgj7wEn9/0hJUZcrvt9VY+Ln+S1I5Mha0=
-github.com/terra-money/core v0.5.2/go.mod h1:GnMYeY3POY4A8UV/kL3mfmLCe5hptgAJTqmf3FZjy+U=
-github.com/terra-money/core v0.5.20 h1:CkXUvz+2bttvPNVlwOgaghptNAGMS1o2qRHXIpijTPY=
-github.com/terra-money/core v0.5.20/go.mod h1:/t+QWhk1PXwOD+qUZ3u+5Wm5BLvBdbNpsw7egmK5Y7U=
 github.com/test-go/testify v1.1.4 h1:Tf9lntrKUMHiXQ07qBScBTSA0dhYQlu83hswqelv1iE=
 github.com/test-go/testify v1.1.4/go.mod h1:rH7cfJo/47vWGdi4GPj16x3/t1xGOj2YxzmNQzk2ghU=
 github.com/theodesp/go-heaps v0.0.0-20190520121037-88e35354fe0a h1:YuO+afVc3eqrjiCUizNCxI53bl/BnPiVwXqLzqYTqgU=
