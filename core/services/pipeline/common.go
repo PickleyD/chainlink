@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql/driver"
 	"encoding/json"
-	"net/url"
 	"reflect"
 	"sort"
 	"strconv"
@@ -56,14 +55,14 @@ type (
 	}
 
 	Config interface {
-		BridgeResponseURL() *url.URL
-		DatabaseURL() url.URL
+		// BridgeResponseURL() *url.URL
+		// DatabaseURL() url.URL
 		DefaultHTTPLimit() int64
 		DefaultHTTPTimeout() models.Duration
-		TriggerFallbackDBPollInterval() time.Duration
-		JobPipelineMaxRunDuration() time.Duration
-		JobPipelineReaperInterval() time.Duration
-		JobPipelineReaperThreshold() time.Duration
+		// TriggerFallbackDBPollInterval() time.Duration
+		// JobPipelineMaxRunDuration() time.Duration
+		// JobPipelineReaperInterval() time.Duration
+		// JobPipelineReaperThreshold() time.Duration
 	}
 )
 
