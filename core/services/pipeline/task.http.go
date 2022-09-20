@@ -128,3 +128,9 @@ func (t *HTTPTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, input
 	// value instead.
 	return Result{Value: string(responseBytes)}, runInfo
 }
+
+func (t *HTTPTask) HelperSetDependencies(config Config, restrictedHTTPClient, unrestrictedHTTPClient *http.Client) {
+	t.config = config
+	t.httpClient = restrictedHTTPClient
+	t.unrestrictedHTTPClient = unrestrictedHTTPClient
+}
