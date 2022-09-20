@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql/driver"
 	"encoding/json"
-	"math/big"
 	"net/url"
 	"reflect"
 	"sort"
@@ -18,8 +17,6 @@ import (
 	uuid "github.com/satori/go.uuid"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/pickleyd/chainlink/core/chains/evm"
-	"github.com/pickleyd/chainlink/core/chains/evm/config"
 	"github.com/pickleyd/chainlink/core/logger"
 	cnull "github.com/pickleyd/chainlink/core/null"
 	"github.com/pickleyd/chainlink/core/store/models"
@@ -347,8 +344,6 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &PanicTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeHTTP:
 		task = &HTTPTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeBridge:
-		task = &BridgeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeMean:
 		task = &MeanTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeMedian:
@@ -367,16 +362,6 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &MultiplyTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeDivide:
 		task = &DivideTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeVRF:
-		task = &VRFTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeVRFV2:
-		task = &VRFTaskV2{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeEstimateGasLimit:
-		task = &EstimateGasLimitTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeETHCall:
-		task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeETHTx:
-		task = &ETHTxTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHABIEncode:
 		task = &ETHABIEncodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHABIEncode2:
@@ -453,42 +438,6 @@ func CheckInputs(inputs []Result, minLen, maxLen, maxErrors int) ([]interface{},
 		return nil, ErrTooManyErrors
 	}
 	return vals, nil
-}
-
-func getChainByString(chainSet evm.ChainSet, str string) (evm.Chain, error) {
-	if str == "" {
-		return chainSet.Default()
-	}
-	id, ok := new(big.Int).SetString(str, 10)
-	if !ok {
-		return nil, errors.Errorf("invalid EVM chain ID: %s", str)
-	}
-	return chainSet.Get(id)
-}
-
-func SelectGasLimit(cfg config.ChainScopedConfig, jobType string, specGasLimit *uint32) uint64 {
-	if specGasLimit != nil {
-		return uint64(*specGasLimit)
-	}
-
-	var jobTypeGasLimit *uint64
-	switch jobType {
-	case DirectRequestJobType:
-		jobTypeGasLimit = cfg.EvmGasLimitDRJobType()
-	case FluxMonitorJobType:
-		jobTypeGasLimit = cfg.EvmGasLimitFMJobType()
-	case OffchainReportingJobType:
-		jobTypeGasLimit = cfg.EvmGasLimitOCRJobType()
-	case KeeperJobType:
-		jobTypeGasLimit = cfg.EvmGasLimitKeeperJobType()
-	case VRFJobType:
-		jobTypeGasLimit = cfg.EvmGasLimitVRFJobType()
-	}
-
-	if jobTypeGasLimit != nil {
-		return *jobTypeGasLimit
-	}
-	return cfg.EvmGasLimitDefault()
 }
 
 // replaceBytesWithHex replaces all []byte with hex-encoded strings

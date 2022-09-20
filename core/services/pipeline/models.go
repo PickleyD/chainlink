@@ -30,10 +30,6 @@ type Spec struct {
 	JobType string `json:"-"`
 }
 
-func (s Spec) Pipeline() (*Pipeline, error) {
-	return Parse(s.DotDagSource)
-}
-
 type Run struct {
 	ID             int64            `json:"-"`
 	PipelineSpecID int32            `json:"-"`
