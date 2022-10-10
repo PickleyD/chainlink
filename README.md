@@ -6,12 +6,12 @@
 </p>
 <br/>
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/pickleyd/chainlink?style=flat-square)](https://hub.docker.com/r/smartcontract/chainlink/tags)
-[![GitHub license](https://img.shields.io/github/license/pickleyd/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/blob/master/LICENSE)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/smartcontractkit/chainlink?style=flat-square)](https://hub.docker.com/r/smartcontract/chainlink/tags)
+[![GitHub license](https://img.shields.io/github/license/smartcontractkit/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/blob/master/LICENSE)
 [![GitHub workflow changelog](https://img.shields.io/github/workflow/status/pickleyd/chainlink/Changelog?style=flat-square&label=github-actions)](https://github.com/pickleyd/chainlink/actions?query=workflow%3AChangelog)
 [![CircleCI build](https://img.shields.io/circleci/build/github/pickleyd/chainlink/master?style=flat-square&label=circleci&logo=circleci)](https://circleci.com/gh/pickleyd/chainlink/tree/master)
-[![GitHub contributors](https://img.shields.io/github/contributors-anon/pickleyd/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/graphs/contributors)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/pickleyd/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/commits/master)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/smartcontractkit/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/graphs/contributors)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/smartcontractkit/chainlink?style=flat-square)](https://github.com/pickleyd/chainlink/commits/master)
 [![Official documentation](https://img.shields.io/static/v1?label=docs&message=latest&color=blue)](https://docs.chain.link/)
 
 [Chainlink](https://chain.link/) expands the capabilities of smart contracts by enabling access to real-world data and off-chain computation while maintaining the security and reliability guarantees inherent to blockchain technology.
@@ -40,7 +40,7 @@ regarding Chainlink social accounts, news, and networking.
 3. Install [Postgres (>= 11.x)](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
    - You should [configure Postgres](https://www.postgresql.org/docs/12/ssl-tcp.html) to use SSL connection (or for testing you can set `?sslmode=disable` in your Postgres query string).
 4. Ensure you have Python 3 installed (this is required by [solc-select](https://github.com/crytic/solc-select) which is needed to compile solidity contracts)
-5. Download Chainlink: `git clone https://github.com/pickleyd/chainlink && cd chainlink`
+5. Download Chainlink: `git clone https://github.com/smartcontractkit/chainlink && cd chainlink`
 6. Build and install Chainlink: `make install`
    - If you got any errors regarding locked yarn package, try running `yarn install` before this step
    - If `yarn install` throws a network connection error, try increasing the network timeout by running `yarn install --network-timeout 150000` before this step
@@ -52,7 +52,7 @@ For the latest information on setting up a development environment, see the [Dev
 
 Native builds on the Apple Silicon should work out of the box, but the Docker image requires more consideration.
 
-Chainlink Docker image currently has an indirect dependency on WebAssemby because of our `terra-money/core` (CosmWasm) dependency via `pickleyd/chainlink-terra`. This dependency requires a native `libwasmvm` library, which needs to be sourced depending on the underlying system architecture.
+Chainlink Docker image currently has an indirect dependency on WebAssemby because of our `terra-money/core` (CosmWasm) dependency via `smartcontractkit/chainlink-terra`. This dependency requires a native `libwasmvm` library, which needs to be sourced depending on the underlying system architecture.
 
 An ARM64 supported Docker image will be built by default on ARM64 systems (Apple Silicon), but there is also an option to add an extra `LIBWASMVM_ARCH` build argument and choose between `aarch64` or `x86_64`:
 
@@ -64,7 +64,7 @@ $ docker build . -t chainlink-develop:latest -f ./core/chainlink.Dockerfile --bu
 ### Ethereum Execution Client Requirements
 
 In order to run the Chainlink node you must have access to a running Ethereum node with an open websocket connection.
-Any Ethereum based network will work once you've [configured](https://github.com/pickleyd/chainlink#configure) the chain ID.
+Any Ethereum based network will work once you've [configured](https://github.com/smartcontractkit/chainlink#configure) the chain ID.
 Ethereum node versions currently tested and supported:
 
 [Officially supported]

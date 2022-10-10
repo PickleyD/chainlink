@@ -5,7 +5,7 @@ import (
 
 	"github.com/pyroscope-io/client/pyroscope"
 
-	"github.com/pickleyd/chainlink/core/static"
+	"github.com/smartcontractkit/chainlink/core/static"
 )
 
 // PyroscopeConfig represents the expected configuration for Pyroscope to properly work

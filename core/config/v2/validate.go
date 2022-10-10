@@ -8,7 +8,7 @@ import (
 
 	"go.uber.org/multierr"
 
-	"github.com/pickleyd/chainlink/core/utils"
+	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 // Validated configurations impose constraints that must be checked.

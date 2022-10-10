@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"net/url"
 
-	v2 "github.com/pickleyd/chainlink/core/config/v2"
+	v2 "github.com/smartcontractkit/chainlink/core/config/v2"
 )
 
 func (g *generalConfig) DefaultChainID() *big.Int         { panic(v2.ErrUnsupported) }

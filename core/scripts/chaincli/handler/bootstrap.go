@@ -8,9 +8,9 @@ import (
 	"io"
 	"log"
 
-	"github.com/pickleyd/chainlink/core/cmd"
-	"github.com/pickleyd/chainlink/core/logger"
-	"github.com/pickleyd/chainlink/core/web"
+	"github.com/smartcontractkit/chainlink/core/cmd"
+	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/smartcontractkit/chainlink/core/web"
 )
 
 const (

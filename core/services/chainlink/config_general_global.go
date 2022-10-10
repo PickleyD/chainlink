@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/pickleyd/chainlink/core/assets"
-	v2 "github.com/pickleyd/chainlink/core/config/v2"
+	"github.com/smartcontractkit/chainlink/core/assets"
+	v2 "github.com/smartcontractkit/chainlink/core/config/v2"
 )
 
 func (g *generalConfig) EVMRPCEnabled() bool { panic(v2.ErrUnsupported) }
