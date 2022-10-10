@@ -10,9 +10,10 @@ import (
 	"github.com/pickleyd/chainlink/core/logger"
 )
 
-// Return types:
 //
-//	*decimal.Decimal
+// Return types:
+//    *decimal.Decimal
+//
 type MultiplyTask struct {
 	BaseTask `mapstructure:",squash"`
 	Input    string `json:"input"`
@@ -40,7 +41,7 @@ func (t *MultiplyTask) Run(_ context.Context, _ logger.Logger, vars Vars, inputs
 	)
 
 	err = multierr.Combine(
-		errors.Wrap(ResolveParam(&a, From(VarExpr(t.Input, vars), NonemptyString(t.Input), Input(inputs, 0))), "input"),
+		errors.Wrap(ResolveParam(&a, From(VarExpr(t.Input, vars), Input(inputs, 0))), "input"),
 		errors.Wrap(ResolveParam(&b, From(VarExpr(t.Times, vars), NonemptyString(t.Times))), "times"),
 	)
 	if err != nil {

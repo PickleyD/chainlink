@@ -6,42 +6,31 @@ Here lives the integration tests for chainlink, utilizing our [chainlink-testing
 
 Prerequisites to run the tests.
 
-### Install Dependencies
+### Install Go
 
-<details>
-  <summary>Install Go</summary>
+[Install](https://go.dev/doc/install)
 
-  [Install](https://go.dev/doc/install)
-</details>
+### Install Ginkgo
 
-<details>
-  <summary>Install Ginkgo</summary>
+[Ginkgo](https://onsi.github.io/ginkgo/) is the testing framework we use to compile and run our tests. It comes with a lot of handy testing setups and goodies on top of the standard Go testing packages.
 
-  [Ginkgo](https://onsi.github.io/ginkgo/) is the testing framework we use to compile and run our tests. It comes with a lot of handy testing setups and goodies on top of the standard Go testing packages.
+`go install github.com/onsi/ginkgo/v2/ginkgo`
 
-  `go install github.com/onsi/ginkgo/v2/ginkgo`
-</details>
+### Install NodeJS
 
-<details>
-  <summary>Install NodeJS</summary>
+[Install](https://nodejs.org/en/download/)
 
-  [Install](https://nodejs.org/en/download/)
-</details>
+### Install Helm Charts
 
-<details>
-  <summary>Install Helm Charts</summary>
+[Install Helm](https://helm.sh/docs/intro/install/#through-package-managers) if you don't already have it. Then add necessary charts with the below commands.
 
-  [Install Helm](https://helm.sh/docs/intro/install/#through-package-managers) if you don't already have it. Then add necessary charts with the below commands.
+```sh
+helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+```
 
-  ```sh
-  helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
-  helm repo add bitnami https://charts.bitnami.com/bitnami
-  helm repo update
-  ```
-
-</details>
-
-## Connect to a Kubernetes Cluster
+### Connect to a Kubernetes Cluster
 
 Integration tests require a connection to an actively running kubernetes cluster. [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 can work fine for some tests, but in order to run more rigorous tests, or to run with any parallelism, you'll need to either
@@ -65,26 +54,24 @@ Most of the time, you'll want to run tests on a simulated chain, for the purpose
 
 ### Smoke
 
-Run all smoke tests with the below command. By default, we only use simulated blockchains, as running on live chains takes more configuration.
+Run all smoke tests, only using simulated blockchains.
 
 ```sh
-make test_smoke
+make test_smoke_simulated
 ```
 
 Run all smoke tests in parallel, only using simulated blockchains. *Note: As of now, you can only run tests in parallel on simulated chains, not on live ones.*
 
 ```sh
-make test_smoke args="-nodes=<number-of-parallel-tests>"
+make test_smoke_simulated args="-nodes=<number-of-parallel-tests>"
 ```
 
-You can also run specific tests or specific networks using `make test_smoke_raw` and a `focus` tag.
+You can also run specific tests or specific networks using a `focus` tag.
 
 ```sh
-make test_smoke_raw args="-focus=@metis" # Runs all the smoke tests on the Metis Stardust network
-make test_smoke_raw args="-focus=@general" # Runs all smoke tests for a network that you define in environment vars
+make test_smoke args="-focus=@metis" # Runs all the smoke tests on the Metis Stardust network
+make test_smoke args="-focus=@general" # Runs all smoke tests for a network that you define in environment vars
 ```
-
-[Check out](https://onsi.github.io/ginkgo/#description-based-filtering) how Ginkgo handles focus and skip tags if you're looking for more precise behavior.
 
 ### Soak
 

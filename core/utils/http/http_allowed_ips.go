@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"net"
+	"os"
 	"time"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,7 @@ import (
 )
 
 var privateIPBlocks []*net.IPNet
+var dbURL string
 
 func init() {
 	for _, cidr := range []string{
@@ -31,6 +33,7 @@ func init() {
 		}
 		privateIPBlocks = append(privateIPBlocks, block)
 	}
+	dbURL = os.Getenv("DATABASE_URL")
 }
 
 func isRestrictedIP(ip net.IP, cfg httpClientConfig, lggr logger.Logger) bool {

@@ -61,10 +61,6 @@ func NewWei(i *big.Int) *Wei {
 	return (*Wei)(i)
 }
 
-func (w *Wei) Cmp(w2 *Wei) int {
-	return (*big.Int)(w).Cmp((*big.Int)(w2))
-}
-
 func (w Wei) Text(suffix string) string {
 	switch suffix {
 	default: // empty or unknown
@@ -113,46 +109,42 @@ var (
 	bigTeth = new(big.Int).Mul(big.NewInt(u64Eth), big.NewInt(1_000_000_000_000))
 )
 
-func (w *Wei) MarshalText() ([]byte, error) {
-	return []byte(w.String()), nil
-}
-
-func (w Wei) String() string {
+func (w Wei) MarshalText() ([]byte, error) {
 	b := (*big.Int)(&w)
 	if b.IsUint64() {
 		// <= math.MaxUint64 = 9.223_372_036_854_775_808 eth
 		u := b.Uint64()
 		switch {
 		case u >= u64Eth:
-			return w.Text(eth)
+			return []byte(w.Text(eth)), nil
 		case u >= 1_000_000_000_000_000:
-			return w.Text(milli)
+			return []byte(w.Text(milli)), nil
 		case u >= 1_000_000_000_000:
-			return w.Text(micro)
+			return []byte(w.Text(micro)), nil
 		case u >= 1_000_000_000:
-			return w.Text(gwei)
+			return []byte(w.Text(gwei)), nil
 		case u >= 1_000_000:
-			return w.Text(mwei)
+			return []byte(w.Text(mwei)), nil
 		case u >= 1_000:
-			return w.Text(kwei)
+			return []byte(w.Text(kwei)), nil
 		default:
-			return w.Text(wei)
+			return []byte(w.Text(wei)), nil
 		}
 	}
 	// > math.MaxUint64 = 9.223_372_036_854_775_808 eth
 	if b.Cmp(bigTeth) >= 0 {
-		return w.Text(teth)
+		return []byte(w.Text(teth)), nil
 	}
 	if b.Cmp(bigGeth) >= 0 {
-		return w.Text(geth)
+		return []byte(w.Text(geth)), nil
 	}
 	if b.Cmp(bigMeth) >= 0 {
-		return w.Text(meth)
+		return []byte(w.Text(meth)), nil
 	}
 	if b.Cmp(bigKeth) >= 0 {
-		return w.Text(keth)
+		return []byte(w.Text(keth)), nil
 	}
-	return w.Text(eth)
+	return []byte(w.Text(eth)), nil
 }
 
 func (w *Wei) UnmarshalText(b []byte) error {

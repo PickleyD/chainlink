@@ -10,9 +10,10 @@ import (
 	"github.com/pickleyd/chainlink/core/logger"
 )
 
-// Return types:
 //
-//	*decimal.Decimal
+// Return types:
+//    *decimal.Decimal
+//
 type DivideTask struct {
 	BaseTask  `mapstructure:",squash"`
 	Input     string `json:"input"`
@@ -43,7 +44,7 @@ func (t *DivideTask) Run(_ context.Context, _ logger.Logger, vars Vars, inputs [
 		maybePrecision MaybeInt32Param
 	)
 	err = multierr.Combine(
-		errors.Wrap(ResolveParam(&a, From(VarExpr(t.Input, vars), NonemptyString(t.Input), Input(inputs, 0))), "input"),
+		errors.Wrap(ResolveParam(&a, From(VarExpr(t.Input, vars), Input(inputs, 0))), "input"),
 		errors.Wrap(ResolveParam(&b, From(VarExpr(t.Divisor, vars), NonemptyString(t.Divisor))), "divisor"),
 		errors.Wrap(ResolveParam(&maybePrecision, From(VarExpr(t.Precision, vars), t.Precision)), "precision"),
 	)

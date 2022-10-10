@@ -1,7 +1,6 @@
 package pipeline
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"math/big"
@@ -38,7 +37,7 @@ func (t *JSONParseTask) Type() TaskType {
 	return TaskTypeJSONParse
 }
 
-func (t *JSONParseTask) Run(_ context.Context, l logger.Logger, vars Vars, inputs []Result) (result Result, runInfo RunInfo) {
+func (t *JSONParseTask) Run(_ context.Context, _ logger.Logger, vars Vars, inputs []Result) (result Result, runInfo RunInfo) {
 	_, err := CheckInputs(inputs, 0, 1, 0)
 	if err != nil {
 		return Result{Error: errors.Wrap(err, "task inputs")}, runInfo
@@ -61,9 +60,7 @@ func (t *JSONParseTask) Run(_ context.Context, l logger.Logger, vars Vars, input
 	}
 
 	var decoded interface{}
-	d := json.NewDecoder(bytes.NewReader(data))
-	d.UseNumber()
-	err = d.Decode(&decoded)
+	err = json.Unmarshal(data, &decoded)
 	if err != nil {
 		return Result{Error: err}, runInfo
 	}
@@ -109,14 +106,5 @@ func (t *JSONParseTask) Run(_ context.Context, l logger.Logger, vars Vars, input
 			return Result{Error: errors.Wrapf(ErrKeypathNotFound, `could not resolve path ["%v"] in %s`, strings.Join(path, `","`), data)}, runInfo
 		}
 	}
-
-	switch val := decoded.(type) {
-	case json.Number:
-		decoded, err = getJsonNumberValue(val)
-		if err != nil {
-			return Result{Error: multierr.Combine(ErrBadInput, err)}, runInfo
-		}
-	}
-
 	return Result{Value: decoded}, runInfo
 }

@@ -8,7 +8,6 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"io"
 	"math/big"
 	mrand "math/rand"
 	"sort"
@@ -619,11 +618,11 @@ func (q *BoundedPriorityQueue[T]) Empty() bool {
 // WrapIfError decorates an error with the given message.  It is intended to
 // be used with `defer` statements, like so:
 //
-//	func SomeFunction() (err error) {
-//	    defer WrapIfError(&err, "error in SomeFunction:")
+// func SomeFunction() (err error) {
+//     defer WrapIfError(&err, "error in SomeFunction:")
 //
-//	    ...
-//	}
+//     ...
+// }
 func WrapIfError(err *error, msg string) {
 	if *err != nil {
 		*err = errors.Wrap(*err, msg)
@@ -810,11 +809,6 @@ func (e *errNotStarted) Error() string {
 	return fmt.Sprintf("service is %q, not started", e.state)
 }
 
-var (
-	ErrAlreadyStopped      = errors.New("already stopped")
-	ErrCannotStopUnstarted = errors.New("cannot stop unstarted service")
-)
-
 // StartStopOnce contains a StartStopOnceState integer
 type StartStopOnce struct {
 	state        atomic.Int32
@@ -824,7 +818,7 @@ type StartStopOnce struct {
 // StartStopOnceState holds the state for StartStopOnce
 type StartStopOnceState int32
 
-// nolint
+//nolint
 const (
 	StartStopOnce_Unstarted StartStopOnceState = iota
 	StartStopOnce_Started
@@ -897,15 +891,7 @@ func (once *StartStopOnce) StopOnce(name string, fn func() error) error {
 	success := once.state.CAS(int32(StartStopOnce_Started), int32(StartStopOnce_Stopping))
 
 	if !success {
-		state := once.state.Load()
-		switch state {
-		case int32(StartStopOnce_Stopped):
-			return errors.Wrapf(ErrAlreadyStopped, "%s has already been stopped", name)
-		case int32(StartStopOnce_Unstarted):
-			return errors.Wrapf(ErrCannotStopUnstarted, "%s has not been started", name)
-		default:
-			return errors.Errorf("%v cannot be stopped from this state; state=%v", name, StartStopOnceState(state))
-		}
+		return errors.Errorf("%v is not started or has already been stopped; state=%v", name, StartStopOnceState(once.state.Load()))
 	}
 
 	err := fn()
@@ -976,16 +962,6 @@ func (once *StartStopOnce) Healthy() error {
 		return nil
 	}
 	return &errNotStarted{state: state}
-}
-
-// EnsureClosed closes the io.Closer, returning nil if it was already
-// closed or not started yet
-func EnsureClosed(c io.Closer) error {
-	err := c.Close()
-	if errors.Is(err, ErrAlreadyStopped) || errors.Is(err, ErrCannotStopUnstarted) {
-		return nil
-	}
-	return err
 }
 
 // WithJitter adds +/- 10% to a duration

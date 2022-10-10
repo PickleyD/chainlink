@@ -21,10 +21,10 @@ import (
 
 //go:generate mockery --name GeneralConfig --output ./mocks/ --case=underscore
 
-// nolint
+//nolint
 var (
-	ErrEnvUnset   = errors.New("env var unset")
-	ErrEnvInvalid = errors.New("env var invalid")
+	ErrUnset   = errors.New("env var unset")
+	ErrInvalid = errors.New("env var invalid")
 
 	configFileNotFoundError = reflect.TypeOf(viper.ConfigFileNotFoundError{})
 )
@@ -60,15 +60,14 @@ type GlobalConfig interface {
 	GlobalEvmGasBumpTxDepth() (uint16, bool)
 	GlobalEvmGasBumpWei() (*big.Int, bool)
 	GlobalEvmGasFeeCapDefault() (*big.Int, bool)
-	GlobalEvmGasLimitDefault() (uint32, bool)
-	GlobalEvmGasLimitMax() (uint32, bool)
+	GlobalEvmGasLimitDefault() (uint64, bool)
 	GlobalEvmGasLimitMultiplier() (float32, bool)
-	GlobalEvmGasLimitTransfer() (uint32, bool)
-	GlobalEvmGasLimitOCRJobType() (uint32, bool)
-	GlobalEvmGasLimitDRJobType() (uint32, bool)
-	GlobalEvmGasLimitVRFJobType() (uint32, bool)
-	GlobalEvmGasLimitFMJobType() (uint32, bool)
-	GlobalEvmGasLimitKeeperJobType() (uint32, bool)
+	GlobalEvmGasLimitTransfer() (uint64, bool)
+	GlobalEvmGasLimitOCRJobType() (uint64, bool)
+	GlobalEvmGasLimitDRJobType() (uint64, bool)
+	GlobalEvmGasLimitVRFJobType() (uint64, bool)
+	GlobalEvmGasLimitFMJobType() (uint64, bool)
+	GlobalEvmGasLimitKeeperJobType() (uint64, bool)
 	GlobalEvmGasPriceDefault() (*big.Int, bool)
 	GlobalEvmGasTipCapDefault() (*big.Int, bool)
 	GlobalEvmGasTipCapMinimum() (*big.Int, bool)
@@ -87,10 +86,6 @@ type GlobalConfig interface {
 	GlobalFlagsContractAddress() (string, bool)
 	GlobalGasEstimatorMode() (string, bool)
 	GlobalLinkContractAddress() (string, bool)
-	GlobalOCRContractConfirmations() (uint16, bool)
-	GlobalOCRContractTransmitterTransmitTimeout() (time.Duration, bool)
-	GlobalOCRDatabaseTimeout() (time.Duration, bool)
-	GlobalOCRObservationGracePeriod() (time.Duration, bool)
 	GlobalOperatorFactoryAddress() (string, bool)
 	GlobalMinIncomingConfirmations() (uint32, bool)
 	GlobalMinimumContractPayment() (*assets.Link, bool)
@@ -132,7 +127,6 @@ type generalConfig struct {
 
 // NewGeneralConfig returns the config with the environment variables set to their
 // respective fields, or their defaults if environment variables are not set.
-// https://app.shortcut.com/chainlinklabs/story/33622/remove-legacy-config
 func NewGeneralConfig(lggr logger.Logger) GeneralConfig {
 	v := viper.New()
 	c := newGeneralConfigWithViper(v, lggr.Named("GeneralConfig"))
@@ -205,16 +199,4 @@ func (c *generalConfig) DefaultHTTPLimit() int64 {
 // DefaultHTTPTimeout defines the default timeout for http requests
 func (c *generalConfig) DefaultHTTPTimeout() models.Duration {
 	return models.MustMakeDuration(getEnvWithFallback(c, envvar.NewDuration("DefaultHTTPTimeout")))
-}
-
-// Implemented only in config V2. V1 uses a --password flag.
-func (c *generalConfig) KeystorePassword() string {
-	c.lggr.Warn("Config V1 should use --password flag instead of calling KeystorePassword()")
-	return ""
-}
-
-// Implemented only in config V2. V1 uses a --vrfpassword flag.
-func (c *generalConfig) VRFPassword() string {
-	c.lggr.Warn("Config V1 should use --vrfpassword flag instead of calling VRFPassword()")
-	return ""
 }
