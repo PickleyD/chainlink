@@ -23,7 +23,7 @@ jobs:
         continue-on-error: true
 
       - name: Checkout the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.1.0
 
       - name: Update version
         id: update

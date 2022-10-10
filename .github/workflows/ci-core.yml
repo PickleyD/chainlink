@@ -27,7 +27,7 @@ jobs:
           this-job-name: Shard Go Tests 
         continue-on-error: true
       - name: Checkout the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.1.0
       - name: Setup Go
         uses: ./.github/actions/setup-go
         with:
@@ -78,7 +78,7 @@ jobs:
           this-job-name: Core Tests (${{ matrix.cmd }}) ${{ matrix.shard.id }}
         continue-on-error: true
       - name: Checkout the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.1.0
       - name: Setup node
         uses: actions/setup-node@v3
         with:
