@@ -8,5 +8,5 @@ yarn install
 yarn setup:contracts
 
 # Run golang coverage
-go get -u github.com/smartcontractkit/goverage
+go get -u github.com/pickleyd/goverage
 goverage -v -parallel 2 ./...

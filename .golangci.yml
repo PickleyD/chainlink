@@ -18,7 +18,7 @@ linters-settings:
   exhaustive:
     default-signifies-exhaustive: true
   goimports:
-    local-prefixes: github.com/smartcontractkit/chainlink
+    local-prefixes: github.com/pickleyd/chainlink
   golint:
     min-confidence: 1.0
   gosec:

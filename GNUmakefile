@@ -22,7 +22,7 @@ operator-ui-autoinstall: | yarndep operator-ui ## Autoinstall frontend UI.
 .PHONY: gomod
 gomod: ## Ensure chainlink's go dependencies are installed.
 	@if [ -z "`which gencodec`" ]; then \
-		go install github.com/smartcontractkit/gencodec@latest; \
+		go install github.com/pickleyd/gencodec@latest; \
 	fi || true
 	go mod download
 

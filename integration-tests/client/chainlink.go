@@ -16,8 +16,8 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/smartcontractkit/chainlink-env/environment"
-	chainlinkChart "github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
+	"github.com/pickleyd/chainlink-env/environment"
+	chainlinkChart "github.com/pickleyd/chainlink-env/pkg/helm/chainlink"
 )
 
 // OneLINK representation of a single LINK token

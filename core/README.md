@@ -6,8 +6,8 @@
 </p>
 <br/>
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/smartcontractkit/chainlink)](https://goreportcard.com/report/github.com/smartcontractkit/chainlink)
-[![GoDoc](https://godoc.org/github.com/smartcontractkit/chainlink?status.svg)](https://godoc.org/github.com/smartcontractkit/chainlink)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pickleyd/chainlink)](https://goreportcard.com/report/github.com/pickleyd/chainlink)
+[![GoDoc](https://godoc.org/github.com/pickleyd/chainlink?status.svg)](https://godoc.org/github.com/pickleyd/chainlink)
 
 Chainlink Core is the API backend that Chainlink client contracts on Ethereum
 make requests to. The backend utilizes Solidity contract ABIs to generate types

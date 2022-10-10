@@ -9,14 +9,14 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/rs/zerolog/log"
 
+	"github.com/pickleyd/chainlink-env/environment"
+	"github.com/pickleyd/chainlink-env/pkg/helm/chainlink"
+	"github.com/pickleyd/chainlink-env/pkg/helm/ethereum"
+	"github.com/pickleyd/chainlink-env/pkg/helm/mockserver"
+	mockservercfg "github.com/pickleyd/chainlink-env/pkg/helm/mockserver-cfg"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
 	"github.com/pickleyd/chainlink/integration-tests/actions"
 	"github.com/pickleyd/chainlink/integration-tests/testsetups"
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/ethereum"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/mockserver"
-	mockservercfg "github.com/smartcontractkit/chainlink-env/pkg/helm/mockserver-cfg"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
 )
 
 var _ = Describe("OCR Soak Test @soak-ocr", func() {

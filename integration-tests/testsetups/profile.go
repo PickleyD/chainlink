@@ -8,11 +8,11 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
+	"github.com/pickleyd/chainlink-env/environment"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
+	reportModel "github.com/pickleyd/chainlink-testing-framework/testreporters"
 	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/pickleyd/chainlink/integration-tests/testreporters"
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
-	reportModel "github.com/smartcontractkit/chainlink-testing-framework/testreporters"
 )
 
 // ChainlinkProfileTest runs a piece of code on Chainlink nodes with PPROF enabled, then downloads the PPROF results

@@ -1,6 +1,6 @@
 # Integration Tests
 
-Here lives the integration tests for chainlink, utilizing our [chainlink-testing-framework](https://github.com/smartcontractkit/chainlink-testing-framework).
+Here lives the integration tests for chainlink, utilizing our [chainlink-testing-framework](https://github.com/pickleyd/chainlink-testing-framework).
 
 ## Setup
 
@@ -25,7 +25,7 @@ Prerequisites to run the tests.
 [Install Helm](https://helm.sh/docs/intro/install/#through-package-managers) if you don't already have it. Then add necessary charts with the below commands.
 
 ```sh
-helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+helm repo add chainlink-qa https://raw.githubusercontent.com/pickleyd/qa-charts/gh-pages/
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 ```

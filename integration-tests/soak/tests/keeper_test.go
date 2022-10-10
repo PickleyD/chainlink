@@ -4,11 +4,11 @@ package soak
 import (
 	"math/big"
 
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/ethereum"
+	"github.com/pickleyd/chainlink-env/environment"
+	"github.com/pickleyd/chainlink-env/pkg/helm/chainlink"
+	"github.com/pickleyd/chainlink-env/pkg/helm/ethereum"
 
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -8,11 +8,11 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	ocrConfigHelper "github.com/smartcontractkit/libocr/offchainreporting/confighelper"
-	ocrConfigHelper2 "github.com/smartcontractkit/libocr/offchainreporting2/confighelper"
+	ocrConfigHelper "github.com/pickleyd/libocr/offchainreporting/confighelper"
+	ocrConfigHelper2 "github.com/pickleyd/libocr/offchainreporting2/confighelper"
 
+	"github.com/pickleyd/chainlink-testing-framework/contracts/ethereum"
 	"github.com/pickleyd/chainlink/integration-tests/client"
-	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
 )
 
 type FluxAggregatorOptions struct {

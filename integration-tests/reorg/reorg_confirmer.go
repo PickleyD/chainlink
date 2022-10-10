@@ -11,11 +11,11 @@ import (
 	"github.com/rs/zerolog/log"
 	"go.uber.org/atomic"
 
-	"github.com/smartcontractkit/chainlink-env/chaos"
-	"github.com/smartcontractkit/chainlink-env/environment"
-	a "github.com/smartcontractkit/chainlink-env/pkg/alias"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/reorg"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
+	"github.com/pickleyd/chainlink-env/chaos"
+	"github.com/pickleyd/chainlink-env/environment"
+	a "github.com/pickleyd/chainlink-env/pkg/alias"
+	"github.com/pickleyd/chainlink-env/pkg/helm/reorg"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
 )
 
 // The steps are:

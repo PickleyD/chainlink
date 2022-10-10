@@ -8,14 +8,14 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
-	eth "github.com/smartcontractkit/chainlink-env/pkg/helm/ethereum"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/mockserver"
-	mockservercfg "github.com/smartcontractkit/chainlink-env/pkg/helm/mockserver-cfg"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
-	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
-	"github.com/smartcontractkit/chainlink-testing-framework/utils"
+	"github.com/pickleyd/chainlink-env/environment"
+	"github.com/pickleyd/chainlink-env/pkg/helm/chainlink"
+	eth "github.com/pickleyd/chainlink-env/pkg/helm/ethereum"
+	"github.com/pickleyd/chainlink-env/pkg/helm/mockserver"
+	mockservercfg "github.com/pickleyd/chainlink-env/pkg/helm/mockserver-cfg"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
+	"github.com/pickleyd/chainlink-testing-framework/contracts/ethereum"
+	"github.com/pickleyd/chainlink-testing-framework/utils"
 
 	networks "github.com/pickleyd/chainlink/integration-tests"
 	"github.com/pickleyd/chainlink/integration-tests/actions"

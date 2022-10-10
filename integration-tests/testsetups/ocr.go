@@ -16,16 +16,16 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/rs/zerolog/log"
 
+	"github.com/pickleyd/chainlink-env/environment"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
+	ctfClient "github.com/pickleyd/chainlink-testing-framework/client"
+	"github.com/pickleyd/chainlink-testing-framework/contracts/ethereum"
+	reportModel "github.com/pickleyd/chainlink-testing-framework/testreporters"
+	"github.com/pickleyd/chainlink-testing-framework/testsetups"
 	"github.com/pickleyd/chainlink/integration-tests/actions"
 	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/pickleyd/chainlink/integration-tests/contracts"
 	"github.com/pickleyd/chainlink/integration-tests/testreporters"
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
-	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
-	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
-	reportModel "github.com/smartcontractkit/chainlink-testing-framework/testreporters"
-	"github.com/smartcontractkit/chainlink-testing-framework/testsetups"
 )
 
 // OCRSoakTest defines a typical OCR soak test

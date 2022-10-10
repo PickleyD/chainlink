@@ -18,7 +18,7 @@ cultivated list of other community related resources.
 - [@chainlink/box] - Truffle box
 - [@chainlink/external-adapter-js] - Chainlink external adapter repo
 - [awesome-chainlink] - Awesome projects built with Chainlink
-- [Chainlink Documentation](https://github.com/smartcontractkit/documentation/) - Our open source documentation site
+- [Chainlink Documentation](https://github.com/pickleyd/documentation/) - Our open source documentation site
 
 ### Platforms and Services
 
@@ -36,5 +36,5 @@ cultivated list of other community related resources.
 
 [awesome chainlink]: https://github.com/JohannEid/awesome-chainlink
 [devvon5]: https://chain.link/presentations/devcon5.pdf
-[external-adapter-js]: https://github.com/smartcontractkit/external-adapters-js
+[external-adapter-js]: https://github.com/pickleyd/external-adapters-js
 [gitcoin]: https://gitcoin.co/

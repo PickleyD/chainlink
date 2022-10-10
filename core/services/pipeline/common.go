@@ -1,9 +1,12 @@
 package pipeline
 
 import (
+	"bytes"
 	"context"
 	"database/sql/driver"
 	"encoding/json"
+	"math/big"
+	"net/url"
 	"reflect"
 	"sort"
 	"strconv"
@@ -55,14 +58,14 @@ type (
 	}
 
 	Config interface {
-		// BridgeResponseURL() *url.URL
-		// DatabaseURL() url.URL
+		BridgeResponseURL() *url.URL
+		DatabaseURL() url.URL
 		DefaultHTTPLimit() int64
 		DefaultHTTPTimeout() models.Duration
-		// TriggerFallbackDBPollInterval() time.Duration
-		// JobPipelineMaxRunDuration() time.Duration
-		// JobPipelineReaperInterval() time.Duration
-		// JobPipelineReaperThreshold() time.Duration
+		TriggerFallbackDBPollInterval() time.Duration
+		JobPipelineMaxRunDuration() time.Duration
+		JobPipelineReaperInterval() time.Duration
+		JobPipelineReaperThreshold() time.Duration
 	}
 )
 
@@ -229,6 +232,34 @@ type JSONSerializable struct {
 	Valid bool
 }
 
+func reinterpetJsonNumbers(val interface{}) (interface{}, error) {
+	switch v := val.(type) {
+	case json.Number:
+		return getJsonNumberValue(v)
+	case []interface{}:
+		s := make([]interface{}, len(v))
+		for i, vv := range v {
+			ival, ierr := reinterpetJsonNumbers(vv)
+			if ierr != nil {
+				return nil, ierr
+			}
+			s[i] = ival
+		}
+		return s, nil
+	case map[string]interface{}:
+		m := make(map[string]interface{}, len(v))
+		for k, vv := range v {
+			ival, ierr := reinterpetJsonNumbers(vv)
+			if ierr != nil {
+				return nil, ierr
+			}
+			m[k] = ival
+		}
+		return m, nil
+	}
+	return val, nil
+}
+
 // UnmarshalJSON implements custom unmarshaling logic
 func (js *JSONSerializable) UnmarshalJSON(bs []byte) error {
 	if js == nil {
@@ -238,9 +269,27 @@ func (js *JSONSerializable) UnmarshalJSON(bs []byte) error {
 		js.Valid = false
 		return nil
 	}
-	err := json.Unmarshal(bs, &js.Val)
-	js.Valid = err == nil && js.Val != nil
-	return err
+
+	var decoded interface{}
+	d := json.NewDecoder(bytes.NewReader(bs))
+	d.UseNumber()
+	if err := d.Decode(&decoded); err != nil {
+		return err
+	}
+
+	if decoded != nil {
+		reinterpreted, err := reinterpetJsonNumbers(decoded)
+		if err != nil {
+			return err
+		}
+
+		*js = JSONSerializable{
+			Valid: true,
+			Val:   reinterpreted,
+		}
+	}
+
+	return nil
 }
 
 // MarshalJSON implements custom marshaling logic
@@ -310,7 +359,9 @@ const (
 	TaskTypeUppercase        TaskType = "uppercase"
 	TaskTypeConditional      TaskType = "conditional"
 	TaskTypeHexDecode        TaskType = "hexdecode"
+	TaskTypeHexEncode        TaskType = "hexencode"
 	TaskTypeBase64Decode     TaskType = "base64decode"
+	TaskTypeBase64Encode     TaskType = "base64encode"
 
 	// Testing only.
 	TaskTypePanic TaskType = "panic"
@@ -343,6 +394,8 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &PanicTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeHTTP:
 		task = &HTTPTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	// case TaskTypeBridge:
+	// 	task = &BridgeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeMean:
 		task = &MeanTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeMedian:
@@ -361,6 +414,16 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &MultiplyTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeDivide:
 		task = &DivideTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	// case TaskTypeVRF:
+	// 	task = &VRFTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	// case TaskTypeVRFV2:
+	// 	task = &VRFTaskV2{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeEstimateGasLimit:
+		task = &EstimateGasLimitTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	// case TaskTypeETHCall:
+	// 	task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	// case TaskTypeETHTx:
+	// 	task = &ETHTxTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHABIEncode:
 		task = &ETHABIEncodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHABIEncode2:
@@ -383,8 +446,12 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &ConditionalTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeHexDecode:
 		task = &HexDecodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeHexEncode:
+		task = &HexEncodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeBase64Decode:
 		task = &Base64DecodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeBase64Encode:
+		task = &Base64EncodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	default:
 		return nil, errors.Errorf(`unknown task type: "%v"`, taskType)
 	}
@@ -508,4 +575,28 @@ func uint8ArrayToSlice(arr interface{}) interface{} {
 	s := reflect.MakeSlice(reflect.SliceOf(t.Elem()), v.Len(), v.Len())
 	reflect.Copy(s, v)
 	return s.Interface()
+}
+
+func getJsonNumberValue(value json.Number) (interface{}, error) {
+	var result interface{}
+
+	bn, ok := new(big.Int).SetString(value.String(), 10)
+	if ok {
+		if bn.IsInt64() {
+			result = bn.Int64()
+		} else if bn.IsUint64() {
+			result = bn.Uint64()
+		} else {
+			result = bn
+		}
+	} else {
+		f, err := value.Float64()
+		if err == nil {
+			result = f
+		} else {
+			return nil, errors.Errorf("failed to parse json.Value: %v", err)
+		}
+	}
+
+	return result, nil
 }

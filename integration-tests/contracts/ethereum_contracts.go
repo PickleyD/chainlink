@@ -10,14 +10,14 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
+	ocrConfigHelper "github.com/pickleyd/libocr/offchainreporting/confighelper"
+	ocrTypes "github.com/pickleyd/libocr/offchainreporting/types"
 	"github.com/rs/zerolog/log"
-	ocrConfigHelper "github.com/smartcontractkit/libocr/offchainreporting/confighelper"
-	ocrTypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
+	"github.com/pickleyd/chainlink-testing-framework/contracts/ethereum"
 	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/pickleyd/chainlink/integration-tests/testreporters"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
-	"github.com/smartcontractkit/chainlink-testing-framework/contracts/ethereum"
 )
 
 // EthereumOracle oracle for "directrequest" job tests

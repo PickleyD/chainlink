@@ -11,7 +11,7 @@
 /core/services/fluxmonitorv2 @jkongie @PiotrTrzpil @spooktheducks @connorwstein
 /core/services/health @samsondav
 /core/services/job @spooktheducks @connorwstein
-/core/services/keeper @smartcontractkit/keepers
+/core/services/keeper @pickleyd/keepers
 /core/services/keystore @RyanRHall
 /core/services/offchainreporting @spooktheducks @connorwstein @samsondav
 /core/services/periodicbackup @PiotrTrzpil @samsondav
@@ -33,12 +33,12 @@
 
 # Contracts
 /contracts/ @alexroan @se3000 @connorwstein
-/contracts/**/*Keeper* @smartcontractkit/keepers
-/contracts/**/*Upkeep* @smartcontractkit/keepers
+/contracts/**/*Keeper* @pickleyd/keepers
+/contracts/**/*Upkeep* @pickleyd/keepers
 
 # Tests
 /integration-tests/ @kalverra @tateexon @skudasov @anieeg
-/integration-tests/**/*keeper* @smartcontractkit/keepers
+/integration-tests/**/*keeper* @pickleyd/keepers
 
 # Misc
 /core/store @samsondav @jmank88
@@ -53,17 +53,17 @@
 /.github/workflows/performance-tests.yml @kalverra @tateexon @skudasov @anieeg
 
 # Dependencies
-contracts/scripts/requirements.txt @smartcontractkit/prodsec-public
-.tool-versions @smartcontractkit/prodsec-public
-.nvmrc @smartcontractkit/prodsec-public
-package.json @smartcontractkit/prodsec-public
-yarn.lock @smartcontractkit/prodsec-public
-go.mod @smartcontractkit/prodsec-public
-go.sum @smartcontractkit/prodsec-public
-integration-tests/go.mod @smartcontractkit/prodsec-public
-integration-tests/go.sum @smartcontractkit/prodsec-public
-flake.nix @smartcontractkit/prodsec-public
-flake.lock @smartcontractkit/prodsec-public
+contracts/scripts/requirements.txt @pickleyd/prodsec-public
+.tool-versions @pickleyd/prodsec-public
+.nvmrc @pickleyd/prodsec-public
+package.json @pickleyd/prodsec-public
+yarn.lock @pickleyd/prodsec-public
+go.mod @pickleyd/prodsec-public
+go.sum @pickleyd/prodsec-public
+integration-tests/go.mod @pickleyd/prodsec-public
+integration-tests/go.sum @pickleyd/prodsec-public
+flake.nix @pickleyd/prodsec-public
+flake.lock @pickleyd/prodsec-public
 
 # Config
 ./core/config @samsondav @jmank88

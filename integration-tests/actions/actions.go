@@ -18,13 +18,13 @@ import (
 	uuid "github.com/satori/go.uuid"
 	"golang.org/x/sync/errgroup"
 
+	"github.com/pickleyd/chainlink-env/environment"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
+	ctfClient "github.com/pickleyd/chainlink-testing-framework/client"
+	"github.com/pickleyd/chainlink-testing-framework/logging"
+	"github.com/pickleyd/chainlink-testing-framework/testreporters"
 	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/pickleyd/chainlink/integration-tests/contracts"
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
-	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
-	"github.com/smartcontractkit/chainlink-testing-framework/logging"
-	"github.com/smartcontractkit/chainlink-testing-framework/testreporters"
 )
 
 // GinkgoSuite provides the default setup for running a Ginkgo test suite

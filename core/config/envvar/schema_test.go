@@ -269,7 +269,7 @@ func TestConfigSchema(t *testing.T) {
 3. Update the ConfigPrinter found in core/config/presenters.go if you
    think this variable needs to be shown in the UI
 4. Make a PR into the documentation page if this is not a "nodoc" env var
-   this (found at https://github.com/smartcontractkit/documentation/blob/main/docs/Node%%20Operators/configuration-variables.md).
+   this (found at https://github.com/pickleyd/documentation/blob/main/docs/Node%%20Operators/configuration-variables.md).
    You may be able to add to an existing PR for the next version.
    Don't forget to update TOC.
 5. Add your new config variable to this test`, field.Name)

@@ -5,9 +5,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
 
-	"github.com/smartcontractkit/chainlink-env/logging"
+	"github.com/pickleyd/chainlink-env/logging"
 )
 
 func init() {

@@ -10,10 +10,10 @@ import (
 	. "github.com/onsi/gomega"
 	uuid "github.com/satori/go.uuid"
 
+	"github.com/pickleyd/chainlink-testing-framework/blockchain"
+	ctfClient "github.com/pickleyd/chainlink-testing-framework/client"
 	"github.com/pickleyd/chainlink/integration-tests/client"
 	"github.com/pickleyd/chainlink/integration-tests/contracts"
-	"github.com/smartcontractkit/chainlink-testing-framework/blockchain"
-	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
 )
 
 // This actions file often returns functions, rather than just values. These are used as common test helpers, and are
