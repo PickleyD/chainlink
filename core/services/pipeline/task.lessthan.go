@@ -6,7 +6,7 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
+	"github.com/pickleyd/chainlink/core/logger"
 )
 
 // Return types:
