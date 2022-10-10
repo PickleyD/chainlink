@@ -418,8 +418,8 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 	// 	task = &VRFTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// case TaskTypeVRFV2:
 	// 	task = &VRFTaskV2{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	case TaskTypeEstimateGasLimit:
-		task = &EstimateGasLimitTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	// case TaskTypeEstimateGasLimit:
+	// 	task = &EstimateGasLimitTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// case TaskTypeETHCall:
 	// 	task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// case TaskTypeETHTx:
