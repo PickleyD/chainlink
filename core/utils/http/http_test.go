@@ -2,7 +2,7 @@ package http_test
 
 import (
 	"bytes"
-	"io/ioutil"
+	"io"
 	netHttp "net/http"
 	"strings"
 	"testing"
@@ -52,6 +52,6 @@ func (t *mockTransport) RoundTrip(req *netHttp.Request) (*netHttp.Response, erro
 	response.Header.Set("Content-Type", "application/json")
 
 	responseBody := `{"foo":123}`
-	response.Body = ioutil.NopCloser(strings.NewReader(responseBody))
+	response.Body = io.NopCloser(strings.NewReader(responseBody))
 	return response, nil
 }

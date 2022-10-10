@@ -434,6 +434,8 @@ func Merge(inputs ...JSON) (JSON, error) {
 // Explicit type indicating a 32-byte sha256 hash
 type Sha256Hash [32]byte
 
+var EmptySha256Hash = new(Sha256Hash)
+
 // MarshalJSON converts a Sha256Hash to a JSON byte slice.
 func (s Sha256Hash) MarshalJSON() ([]byte, error) {
 	return json.Marshal(s.String())
@@ -517,8 +519,16 @@ func ParseURL(s string) (*URL, error) {
 	return (*URL)(u), nil
 }
 
+func (u *URL) String() string {
+	return (*url.URL)(u).String()
+}
+
+func (u *URL) IsZero() bool {
+	return (url.URL)(*u) == url.URL{}
+}
+
 func (u *URL) MarshalText() ([]byte, error) {
-	return []byte((*url.URL)(u).String()), nil
+	return []byte(u.String()), nil
 }
 
 func (u *URL) UnmarshalText(input []byte) error {

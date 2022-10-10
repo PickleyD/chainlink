@@ -52,7 +52,7 @@ type ReorgController struct {
 	currentVerifiedBlocks int
 	networkStep           *atomic.Int64
 	altBlockNumbers       []int64
-	blocksByNode          map[int]map[int64]blockchain.NodeBlock
+	blocksByNode          map[int]map[int64]blockchain.NodeHeader
 	blockHashes           map[int64][]common.Hash
 	chaosExperimentName   string
 	initConsensusReady    chan struct{}
@@ -63,7 +63,7 @@ type ReorgController struct {
 	ctx                   context.Context
 	cancel                context.CancelFunc
 	doneChan              chan struct{}
-	done                  bool
+	complete              bool
 }
 
 // NewReorgController creates a type that can create reorg chaos and confirm reorg has happened
@@ -78,7 +78,7 @@ func NewReorgController(cfg *ReorgConfig) (*ReorgController, error) {
 		doneChan:           make(chan struct{}, 100),
 		altBlockNumbers:    make([]int64, 0),
 		blockHashes:        map[int64][]common.Hash{},
-		blocksByNode:       map[int]map[int64]blockchain.NodeBlock{},
+		blocksByNode:       map[int]map[int64]blockchain.NodeHeader{},
 		initConsensusReady: make(chan struct{}, 100),
 		reorgStarted:       make(chan struct{}, 100),
 		depthReached:       make(chan struct{}, 100),
@@ -87,6 +87,7 @@ func NewReorgController(cfg *ReorgConfig) (*ReorgController, error) {
 		ctx:                ctx,
 		cancel:             ctxCancel,
 		networkStep:        atomic.NewInt64(InitConsensus),
+		complete:           false,
 	}
 	cfg.Network.AddHeaderEventSubscription("reorg", rc)
 	<-rc.initConsensusReady
@@ -111,37 +112,38 @@ func (rc *ReorgController) WaitReorgStarted() {
 	<-rc.reorgStarted
 }
 
-// ReceiveBlock receives block marked by node that mined it,
+// ReceiveHeader receives header marked by node that mined it,
 // forks the network and record all alternative block numbers on node 0
-func (rc *ReorgController) ReceiveBlock(blk blockchain.NodeBlock) error {
+func (rc *ReorgController) ReceiveHeader(header blockchain.NodeHeader) error {
 	rc.mutex.Lock()
 	defer rc.mutex.Unlock()
-	if blk.Block == nil {
-		return nil
-	}
-	rc.appendBlockHeader(blk)
+	rc.appendBlockHeader(header)
 	switch rc.networkStep.Load() {
 	case Wait:
 	case InitConsensus:
-		if rc.hasNetworkFormedConsensus(blk) {
+		if rc.hasNetworkFormedConsensus(header) {
 			rc.networkStep.Store(Wait)
 			rc.initConsensusReady <- struct{}{}
 		}
 	case NetworkFork:
-		if err := rc.forkNetwork(blk); err != nil {
+		if err := rc.forkNetwork(header); err != nil {
 			return err
 		}
 	case CheckBlocks:
-		if err := rc.compareBlocks(blk); err != nil {
+		if err := rc.compareBlocks(header); err != nil {
 			return err
 		}
 	case Consensus:
-		if rc.hasNetworkFormedConsensus(blk) {
-			rc.done = true
+		if rc.hasNetworkFormedConsensus(header) {
+			rc.complete = true
 			rc.cancel()
 		}
 	}
 	return nil
+}
+
+func (rc *ReorgController) Complete() bool {
+	return rc.complete
 }
 
 // VerifyReorgComplete verifies that all blocks are replaced by reorg
@@ -154,7 +156,7 @@ func (rc *ReorgController) VerifyReorgComplete() error {
 			return err
 		}
 		log.Info().
-			Int64("Number", bb.Number().Int64()).
+			Int64("Number", bb.Number.Int64()).
 			Str("Hash before", bb.Hash().String()).
 			Str("Hash after", h).
 			Msg("Comparing block")
@@ -168,8 +170,8 @@ func (rc *ReorgController) VerifyReorgComplete() error {
 	return nil
 }
 
-func (rc *ReorgController) isAltBlock(blk blockchain.NodeBlock) bool {
-	blockNumber := blk.Number().Int64()
+func (rc *ReorgController) isAltBlock(blk blockchain.NodeHeader) bool {
+	blockNumber := blk.Number.Int64()
 	// If we've received the same block number from all nodes, check hashes there are some different versions
 	if len(rc.blockHashes[blockNumber]) >= rc.numberOfNodes {
 		firstBlockHash := rc.blockHashes[blockNumber][0]
@@ -182,16 +184,16 @@ func (rc *ReorgController) isAltBlock(blk blockchain.NodeBlock) bool {
 	return false
 }
 
-func (rc *ReorgController) compareBlocks(blk blockchain.NodeBlock) error {
-	if blk.NodeID == 0 && blk.Number().Int64() >= rc.forkBlockNumber && rc.isAltBlock(blk) {
+func (rc *ReorgController) compareBlocks(blk blockchain.NodeHeader) error {
+	if blk.NodeID == 0 && blk.Number.Int64() >= rc.forkBlockNumber && rc.isAltBlock(blk) {
 		rc.once.Do(func() {
-			log.Warn().Int64("Number", blk.Number().Int64()).Msg("Reorg started")
+			log.Warn().Int64("Number", blk.Number.Int64()).Msg("Reorg started")
 			rc.reorgStarted <- struct{}{}
 		})
-		rc.altBlockNumbers = append(rc.altBlockNumbers, blk.Number().Int64())
+		rc.altBlockNumbers = append(rc.altBlockNumbers, blk.Number.Int64())
 		rc.currentAltBlocks++
 		log.Info().
-			Int64("Number", blk.Number().Int64()).
+			Int64("Number", blk.Number.Int64()).
 			Str("Hash", blk.Hash().String()).
 			Int("Node", blk.NodeID).
 			Int("BlocksLeft", rc.ReorgDepth-rc.currentAltBlocks).
@@ -212,15 +214,15 @@ func (rc *ReorgController) compareBlocks(blk blockchain.NodeBlock) error {
 func (rc *ReorgController) Wait() error {
 	<-rc.ctx.Done()
 	rc.cfg.Network.DeleteHeaderEventSubscription("reorg")
-	if rc.done {
+	if rc.complete {
 		return nil
 	}
 	return errors.New("timeout waiting for reorg to complete")
 }
 
 // forkNetwork stomp the network between target reorged node and the rest
-func (rc *ReorgController) forkNetwork(blk blockchain.NodeBlock) error {
-	rc.forkBlockNumber = blk.Number().Int64()
+func (rc *ReorgController) forkNetwork(header blockchain.NodeHeader) error {
+	rc.forkBlockNumber = header.Number.Int64()
 	log.Debug().
 		Int64("Number", rc.forkBlockNumber).
 		Str("Network", rc.cfg.Network.GetNetworkName()).
@@ -245,8 +247,8 @@ func (rc *ReorgController) joinNetwork() error {
 }
 
 // hasNetworkFormedConsensus waits for network to have N blocks with the same hashes
-func (rc *ReorgController) hasNetworkFormedConsensus(blk blockchain.NodeBlock) bool {
-	blockNumber := blk.Number().Int64()
+func (rc *ReorgController) hasNetworkFormedConsensus(header blockchain.NodeHeader) bool {
+	blockNumber := header.Number.Int64()
 	// If we've received the same block number from all nodes, check hashes to ensure they've reformed consensus
 	if len(rc.blockHashes[blockNumber]) >= rc.numberOfNodes {
 		firstBlockHash := rc.blockHashes[blockNumber][0]
@@ -269,15 +271,15 @@ func (rc *ReorgController) hasNetworkFormedConsensus(blk blockchain.NodeBlock) b
 	return false
 }
 
-func (rc *ReorgController) appendBlockHeader(blk blockchain.NodeBlock) {
-	bn := blk.Number().Int64()
+func (rc *ReorgController) appendBlockHeader(header blockchain.NodeHeader) {
+	bn := header.Number.Int64()
 	if _, ok := rc.blockHashes[bn]; !ok {
 		rc.blockHashes[bn] = []common.Hash{}
 	}
-	rc.blockHashes[bn] = append(rc.blockHashes[bn], blk.Hash())
+	rc.blockHashes[bn] = append(rc.blockHashes[bn], header.Hash())
 
-	if _, ok := rc.blocksByNode[blk.NodeID]; !ok {
-		rc.blocksByNode[blk.NodeID] = make(map[int64]blockchain.NodeBlock)
+	if _, ok := rc.blocksByNode[header.NodeID]; !ok {
+		rc.blocksByNode[header.NodeID] = make(map[int64]blockchain.NodeHeader)
 	}
-	rc.blocksByNode[blk.NodeID][bn] = blk
+	rc.blocksByNode[header.NodeID][bn] = header
 }

@@ -5,16 +5,85 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+
+<!-- unreleased -->
+## [Unreleased]
+
+...
+<!-- unreleasedstop -->
+
+## 1.8.1 - 2022-09-29
 
 ### Added
 
+-  New `GAS_ESTIMATOR_MODE` for Arbitrum to support Nitro's multi-dimensional gas model, with dynamic gas pricing and limits.
+   -  NOTE: It is recommended to remove `GAS_ESTIMATOR_MODE` as an env var if you have it set in order to use the new default.
+   -  This new, default estimator for Arbitrum networks uses the suggested gas price (up to `ETH_MAX_GAS_PRICE_WEI`, with `1000 gwei` default) as well as an estimated gas limit (up to `ETH_GAS_LIMIT_MAX`, with `1,000,000,000` default).  
+- `ETH_GAS_LIMIT_MAX` to put a maximum on the gas limit returned by the `Arbitrum` estimator.
 
-- `allowForwarding` per job attribute to allow forwarding txs submitted by the job.
+### Added
+
+- Added `length` and `lessthan` tasks (pipeline).
+- Added `gasUnlimited` parameter to `ethcall` task. 
+- `GAS_ESTIMATOR_MODE` `Arbitrum` to support Nitro's multi-dimensional gas model, with dynamic gas pricing and limits.
+This new, default estimator for Arbitrum networks uses the suggested gas price (up to `ETH_MAX_GAS_PRICE_WEI`, with `1000 gwei` default) as well 
+as an estimated gas limit (up to `ETH_GAS_LIMIT_MAX`, with `1,000,000,000` default).  
+- `ETH_GAS_LIMIT_MAX` to put a maximum on the gas limit returned by the `Arbitrum` estimator.
+- `/keys` page in Operator UI now exposes several admin commands, namely:
+  - "abandon" to abandon all current txes
+  - enable/disable a key for a given chain
+  - manually set the nonce for a key
+  See [this PR](https://github.com/smartcontractkit/chainlink/pull/7406) for a screenshot example.
+
+## 1.8.0 - 2022-09-01
+
+### Added
+
+- Added `hexencode` and `base64encode` tasks (pipeline).
+- `forwardingAllowed` per job attribute to allow forwarding txs submitted by the job.
+- Keypath now supports paths with any depth, instead of limiting it to 2
+- `Arbitrum` chains are no longer restricted to only `FixedPrice` `GAS_ESTIMATOR_MODE`
+- Updated `Arbitrum Rinkeby & Mainnet & Mainnet` configurationss for Nitro
+- Add `Arbitrum Goerli` configuration
+- It is now possible to use the same key across multiple chains.
+- `NODE_SELECTION_MODE` (`EVM.NodePool.SelectionMode`) controls node picking strategy. Supported values: `HighestHead` (default) and `RoundRobin`:
+  - `RoundRobin` mode simply iterates among available alive nodes. This was the default behavior prior to this release.
+  - `HighestHead` mode picks a node having the highest reported head number among other alive nodes. When several nodes have the same latest head number, the strategy sticks to the last used node.
+  For chains having `NODE_NO_NEW_HEADS_THRESHOLD=0` (such as Arbitrum, Optimism), the implementation will fall back to `RoundRobin` mode.
+- New `keys eth chain` command
+  - This can also be accessed at `/v2/keys/evm/chain`.
+  - Usage examples:
+    - Manually (re)set a nonce:
+      - `chainlink keys eth chain --address "0xEXAMPLE" --evmChainID 99 --setNextNonce 42`
+    - Enable a key for a particular chain:
+      - `chainlink keys eth chain --address "0xEXAMPLE" --evmChainID 99 --enable`
+    - Disable a key for a particular chain:
+      - `chainlink keys eth chain --address "0xEXAMPLE" --evmChainID 99 --disable`
+    - Abandon all currently pending transactions (use with caution!):
+      - `chainlink evm keys chain --address "0xEXAMPLE" --evmChainID 99 --abandon`
+  - Commands can be combined e.g.
+    - Reset nonce and abandon all currently pending transaction:
+      - `chainlink evm keys chain --address "0xEXAMPLE" --evmChainID 99 --setNextNonce 42 --abandon`
+
+### Changed
+
+- The `setnextnonce` local client command has been removed, and replaced by a more general key/chain client command.
+- `chainlink admin users update` command is replaced with `chainlink admin users chrole` (only the role can be changed for a user)
+
+## 1.7.1 - 2022-08-22
+
+### Added
+
+- `Arbitrum Nitro` client error support
+
+## 1.7.0 - 2022-08-08
+
+### Added
+
 - `p2pv2Bootstrappers` has been added as a new optional property of OCR1 job specs; default may still be specified with P2PV2_BOOTSTRAPPERS config param
 - Added official support for Sepolia chain
 - Added `hexdecode` and `base64decode` tasks (pipeline).
-- Added official support for Besu execution client.
+- Added support for Besu execution client (note that while Chainlink supports Besu, Besu itself [has](https://github.com/hyperledger/besu/issues/4212) [multiple](https://github.com/hyperledger/besu/issues/4192) [bugs](https://github.com/hyperledger/besu/issues/4114) that make it unreliable).
 - Added the functionality to allow the root admin CLI user (and any additional admin users created) to create and assign tiers of role based access to new users. These new API users will be able to log in to the Operator UI independently, and can each have specific roles tied to their account. There are four roles: `admin`, `edit`, `run`, and `view`.
   - User management can be configured through the use of the new admin CLI command `chainlink admin users`. Be sure to run `chainlink adamin login`. For example, a readonly user can be created with: `chainlink admin users create --email=operator-ui-read-only@test.com --role=view`.
   - Updated documentation repo with a break down of actions to required role level

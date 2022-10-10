@@ -2,10 +2,16 @@ package utils
 
 import (
 	"fmt"
+	"os"
 	"regexp"
 	"strings"
 
 	"github.com/pkg/errors"
+)
+
+var (
+	ErrPasswordWhitespace  = errors.New("leading/trailing whitespace detected in password")
+	ErrEmptyPasswordInFile = errors.New("detected empty password in password file")
 )
 
 // PasswordComplexityRequirements defines the complexity requirements message
@@ -45,7 +51,7 @@ func VerifyPasswordComplexity(password string, disallowedStrings ...string) (mer
 	}
 
 	if len(password) < MinRequiredLen {
-		stringErrs = append(stringErrs, fmt.Sprintf("password is %d characters long", len(password)))
+		stringErrs = append(stringErrs, fmt.Sprintf("password is less than %d characters long", MinRequiredLen))
 	}
 
 	for _, s := range disallowedStrings {
@@ -62,4 +68,24 @@ func VerifyPasswordComplexity(password string, disallowedStrings ...string) (mer
 	}
 
 	return
+}
+
+func PasswordFromFile(pwdFile string) (string, error) {
+	if len(pwdFile) == 0 {
+		return "", nil
+	}
+	dat, err := os.ReadFile(pwdFile)
+	// handle POSIX case, when text files may have a trailing \n
+	pwd := strings.TrimSuffix(string(dat), "\n")
+
+	if err != nil {
+		return pwd, err
+	}
+	if len(pwd) == 0 {
+		return pwd, ErrEmptyPasswordInFile
+	}
+	if strings.TrimSpace(pwd) != pwd {
+		return pwd, ErrPasswordWhitespace
+	}
+	return pwd, err
 }

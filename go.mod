@@ -1,6 +1,6 @@
 module github.com/pickleyd/chainlink
 
-go 1.18
+go 1.19
 
 require (
 	github.com/ethereum/go-ethereum v1.10.20
@@ -20,11 +20,19 @@ require (
 	github.com/tidwall/gjson v1.14.1
 	go.uber.org/atomic v1.9.0
 	go.uber.org/multierr v1.8.0
-	go.uber.org/zap v1.21.0
-	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
+	go.uber.org/zap v1.23.0
+	golang.org/x/crypto v0.0.0-20220826181053-bd7e27e6170d
 	golang.org/x/exp v0.0.0-20220608143224-64259d1afd70
 	golang.org/x/text v0.3.7
 	gopkg.in/guregu/null.v4 v4.0.0
+	gopkg.in/natefinch/lumberjack.v2 v2.0.0
+)
+
+require (
+	github.com/cosmos/gorocksdb v1.2.0 // indirect
+	github.com/google/gofuzz v1.2.0 // indirect
+	github.com/umbracle/fastrlp v0.0.0-20220527094140-59d5dd30e722 // indirect
+	github.com/valyala/fastjson v1.4.1 // indirect
 )
 
 require (
@@ -71,8 +79,8 @@ require (
 	github.com/multiformats/go-varint v0.0.6 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c // indirect
-	github.com/prometheus/common v0.35.0 // indirect
-	github.com/prometheus/procfs v0.7.3 // indirect
+	github.com/prometheus/common v0.37.0 // indirect
+	github.com/prometheus/procfs v0.8.0 // indirect
 	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
@@ -104,7 +112,10 @@ replace github.com/dgrijalva/jwt-go => github.com/form3tech-oss/jwt-go v3.2.1+in
 replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 
 // needed to address mismatch between cosmosSDK and hdevalence/ed25519consensus
-replace filippo.io/edwards25519 => filippo.io/edwards25519 v1.0.0-beta.3
+replace filippo.io/edwards25519 => filippo.io/edwards25519 v1.0.0-rc.1
+
+// updating CosmWasm to v1.0.0 which brings ARM support
+replace github.com/CosmWasm/wasmvm => github.com/CosmWasm/wasmvm v1.0.0
 
 // fixes deprecation warnings and keychain undefined bugs on macOS
 // See https://github.com/99designs/keyring/issues/94
@@ -113,3 +124,8 @@ replace github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.
 // Fix go mod tidy issue for ambiguous imports from go-ethereum
 // See https://github.com/ugorji/go/issues/279
 replace github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.22.1
+
+exclude (
+	github.com/influxdata/influxdb v1.8.3
+	github.com/labstack/echo/v4 v4.5.0
+)
