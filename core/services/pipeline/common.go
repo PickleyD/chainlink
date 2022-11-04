@@ -393,7 +393,8 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &PanicTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeHTTP:
 		task = &HTTPTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// case TaskTypeBridge:
+	case TaskTypeBridge:
+		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &BridgeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeMean:
 		task = &MeanTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
@@ -413,15 +414,20 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &MultiplyTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeDivide:
 		task = &DivideTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// case TaskTypeVRF:
+	case TaskTypeVRF:
+		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &VRFTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// case TaskTypeVRFV2:
+	case TaskTypeVRFV2:
+		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &VRFTaskV2{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// case TaskTypeEstimateGasLimit:
+	case TaskTypeEstimateGasLimit:
+		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &EstimateGasLimitTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// case TaskTypeETHCall:
+	case TaskTypeETHCall:
+		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// case TaskTypeETHTx:
+	case TaskTypeETHTx:
+		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &ETHTxTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHABIEncode:
 		task = &ETHABIEncodeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
