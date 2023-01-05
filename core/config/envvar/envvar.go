@@ -16,12 +16,12 @@ import (
 // https://app.shortcut.com/chainlinklabs/story/33622/remove-legacy-config
 // nolint
 var (
-	AdvisoryLockID                    = NewInt64("AdvisoryLockID")
-	AuthenticatedRateLimitPeriod      = NewDuration("AuthenticatedRateLimitPeriod")
-	AutoPprofPollInterval             = NewDuration("AutoPprofPollInterval")
-	AutoPprofGatherDuration           = NewDuration("AutoPprofGatherDuration")
-	AutoPprofGatherTraceDuration      = NewDuration("AutoPprofGatherTraceDuration")
-	DatabaseURL                       = New("DatabaseURL", parse.DatabaseURL)
+	AdvisoryLockID               = NewInt64("AdvisoryLockID")
+	AuthenticatedRateLimitPeriod = NewDuration("AuthenticatedRateLimitPeriod")
+	AutoPprofPollInterval        = NewDuration("AutoPprofPollInterval")
+	AutoPprofGatherDuration      = NewDuration("AutoPprofGatherDuration")
+	AutoPprofGatherTraceDuration = NewDuration("AutoPprofGatherTraceDuration")
+	// DatabaseURL                       = New("DatabaseURL", parse.DatabaseURL)
 	BlockBackfillDepth                = NewUint64("BlockBackfillDepth")
 	HTTPServerWriteTimeout            = NewDuration("HTTPServerWriteTimeout")
 	JobPipelineMaxRunDuration         = NewDuration("JobPipelineMaxRunDuration")

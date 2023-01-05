@@ -10,11 +10,9 @@ import (
 	"time"
 
 	"github.com/mitchellh/go-homedir"
-	"github.com/pkg/errors"
 	"go.uber.org/zap/zapcore"
 
 	"github.com/pickleyd/chainlink/core/assets"
-	"github.com/pickleyd/chainlink/core/static"
 	"github.com/pickleyd/chainlink/core/utils"
 )
 
@@ -109,14 +107,14 @@ func HomeDir(str string) (string, error) {
 	return filepath.ToSlash(exp), nil
 }
 
-func DatabaseURL(s string) (url.URL, error) {
-	uri, err := url.Parse(s)
-	if err != nil {
-		return url.URL{}, errors.Wrapf(err, "invalid database url %s", s)
-	}
-	if uri.String() == "" {
-		return *uri, nil
-	}
-	static.SetConsumerName(uri, "Default", nil)
-	return *uri, nil
-}
+// func DatabaseURL(s string) (url.URL, error) {
+// 	uri, err := url.Parse(s)
+// 	if err != nil {
+// 		return url.URL{}, errors.Wrapf(err, "invalid database url %s", s)
+// 	}
+// 	if uri.String() == "" {
+// 		return *uri, nil
+// 	}
+// 	static.SetConsumerName(uri, "Default", nil)
+// 	return *uri, nil
+// }

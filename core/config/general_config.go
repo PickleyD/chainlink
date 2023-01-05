@@ -17,8 +17,6 @@ import (
 	"github.com/pickleyd/chainlink/core/assets"
 	"github.com/pickleyd/chainlink/core/config/envvar"
 	"github.com/pickleyd/chainlink/core/logger"
-	"github.com/pickleyd/chainlink/core/logger/audit"
-	"github.com/pickleyd/chainlink/core/store/dialects"
 	"github.com/pickleyd/chainlink/core/store/models"
 	"github.com/pickleyd/chainlink/core/utils"
 )
@@ -37,6 +35,19 @@ type GeneralOnlyConfig interface {
 	// Validate() error
 	// SetLogLevel(lvl zapcore.Level) error
 	// SetLogSQL(logSQL bool)
+	DefaultHTTPLimit() int64
+	DefaultHTTPTimeout() models.Duration
+}
+
+// FeatureFlags contains bools that toggle various features or chains
+// TODO: document the new ones
+type FeatureFlags interface {
+	FeatureExternalInitiators() bool
+	FeatureFeedsManager() bool
+	FeatureOffchainReporting() bool
+	FeatureOffchainReporting2() bool
+	FeatureUICSAKeys() bool
+	FeatureLogPoller() bool
 
 	AutoPprofEnabled() bool
 	EVMEnabled() bool
@@ -58,7 +69,7 @@ type BasicConfig interface {
 	SetPasswords(keystore, vrf *string)
 
 	FeatureFlags
-	audit.Config
+	// audit.Config
 
 	AdvisoryLockCheckInterval() time.Duration
 	AdvisoryLockID() int64
@@ -84,7 +95,7 @@ type BasicConfig interface {
 	CertFile() string
 	DatabaseBackupDir() string
 	DatabaseBackupFrequency() time.Duration
-	DatabaseBackupMode() DatabaseBackupMode
+	// DatabaseBackupMode() DatabaseBackupMode
 	DatabaseBackupOnVersionUpgrade() bool
 	DatabaseBackupURL() *url.URL
 	DatabaseDefaultIdleInTxSessionTimeout() time.Duration
@@ -110,7 +121,7 @@ type BasicConfig interface {
 	FMDefaultTransactionQueueDepth() uint32
 	FMSimulateTransactions() bool
 	GetAdvisoryLockIDConfiguredOrDefault() int64
-	GetDatabaseDialectConfiguredOrDefault() dialects.DialectName
+	// GetDatabaseDialectConfiguredOrDefault() dialects.DialectName
 	HTTPServerWriteTimeout() time.Duration
 	InsecureFastScrypt() bool
 	JSONConsole() bool
@@ -183,12 +194,12 @@ type BasicConfig interface {
 	UnAuthenticatedRateLimitPeriod() models.Duration
 	VRFPassword() string
 
-	OCR1Config
-	OCR2Config
+	// OCR1Config
+	// OCR2Config
 
-	P2PNetworking
-	P2PV1Networking
-	P2PV2Networking
+	// P2PNetworking
+	// P2PV1Networking
+	// P2PV2Networking
 }
 
 // GlobalConfig holds global ENV overrides for EVM chains
