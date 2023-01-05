@@ -3,27 +3,27 @@ module github.com/pickleyd/chainlink
 go 1.18
 
 require (
-	github.com/ethereum/go-ethereum v1.10.25
+	github.com/ethereum/go-ethereum v1.10.26
 	github.com/fxamacker/cbor/v2 v2.4.0
 	github.com/jpillora/backoff v1.0.0
 	github.com/libp2p/go-libp2p-core v0.20.1
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/pkg/errors v0.9.1
-	github.com/prometheus/client_golang v1.13.0
+	github.com/prometheus/client_golang v1.14.0
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/satori/go.uuid v1.2.0
-	github.com/shirou/gopsutil/v3 v3.22.9
+	github.com/shirou/gopsutil/v3 v3.22.10
 	github.com/shopspring/decimal v1.3.1
-	github.com/spf13/viper v1.13.0
-	github.com/stretchr/testify v1.8.0
+	github.com/spf13/viper v1.12.0
+	github.com/stretchr/testify v1.8.1
 	github.com/tidwall/gjson v1.14.3
-	go.uber.org/atomic v1.10.0
+	go.uber.org/atomic v1.9.0
 	go.uber.org/multierr v1.8.0
 	go.uber.org/zap v1.23.0
-	golang.org/x/crypto v0.0.0-20221010152910-d6f0a8c073c2
-	golang.org/x/exp v0.0.0-20221006183845-316c7553db56
-	golang.org/x/text v0.3.7
+	golang.org/x/crypto v0.1.0
+	golang.org/x/exp v0.0.0-20220608143224-64259d1afd70
+	golang.org/x/text v0.4.0
 	gopkg.in/guregu/null.v4 v4.0.0
 )
 
@@ -109,6 +109,9 @@ replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alp
 // needed to address mismatch between cosmosSDK and hdevalence/ed25519consensus
 replace filippo.io/edwards25519 => filippo.io/edwards25519 v1.0.0-beta.3
 
+// moved but still using old module name
+replace github.com/terra-money/core => github.com/terra-money/classic-core v0.5.20
+
 // fixes deprecation warnings and keychain undefined bugs on macOS
 // See https://github.com/99designs/keyring/issues/94
 replace github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4
@@ -116,3 +119,10 @@ replace github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.
 // Fix go mod tidy issue for ambiguous imports from go-ethereum
 // See https://github.com/ugorji/go/issues/279
 replace github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.22.1
+
+exclude (
+	github.com/influxdata/influxdb v1.8.3
+	github.com/labstack/echo/v4 v4.5.0
+	github.com/nats-io/nats-server/v2 v2.1.2
+	github.com/nats-io/nats-server/v2 v2.5.0
+)

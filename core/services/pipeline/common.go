@@ -37,8 +37,8 @@ const (
 	BootstrapJobType          string = "bootstrap"
 )
 
-//go:generate mockery --name Config --output ./mocks/ --case=underscore
-//go:generate mockery --name Task --output ./mocks/ --case=underscore
+//go:generate mockery --quiet --name Config --output ./mocks/ --case=underscore
+//go:generate mockery --quiet --name Task --output ./mocks/ --case=underscore
 
 type (
 	Task interface {
@@ -59,6 +59,7 @@ type (
 	Config interface {
 		// BridgeResponseURL() *url.URL
 		// DatabaseURL() url.URL
+		// BridgeCacheTTL() time.Duration
 		DefaultHTTPLimit() int64
 		DefaultHTTPTimeout() models.Duration
 		// TriggerFallbackDBPollInterval() time.Duration
@@ -333,34 +334,38 @@ func (t TaskType) String() string {
 }
 
 const (
-	TaskTypeHTTP             TaskType = "http"
-	TaskTypeBridge           TaskType = "bridge"
-	TaskTypeMean             TaskType = "mean"
-	TaskTypeMedian           TaskType = "median"
-	TaskTypeMode             TaskType = "mode"
-	TaskTypeSum              TaskType = "sum"
-	TaskTypeMultiply         TaskType = "multiply"
-	TaskTypeDivide           TaskType = "divide"
-	TaskTypeJSONParse        TaskType = "jsonparse"
-	TaskTypeCBORParse        TaskType = "cborparse"
 	TaskTypeAny              TaskType = "any"
-	TaskTypeVRF              TaskType = "vrf"
-	TaskTypeVRFV2            TaskType = "vrfv2"
-	TaskTypeEstimateGasLimit TaskType = "estimategaslimit"
-	TaskTypeETHCall          TaskType = "ethcall"
-	TaskTypeETHTx            TaskType = "ethtx"
-	TaskTypeETHABIEncode     TaskType = "ethabiencode"
-	TaskTypeETHABIEncode2    TaskType = "ethabiencode2"
-	TaskTypeETHABIDecode     TaskType = "ethabidecode"
-	TaskTypeETHABIDecodeLog  TaskType = "ethabidecodelog"
-	TaskTypeMerge            TaskType = "merge"
-	TaskTypeLowercase        TaskType = "lowercase"
-	TaskTypeUppercase        TaskType = "uppercase"
-	TaskTypeConditional      TaskType = "conditional"
-	TaskTypeHexDecode        TaskType = "hexdecode"
-	TaskTypeHexEncode        TaskType = "hexencode"
 	TaskTypeBase64Decode     TaskType = "base64decode"
 	TaskTypeBase64Encode     TaskType = "base64encode"
+	TaskTypeBridge           TaskType = "bridge"
+	TaskTypeCBORParse        TaskType = "cborparse"
+	TaskTypeConditional      TaskType = "conditional"
+	TaskTypeDivide           TaskType = "divide"
+	TaskTypeETHABIDecode     TaskType = "ethabidecode"
+	TaskTypeETHABIDecodeLog  TaskType = "ethabidecodelog"
+	TaskTypeETHABIEncode     TaskType = "ethabiencode"
+	TaskTypeETHABIEncode2    TaskType = "ethabiencode2"
+	TaskTypeETHCall          TaskType = "ethcall"
+	TaskTypeETHGetBlock      TaskType = "ethgetblock"
+	TaskTypeETHTx            TaskType = "ethtx"
+	TaskTypeEstimateGasLimit TaskType = "estimategaslimit"
+	TaskTypeHTTP             TaskType = "http"
+	TaskTypeHexDecode        TaskType = "hexdecode"
+	TaskTypeHexEncode        TaskType = "hexencode"
+	TaskTypeJSONParse        TaskType = "jsonparse"
+	TaskTypeLength           TaskType = "length"
+	TaskTypeLessThan         TaskType = "lessthan"
+	TaskTypeLookup           TaskType = "lookup"
+	TaskTypeLowercase        TaskType = "lowercase"
+	TaskTypeMean             TaskType = "mean"
+	TaskTypeMedian           TaskType = "median"
+	TaskTypeMerge            TaskType = "merge"
+	TaskTypeMode             TaskType = "mode"
+	TaskTypeMultiply         TaskType = "multiply"
+	TaskTypeSum              TaskType = "sum"
+	TaskTypeUppercase        TaskType = "uppercase"
+	TaskTypeVRF              TaskType = "vrf"
+	TaskTypeVRFV2            TaskType = "vrfv2"
 
 	// Testing only.
 	TaskTypePanic TaskType = "panic"
@@ -426,6 +431,8 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 	case TaskTypeETHCall:
 		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeETHGetBlock:
+		task = &ETHGetBlockTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHTx:
 		task = &ETHTxTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHABIEncode:
@@ -442,6 +449,12 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeMerge:
 		task = &MergeTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeLength:
+		task = &LengthTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeLessThan:
+		task = &LessThanTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+	case TaskTypeLookup:
+		task = &LookupTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeLowercase:
 		task = &LowercaseTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeUppercase:
