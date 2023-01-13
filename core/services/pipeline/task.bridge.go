@@ -222,7 +222,7 @@ func (t *BridgeTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, inp
 	// 	"cached", cachedResponse,
 	// )
 
-	result = Result{Value: requestDataJSON}
+	result = Result{SideEffectData: requestDataJSON}
 	return result, runInfo
 }
 

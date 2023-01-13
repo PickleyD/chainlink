@@ -124,8 +124,9 @@ func isRetryableHTTPError(statusCode int, err error) bool {
 
 // Result is the result of a TaskRun
 type Result struct {
-	Value interface{}
-	Error error
+	Value          interface{}
+	Error          error
+	SideEffectData interface{}
 }
 
 // OutputDB dumps a single result output for a pipeline_run or pipeline_task_run
