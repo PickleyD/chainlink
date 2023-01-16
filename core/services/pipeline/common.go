@@ -430,8 +430,7 @@ func UnmarshalTaskFromMap(taskType TaskType, taskMap interface{}, ID int, dotID 
 		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	// 	task = &EstimateGasLimitTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHCall:
-		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
-	// 	task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
+		task = &ETHCallTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 	case TaskTypeETHGetBlock:
 		task = &FailTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
 		// task = &ETHGetBlockTask{BaseTask: BaseTask{id: ID, dotID: dotID}}
