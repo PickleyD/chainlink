@@ -30,11 +30,14 @@ type ETHTxTask struct {
 	EVMChainID      string `json:"evmChainID" mapstructure:"evmChainID"`
 	TransmitChecker string `json:"transmitChecker"`
 
-	forwardingAllowed bool
-	specGasLimit      *uint32
-	keyStore          ETHKeyStore
+	// LINKIT CUSTOM
+	SpecGasLimit string `json:"specGasLimit"`
+
+	// forwardingAllowed bool
+	// specGasLimit      *uint32
+	// keyStore          ETHKeyStore
 	// chainSet          evm.ChainSet
-	jobType string
+	// jobType string
 }
 
 //go:generate mockery --quiet --name ETHKeyStore --output ./mocks/ --case=underscore
@@ -67,7 +70,15 @@ func (t *ETHTxTask) Run(_ context.Context, lggr logger.Logger, vars Vars, inputs
 		return Result{Error: errors.Wrap(err, "task inputs")}, runInfo
 	}
 
+	// LINKIT CUSTOM
+	var specGasLimit Uint64Param
+	ResolveParam(&specGasLimit, From(VarExpr(t.SpecGasLimit, vars), NonemptyString(t.SpecGasLimit), 0))
+
 	maximumGasLimit := 0 //SelectGasLimit(cfg, t.jobType, t.specGasLimit)
+
+	if specGasLimit > 0 {
+		maximumGasLimit = int(specGasLimit)
+	}
 
 	var (
 		fromAddrs             AddressSliceParam

@@ -29,6 +29,9 @@ type ETHCallTask struct {
 	ExtractRevertReason bool   `json:"extractRevertReason"`
 	EVMChainID          string `json:"evmChainID" mapstructure:"evmChainID"`
 
+	// LINKIT CUSTOM
+	SpecGasLimit string `json:"specGasLimit"`
+
 	// specGasLimit *uint32
 	// chainSet     evm.ChainSet
 	// config       Config
@@ -66,6 +69,9 @@ func (t *ETHCallTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, in
 		gasFeeCap    MaybeBigIntParam
 		gasUnlimited BoolParam
 		chainID      StringParam
+
+		// LINKIT CUSTOM
+		specGasLimit Uint64Param
 	)
 	err = multierr.Combine(
 		errors.Wrap(ResolveParam(&contractAddr, From(VarExpr(t.Contract, vars), NonemptyString(t.Contract))), "contract"),
@@ -77,6 +83,8 @@ func (t *ETHCallTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, in
 		errors.Wrap(ResolveParam(&gasFeeCap, From(VarExpr(t.GasFeeCap, vars), t.GasFeeCap)), "gasFeeCap"),
 		errors.Wrap(ResolveParam(&chainID, From(VarExpr(t.EVMChainID, vars), NonemptyString(t.EVMChainID), "")), "evmChainID"),
 		errors.Wrap(ResolveParam(&gasUnlimited, From(VarExpr(t.GasUnlimited, vars), NonemptyString(t.GasUnlimited), false)), "gasUnlimited"),
+
+		errors.Wrap(ResolveParam(&specGasLimit, From(VarExpr(t.SpecGasLimit, vars), NonemptyString(t.SpecGasLimit), 0)), "specGasLimit"),
 	)
 	if err != nil {
 		return Result{Error: err}, runInfo
@@ -103,6 +111,10 @@ func (t *ETHCallTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, in
 			// global env variable,
 			// or chain default (normally 500,000)
 			selectedGas = 500000 // SelectGasLimit(chain.Config(), t.jobType, t.specGasLimit)
+
+			if specGasLimit > 0 {
+				selectedGas = uint32(specGasLimit)
+			}
 		}
 	}
 
